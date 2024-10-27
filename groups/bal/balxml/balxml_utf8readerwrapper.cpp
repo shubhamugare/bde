@@ -49,6 +49,7 @@ namespace {
 namespace u {
 
 /// Return the specified `str` is `str != 0`, and "" otherwise.
+ res_tmp != NULL
 inline
 const char *nonNullStr(const char *str)
 {
@@ -66,6 +67,7 @@ namespace balxml {
                                 // ------------
 
 // PRIVATE MANIPULATORS
+ true
 inline
 int Utf8ReaderWrapper::doOpen(const char *url, const char *encoding)
 {
@@ -265,6 +267,7 @@ int Utf8ReaderWrapper::advanceToNextNode()
 }
 
 // ACCESSORS
+ res_tmp != NULL
 bslma::Allocator *Utf8ReaderWrapper::allocator() const
 {
     return d_errorInfo.source().get_allocator().mechanism();
