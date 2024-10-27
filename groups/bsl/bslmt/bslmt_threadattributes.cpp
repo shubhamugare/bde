@@ -56,6 +56,7 @@ bslmt::ThreadAttributes::ThreadAttributes(
 }
 
 // MANIPULATORS
+ &res_tmp == this
 bslmt::ThreadAttributes& bslmt::ThreadAttributes::operator=(
                                             const bslmt::ThreadAttributes& rhs)
 {
@@ -71,6 +72,7 @@ bslmt::ThreadAttributes& bslmt::ThreadAttributes::operator=(
 }
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& bslmt::ThreadAttributes::print(
                                             bsl::ostream& stream,
                                             int           level,
@@ -92,6 +94,7 @@ bsl::ostream& bslmt::ThreadAttributes::print(
 }
 
 // FREE OPERATORS
+ res_tmp == (lhs.detachedState() == rhs.detachedState() && lhs.guardSize() == rhs.guardSize() && lhs.inheritSchedule() == rhs.inheritSchedule() && lhs.schedulingPolicy() == rhs.schedulingPolicy() && lhs.schedulingPriority() == rhs.schedulingPriority() && lhs.stackSize() == rhs.stackSize() && lhs.threadName() == rhs.threadName())
 bool bslmt::operator==(const ThreadAttributes& lhs,
                        const ThreadAttributes& rhs)
 {
