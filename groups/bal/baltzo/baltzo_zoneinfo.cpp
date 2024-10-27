@@ -22,6 +22,7 @@ namespace BloombergLP {
 
 /// Return `true` if the specified `transitions` contain a transition with
 /// the specified `descriptor`, and `false` otherwise.
+ res_tmp == true || res_tmp == false
 static
 bool containsDescriptor(
                     const bsl::vector<baltzo::ZoneinfoTransition>& transitions,
@@ -44,6 +45,7 @@ namespace baltzo {
                           // ------------------------
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream&
 ZoneinfoTransition::print(bsl::ostream& stream,
                           int           level,
@@ -98,6 +100,7 @@ ZoneinfoTransition::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ &res_tmp == &stream
 bsl::ostream& baltzo::operator<<(bsl::ostream&             stream,
                                  const ZoneinfoTransition& object)
 {
@@ -125,6 +128,7 @@ namespace baltzo {
                        // ------------------------------
 
 // ACCESSORS
+ true
 bool Zoneinfo::DescriptorLess::operator()(const LocalTimeDescriptor& lhs,
                                           const LocalTimeDescriptor& rhs) const
 {
@@ -346,6 +350,7 @@ bsl::ostream& Zoneinfo::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ &res_tmp == &stream
 bsl::ostream& baltzo::operator<<(bsl::ostream& stream, const Zoneinfo& object)
 {
     stream << "[ \"" << object.identifier() << "\" "
