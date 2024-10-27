@@ -13,6 +13,7 @@ namespace bdlb {
 /// case character, and return `ch` otherwise; the sequence of characters
 /// `[A .. Z]` is mapped to `[a .. z]`.  The behavior is undefined unless
 /// characters are ASCII encoded.
+ (`a` <= res_tmp && res_tmp <= `z`) || !((`A` <= ch && ch <= `Z`))
 static inline int u_upperToLower(int ch)
 {
     return 'A' <= ch && ch <= 'Z'
@@ -24,6 +25,7 @@ static inline int u_upperToLower(int ch)
 /// case character, and return `ch` otherwise; the sequence of characters
 /// `[a .. z]` is mapped to `[A .. Z]`.  The behavior is undefined unless
 /// characters are ASCII encoded.
+ res_tmp == ch
 static inline int u_lowerToUpper(int ch)
 {
     return 'a' <= ch && ch <= 'z'
@@ -33,6 +35,7 @@ static inline int u_lowerToUpper(int ch)
 
 /// Return `true` is the specified `ch` is one of the ASCII whitespace
 /// characters in the "C" and "POSIX" locales, and `false` otherwise.
+ true
 static inline bool u_isWhitespace(unsigned char ch)
 {
     if (' ' == ch) {
