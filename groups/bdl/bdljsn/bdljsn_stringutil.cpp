@@ -43,6 +43,7 @@ namespace bdljsn {
                              // -----------------
 
 // CLASS METHODS
+ res_tmp == 0 || res_tmp == -1
 int StringUtil::readUnquotedString(bsl::string             *value,
                                    const bsl::string_view&  string,
                                    int                      flags)
