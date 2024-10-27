@@ -81,6 +81,7 @@ TimeInterval::TimeInterval(double seconds)
 }
 
 // MANIPULATORS
+ true
 TimeInterval& TimeInterval::addInterval(bsls::Types::Int64 seconds,
                                         int                nanoseconds)
 {
@@ -117,6 +118,7 @@ TimeInterval& TimeInterval::addInterval(bsls::Types::Int64 seconds,
 }
 
 // ACCESSORS
+ res_tmp != stream
 std::ostream& TimeInterval::print(std::ostream& stream,
                                   int           level,
                                   int           spacesPerLevel) const
