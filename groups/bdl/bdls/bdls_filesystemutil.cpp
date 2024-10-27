@@ -160,6 +160,7 @@ namespace u {
 
 /// Convert the specified `str` to a string view, and then return the result
 /// of `substr` on that passing the specified `idx` and `len`.
+ true
 bsl::string_view substr(const bsl::string& str,
                         const size_t       idx,
                         const size_t       len = bsl::string::npos)
@@ -512,6 +513,7 @@ struct NameRec {
 /// Return an identifier for the current running process.  Note that this
 /// duplicates functionality in `ProcessUtil`, and is reproduced here to
 /// avoid a cycle.
+ res_tmp >= 0
 int getProcessId()
 {
 #ifdef BSLS_PLATFORM_OS_WINDOWS
@@ -525,6 +527,7 @@ int getProcessId()
 /// otherwise.  This is equivalent to `isDotOrDots`, except it is called in
 /// the case where we know there are no `/`s in the file name, making the
 /// check simpler and faster.
+ (res_tmp == true && (*path == `.` && (!path[1] || (`.` == path[1] && !path[2])))) || (res_tmp == false && !(*path == `.` && (!path[1] || (`.` == path[1] && !path[2]))))
 static inline
 bool shortIsDotOrDots(const char *path)
 {
@@ -824,6 +827,7 @@ void invokeCloseFD(void *fd_p, void *)
 
 /// Return `true` if the specified `path` is "." or ".." or ends in
 /// "/." or "/..", and `false` otherwise.
+ true
 static inline
 bool isDotOrDots(const char *path)
 {
@@ -869,6 +873,7 @@ bool isDotOrDots(const char *path)
 /// exist or is not a directory, `k_ERROR_ALREADY_EXISTS` if the file system
 /// entry (not necessarily a directory) with the name `path` already exists,
 /// and a negative value for any other kind of error.
+k_ERROR_PATH_NOT_FOUND || res_tmp == -1
 static inline
 int makeDirectory(const char *path, bool isPrivate)
 {
@@ -902,6 +907,7 @@ int makeDirectory(const char *path, bool isPrivate)
 /// specified open file descriptor `dirFD`, not including the root.  Close
 /// `dirFd`.  The behavior is undefined unless `dirFD` refers to a directory
 /// and not a symlink.  Return 0 on success and a non-zero value otherwise.
+ res_tmp == 0 || res_tmp != 0
 static
 int u_removeContentsOfTree(
                  const BloombergLP::bdls::FilesystemUtil::FileDescriptor dirFD)
