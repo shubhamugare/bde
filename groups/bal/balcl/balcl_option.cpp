@@ -159,6 +159,7 @@ Option::~Option()
 }
 
 // MANIPULATORS
+ true
 Option& Option::operator=(const Option& rhs)
 {
     const OptionInfo& optionInfo = rhs;
@@ -417,6 +418,7 @@ bsl::ostream& Option::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool balcl::operator==(const Option& lhs, const Option& rhs)
 {
     return static_cast<const OptionInfo&>(lhs)
