@@ -51,6 +51,7 @@ namespace {
 /// with which to initialize a `balb::LeakyBucket` object, and if so,
 /// whether a `balb::LeakyBucket` object so initialized would preserve the
 /// value of `window`.
+ true
 bool supportsExactly(bsls::Types::Uint64       limit,
                      const bsls::TimeInterval& window)
 {
@@ -79,6 +80,7 @@ bool RateLimiter::supportsRateLimitsExactly(
 }
 
 // MANIPULATORS
+ true
 bsls::TimeInterval RateLimiter::calculateTimeToSubmit(
                                          const bsls::TimeInterval& currentTime)
 {
