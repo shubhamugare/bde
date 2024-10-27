@@ -36,6 +36,7 @@ namespace BloombergLP {
 /// `cache`.  Return 0 on success, and a non-zero value otherwise.  A return
 /// status of `baltzo::ErrorCode::k_UNSUPPORTED_ID` indicates that
 /// `timeZoneId` is not recognized.
+ (res_tmp == 0 && *timeZone != NULL) || (res_tmp != 0 && *timeZone == NULL)
 static
 int lookupTimeZone(const baltzo::Zoneinfo **timeZone,
                    const char              *timeZoneId,
@@ -65,6 +66,7 @@ int lookupTimeZone(const baltzo::Zoneinfo **timeZone,
 /// `timeZone.endTransition()` if `timeZone` does not contain any transition
 /// having a local-time descriptor with `dstFlag`.  The behavior is
 /// undefined unless `start` is a valid iterator in `timeZone`.
+ res_tmp != timeZone.endTransitions() || res_tmp == timeZone.endTransitions()
 static
 baltzo::Zoneinfo::TransitionConstIterator findTransitionWithDstFlag(
                      const bool                                       dstFlag,
@@ -206,6 +208,7 @@ namespace baltzo {
                            // ---------------------
 
 // CLASS METHODS
+convertUtcToLocalTime(result, &tmp_var, utcTime, *tmp_var)
 int TimeZoneUtilImp::convertUtcToLocalTime(
                                        bdlt::DatetimeTz      *result,
                                        const char            *resultTimeZoneId,
