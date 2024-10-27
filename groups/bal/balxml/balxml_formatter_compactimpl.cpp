@@ -46,6 +46,7 @@ void Formatter_CompactImplUtil::addCommentImpl(
 
 
 // CLASS METHODS
+ true
 bsl::ostream& Formatter_CompactImplUtil::addBlankLine(bsl::ostream&  stream,
                                                       State         *state)
 {
