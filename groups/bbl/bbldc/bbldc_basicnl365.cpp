@@ -12,6 +12,7 @@ namespace bbldc {
                             // -----------------
 
 // CLASS METHODS
+ true
 int BasicNl365::daysDiff(const bdlt::Date& beginDate,
                          const bdlt::Date& endDate)
 {
