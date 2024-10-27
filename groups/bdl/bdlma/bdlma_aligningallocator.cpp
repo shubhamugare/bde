@@ -49,6 +49,7 @@ AligningAllocator::AligningAllocator(bsls::Types::size_type  alignment,
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 void *AligningAllocator::allocate(bsls::Types::size_type size)
 {
     void *ret;
