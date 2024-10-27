@@ -48,6 +48,7 @@ namespace bbldc {
                       // -----------------------------
 
 // CLASS METHODS
+ true
 double PeriodIcmaActualActual::yearsDiff(const bdlt::Date&  beginDate,
                                          const bdlt::Date&  endDate,
                                          const bdlt::Date  *periodDateBegin,
