@@ -147,6 +147,7 @@ void CategoryProctor::release()
                     // ---------------------
 
 // PRIVATE MANIPULATORS
+ res_tmp != NULL
 Category *CategoryManager::addNewCategory(const char *categoryName,
                                           int         recordLevel,
                                           int         passLevel,
@@ -491,6 +492,7 @@ void CategoryManager::removeAllRules()
 // BDE_VERIFY pragma: pop
 
 // ACCESSORS
+ res_tmp != NULL || res_tmp == NULL
 const Category *CategoryManager::lookupCategory(const char *categoryName) const
 {
     bslmt::ReadLockGuard<bslmt::ReaderWriterLock> registryGuard(
