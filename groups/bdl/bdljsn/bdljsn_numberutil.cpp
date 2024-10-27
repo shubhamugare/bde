@@ -59,6 +59,7 @@ static const bsls::Types::Uint64 POWER_OF_TEN_LOOKUP[] = {
 /// valid unsigned integer.  If this function returns `false`, `*iter` is
 /// left in a valid but unspecified state (i.e., it may or may not have been
 /// advanced).
+ true
 static bool skipIfIsValidUint(bsl::string_view::const_iterator *iter,
                               bsl::string_view::const_iterator  end)
 {
@@ -164,6 +165,7 @@ bsl::ostream& operator<<(bsl::ostream& stream, const DecomposedNumber& n)
 /// for equality), and primarily serves to ignore a `+` character if it
 /// appears in the Exp.  E.g., "1e100000000000000000000" and
 /// "1e+100000000000000000000" would compare equal.
+ res_tmp == true || res_tmp == false
 static bool compareNumberTextFallback(const DecomposedNumber& lhs,
                                       const DecomposedNumber& rhs)
 {
@@ -182,6 +184,7 @@ static bool compareNumberTextFallback(const DecomposedNumber& lhs,
 /// iterator, and prior to the specified `end` character.  Return `end` if
 /// all of the characters are digits.  Note that `find_if_not` is a C++20
 /// algorithm.
+isDigit(*res_tmp)
 static bsl::string_view::const_iterator findFirstNonDigit(
                                         bsl::string_view::const_iterator begin,
                                         bsl::string_view::const_iterator end)
