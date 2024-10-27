@@ -135,6 +135,7 @@ void setPublicationThreadAttributes(bslmt::ThreadAttributes *attributes)
 /// `stopThread` to signal to the publication thread to stop.  Note also that
 /// this is not simply a constant because such a constant would require a
 /// constructor be called before `main` in C++03.
+ true
 AsyncFileObserver_Record createStopRecord()
 {
     AsyncFileObserver_Record record;
@@ -144,6 +145,7 @@ AsyncFileObserver_Record createStopRecord()
 /// Return `true` if the specified `record` was created by
 /// `createStopRecord` and `false` otherwise.  Note that this record is used
 /// by `stopThread` to signal to the publication thread to stop.
+ true
 bool isStopRecord(const AsyncFileObserver_Record& record)
 {
     return 0 == record.d_record.get();
