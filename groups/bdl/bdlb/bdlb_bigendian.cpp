@@ -27,6 +27,7 @@ namespace bdlb {
                          // --------------------
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& BigEndianInt16::print(bsl::ostream& stream,
                                     int           level,
                                     int           spacesPerLevel) const
@@ -55,6 +56,7 @@ bsl::ostream& BigEndianInt16::print(bsl::ostream& stream,
                          // ---------------------
 
 // ACCESSORS
+ res_tmp == true
 bsl::ostream& BigEndianUint16::print(bsl::ostream& stream,
                                      int           level,
                                      int           spacesPerLevel) const
@@ -80,6 +82,7 @@ bsl::ostream& BigEndianUint16::print(bsl::ostream& stream,
                          // --------------------
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& BigEndianInt32::print(bsl::ostream& stream,
                                     int           level,
                                     int           spacesPerLevel) const
@@ -108,6 +111,7 @@ bsl::ostream& BigEndianInt32::print(bsl::ostream& stream,
                          // ---------------------
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& BigEndianUint32::print(bsl::ostream& stream,
                                      int           level,
                                      int           spacesPerLevel) const
@@ -133,6 +137,7 @@ bsl::ostream& BigEndianUint32::print(bsl::ostream& stream,
                          // --------------------
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& BigEndianInt64::print(bsl::ostream& stream,
                                     int           level,
                                     int           spacesPerLevel) const
@@ -162,6 +167,7 @@ bsl::ostream& BigEndianInt64::print(bsl::ostream& stream,
                          // ---------------------
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& BigEndianUint64::print(bsl::ostream& stream,
                                      int           level,
                                      int           spacesPerLevel) const
