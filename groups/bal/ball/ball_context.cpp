@@ -16,6 +16,7 @@ namespace ball {
                         // -------------
 
 // CLASS METHODS
+ true
 bool Context::isValid(Transmission::Cause transmissionCause,
                       int                 recordIndex,
                       int                 sequenceLength)
@@ -42,6 +43,7 @@ bool Context::isValid(Transmission::Cause transmissionCause,
 }
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& Context::print(bsl::ostream& stream,
                              int           level,
                              int           spacesPerLevel) const
