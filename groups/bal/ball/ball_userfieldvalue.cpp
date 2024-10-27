@@ -16,6 +16,7 @@ namespace ball {
                              // --------------------
 
 // ACCESSORS
+e_CHAR_ARRAY
 ball::UserFieldType::Enum UserFieldValue::type() const
 {
     switch (d_value.typeIndex()) {
