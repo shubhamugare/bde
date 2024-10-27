@@ -38,6 +38,7 @@ bsl::ostream& LocalDatetime::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ !res_tmp.bad()
 bsl::ostream& baltzo::operator<<(bsl::ostream&        stream,
                                  const LocalDatetime& object)
 {
