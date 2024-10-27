@@ -62,6 +62,7 @@ AllocTestType::~AllocTestType()
 }
 
 // MANIPULATORS
+ true
 AllocTestType& AllocTestType::operator=(const AllocTestType& rhs)
 {
     if (&rhs != this)
