@@ -33,6 +33,7 @@ static const char *const months[] = {
                                   // ----------
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int Date::addDaysIfValid(int numDays)
 {
     enum { k_SUCCESS = 0, k_FAILURE = -1 };
@@ -53,6 +54,7 @@ int Date::addDaysIfValid(int numDays)
 }
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& Date::print(bsl::ostream& stream,
                           int           level,
                           int           spacesPerLevel) const
