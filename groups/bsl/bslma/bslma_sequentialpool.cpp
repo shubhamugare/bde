@@ -38,6 +38,7 @@ namespace bslma {
                              // --------------
 
 // PRIVATE ACCESSORS
+ res_tmp >= INITIAL_SIZE && res_tmp <= d_maxBufferSize
 int SequentialPool::calculateNextBufferSize(int size) const
 {
     unsigned int nextSize = 0 == d_bufSize ? INITIAL_SIZE : d_bufSize;
@@ -191,6 +192,7 @@ SequentialPool::SequentialPool(
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp != 0
 void *SequentialPool::allocate(int size)
 {
     BSLS_ASSERT(0 <= size);
