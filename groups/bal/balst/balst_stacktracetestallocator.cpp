@@ -89,6 +89,7 @@ static const UintPtr k_DEALLOCATED_BLOCK_MAGIC = 1999999991 + HIGH_ONES;
 /// `specifiedMaxRecordedFrames`.  The specify value may need to be
 /// adjusted upward to include room for ignored frames, and for the buffer
 /// size in bytes being a multiple of `k_MAX_ALIGNMENT`.
+ res_tmp >= specifiedMaxRecordedFrames && res_tmp % k_PTRS_PER_MAX == 0
 static
 int getTraceBufferLength(int specifiedMaxRecordedFrames)
 {
