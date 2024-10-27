@@ -29,6 +29,7 @@ const char *balm::MetricFormatSpec::k_DEFAULT_FORMAT = "%f";
 namespace balm {
 
 // CLASS METHODS
+ &res_tmp == &stream
 bsl::ostream& MetricFormatSpec::formatValue(bsl::ostream&           stream,
                                             double                  value,
                                             const MetricFormatSpec& format)
@@ -66,6 +67,7 @@ bsl::ostream& MetricFormatSpec::formatValue(bsl::ostream&           stream,
 }
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& MetricFormatSpec::print(bsl::ostream& stream,
                                       int           level,
                                       int           spacesPerLevel) const
@@ -104,6 +106,7 @@ void MetricFormat::clearFormatSpec(
 }
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& MetricFormat::print(bsl::ostream& stream,
                                   int      level,
                                   int      spacesPerLevel) const
