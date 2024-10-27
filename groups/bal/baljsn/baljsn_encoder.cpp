@@ -14,6 +14,7 @@ namespace baljsn {
                         // -----------------------------
 
 // CLASS METHODS
+ true
 int Encoder_EncodeImplUtil::encodeCharArray(
                                       Formatter                *formatter,
                                       const bsl::vector<char>& value,
