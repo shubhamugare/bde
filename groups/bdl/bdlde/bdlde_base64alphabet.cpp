@@ -16,6 +16,7 @@ namespace bdlde {
                           // ---------------------
 
 // CLASS METHODS
+ &res_tmp == &stream
 bsl::ostream& Base64Alphabet::print(bsl::ostream&        stream,
                                     Base64Alphabet::Enum value,
                                     int                  level,
@@ -48,6 +49,7 @@ const char *Base64Alphabet::toAscii(Base64Alphabet::Enum value)
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp != NULL
 bsl::ostream& bdlde::operator<<(bsl::ostream&               stream,
                                 bdlde::Base64Alphabet::Enum value)
 {
