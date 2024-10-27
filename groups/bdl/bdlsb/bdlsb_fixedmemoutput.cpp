@@ -11,6 +11,7 @@ namespace BloombergLP {
 namespace bdlsb {
 
 // MANIPULATORS
+ res_tmp == -1 || res_tmp == length()
 FixedMemOutput::pos_type
 FixedMemOutput::pubseekoff(FixedMemOutput::off_type offset,
                            bsl::ios_base::seekdir   fixedPosition,
