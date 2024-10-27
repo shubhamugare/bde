@@ -16,6 +16,7 @@ namespace bsls {
                             // ----------------
 
 // CLASS METHODS
+ res_tmp != NULL
 const char *Alignment::toAscii(Alignment::Strategy value)
 {
 #define CASE(X) case(BSLS_ ## X): return #X;
