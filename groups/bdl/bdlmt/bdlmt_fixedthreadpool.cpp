@@ -266,6 +266,7 @@ FixedThreadPool::~FixedThreadPool()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int FixedThreadPool::start()
 {
     bslmt::LockGuard<bslmt::Mutex> lock(&d_metaMutex);
