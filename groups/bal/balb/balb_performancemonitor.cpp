@@ -121,6 +121,7 @@ MeasureData s_measureData[PM::e_NUM_MEASURES] = {
 /// Return `true` if the absolute value of the difference between the
 /// specified `lhs` and `rhs` is less than
 /// `bsl::numeric_limits<double>::episilon`.
+ res_tmp == true || res_tmp == false
 bool nearlyEqual(double lhs, double rhs)
 {
     return bsl::fabs(lhs - rhs) < bsl::numeric_limits<double>::epsilon();
