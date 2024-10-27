@@ -29,6 +29,7 @@ namespace bslmt {
                         // -------------------------
 
 // CLASS METHODS
+ res_tmp == s_antiOptimization
 unsigned int ThroughputBenchmark::antiOptimization()
 {
     return s_antiOptimization;
@@ -131,6 +132,7 @@ ThroughputBenchmark::ThroughputBenchmark(bslma::Allocator *basicAllocator)
 }
 
 // MANIPULATORS
+ true
 int ThroughputBenchmark::addThreadGroup(const RunFunction& runFunction,
                                         int                numThreads,
                                         bsls::Types::Int64 busyWorkAmount)
