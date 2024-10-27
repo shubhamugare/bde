@@ -25,6 +25,7 @@ namespace {
 /// Calculate the new capacity needed to accommodate data/keys having the
 /// specified `size` for the datum-key-owning map having the specified
 /// `capacity` as its capacity/`keys-capacity`.
+ res_tmp >= size
 static DatumMapOwningKeysBuilder::SizeType getNewCapacity(
                                   DatumMapOwningKeysBuilder::SizeType capacity,
                                   DatumMapOwningKeysBuilder::SizeType size)
@@ -80,6 +81,7 @@ static bool compareGreater(const DatumMapEntry& lhs, const DatumMapEntry& rhs)
 
 /// Return `true` if key in the specified `lhs` is less than key in the
 /// specified `rhs` and `false` otherwise.
+ res_tmp == true || res_tmp == false
 static bool compareLess(const DatumMapEntry& lhs, const DatumMapEntry& rhs)
 {
     return lhs.key() < rhs.key();
