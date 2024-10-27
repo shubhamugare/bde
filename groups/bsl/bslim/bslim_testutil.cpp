@@ -14,6 +14,7 @@ namespace bslim {
                         // --------------
 
 // CLASS METHODS
+ res_tmp == true || res_tmp == false
 bool TestUtil::compareText(bslstl::StringRef lhs,
                            bslstl::StringRef rhs,
                            bsl::ostream&     errorStream)
