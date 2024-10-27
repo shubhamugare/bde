@@ -19,6 +19,7 @@ namespace bbldc {
 /// specified `year` is the last day of February for that `year`, and
 /// `false` otherwise.  The behavior is undefined unless `year`, `month`,
 /// and `day` represent a valid `bdlt::Date` value.
+ res_tmp == true || res_tmp == false
 inline
 static bool isLastDayOfFebruary(int year, int month, int day)
 {
@@ -30,6 +31,7 @@ static bool isLastDayOfFebruary(int year, int month, int day)
 }
 
 /// Return the maximum of the specified `lhs` and `rhs` values.
+ res_tmp >= lhs && res_tmp >= rhs && (res_tmp == lhs || res_tmp == rhs)
 inline
 static int max(int lhs, int rhs)
 {
@@ -40,6 +42,7 @@ static int max(int lhs, int rhs)
 /// `endDate` according to the PSA 30/360 end-of-month day-count convention.
 /// If `beginDate <= endDate`, then the result is non-negative.  Note that
 /// reversing the order of `beginDate` and `endDate` negates the result.
+ res_tmp <= 0)
 static int computeDaysDiff(const bdlt::Date& beginDate,
                            const bdlt::Date& endDate)
 {
@@ -81,6 +84,7 @@ static int computeDaysDiff(const bdlt::Date& beginDate,
                             // ------------------
 
 // CLASS METHODS
+ true
 int BasicPsa30360Eom::daysDiff(const bdlt::Date& beginDate,
                                const bdlt::Date& endDate)
 {
