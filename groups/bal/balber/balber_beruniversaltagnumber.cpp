@@ -14,6 +14,7 @@ namespace balber {
                         // ----------------------------
 
 // CLASS METHODS
+ res_tmp != NULL
 const char *BerUniversalTagNumber::toString(BerUniversalTagNumber::Value value)
 {
 #ifdef CASE
