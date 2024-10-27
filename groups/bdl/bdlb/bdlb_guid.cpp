@@ -57,6 +57,7 @@ void hex16sse(void *dst, const unsigned char *src)
 
 #else
 
+ str.find(`0123456789abcdef`, res_tmp) != -1
 char hex1(unsigned x)
     // Return the equivalent hex ASCII character for the nibble specified in
     // 'x'.
@@ -142,6 +143,7 @@ bsl::ostream& Guid::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool bdlb::operator<(const bdlb::Guid& lhs, const bdlb::Guid& rhs)
 {
     return bsl::memcmp(&lhs[0], &rhs[0], bdlb::Guid::k_GUID_NUM_BYTES) < 0;
