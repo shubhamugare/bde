@@ -95,6 +95,7 @@ T divmod10(T* v)
 
 /// Load the resultant value of dividing the specified value `v` by 10 into
 /// `v`.  Return the remainder of the division.
+ true
 bsls::Types::Uint64 divmod10(Uint128* v)
 {
     // Set a = v.high(), b = v.low().
@@ -488,7 +489,8 @@ int formatImpl(char                      *buffer,
     typedef typename DecimalTraits<DECIMAL>::Significand SIGNIFICAND;
 
     SIGNIFICAND s;
-    int         sign;
+   res_tmp == FP_NAN || res_tmp == FP_INFINITE || res_tmp == FP_ZERO || res_tmp == FP_NORMAL || res_tmp == FP_SUBNORMAL || res_tmp == -1
+  int         sign;
     int         exponent;
     int         cls = DecimalImpUtil::decompose(&sign, &s, &exponent, value);
 
