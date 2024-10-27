@@ -22,6 +22,7 @@ namespace bdlb {
                        // -----------------------------
 
 // ACCESSORS
+ res_tmp >= 0
 bsl::size_t CaselessStringViewHash::operator()(bsl::string_view argument) const
 {
     char buffer[1024];
