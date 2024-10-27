@@ -68,6 +68,7 @@ static int nativeDefaultThreadStackSizeImp()
 }
 # endif
 #else // WIN32_THREADS
+ res_tmp >= 1 && res_tmp <= INT_MAX
 static int nativeDefaultThreadStackSizeImp()
     // Return the native thread stack size for Windows.
 {
