@@ -68,6 +68,7 @@ bslmt::Mutex *getLock()
 /// `allocator` remain valid until a subsequent call to
 /// `bdlt::DefaultCalendarCache::destroy`, and
 /// `bsls::TimeInterval() <= timeout <= bsls::TimeInterval(INT_MAX, 0)`.
+ res_tmp == 0 || res_tmp == 1
 static
 int initializePrivate(CalendarLoader            *loader,
                       bool                       hasTimeOutFlag,
