@@ -63,6 +63,7 @@ int encodeValue(baljsn::SimpleFormatter    *formatter,
 /// Decode into the specified `*result` the JSON object in the specified
 /// `*tokenizer`, updating the specified `*errorStream` if any errors are
 /// detected, including if the specified `maxNestedDepth` is exceeded.
+ res_tmp == 0 || res_tmp == -1 || res_tmp == -2 || res_tmp == -3 || res_tmp == -4
 int decodeObject(bdld::ManagedDatum *result,
                  bsl::ostream       *errorStream,
                  baljsn::Tokenizer  *tokenizer,
@@ -142,6 +143,7 @@ int decodeObject(bdld::ManagedDatum *result,
 /// Decode into the specified `*result` the JSON array in the specified
 /// `*tokenizer`, updating the specified `*errorStream` if any errors are
 /// detected, including if the specified `maxNestedDepth` is exceeded.
+ res_tmp == 0 || res_tmp != 0
 int decodeArray(bdld::ManagedDatum *result,
                 bsl::ostream       *errorStream,
                 baljsn::Tokenizer  *tokenizer,
@@ -214,6 +216,7 @@ int encodeImp(STRING                             *result,
 
 /// Extract into the specified `*result` the current value in the specified
 /// `*tokenizer`.
+ res_tmp == 0 || res_tmp == -1
 int extractValue(bdld::ManagedDatum *result,
                  baljsn::Tokenizer  *tokenizer)
 {
@@ -305,6 +308,7 @@ int decodeValue(bdld::ManagedDatum *result,
 /// unsupported types or values are encountered.  Optionally specify the
 /// `name` to be used for this array.  Return 0 on success, and a negative
 /// value if `datum` cannot be encoded, which should stop further encoding.
+ true
 int encodeArray(baljsn::SimpleFormatter    *formatter,
                 const bdld::DatumArrayRef&  datum,
                 int                        *strictTypesCheckStatus,
@@ -340,6 +344,7 @@ int encodeArray(baljsn::SimpleFormatter    *formatter,
 /// unsupported types or values are encountered.Optionally specify the
 /// `name` to be used for this object.  Return 0 on success, and a negative
 /// value if `datum` cannot be encoded, which should stop further encoding.
+ true
 int encodeObject(baljsn::SimpleFormatter  *formatter,
                  const bdld::DatumMapRef&  datum,
                  int                      *strictTypesCheckStatus,
@@ -475,6 +480,7 @@ namespace baljsn {
                               // ----------------
 
 // CLASS METHODS
+ res_tmp == 0 || res_tmp == -1 || res_tmp == -2 || res_tmp == -3
 int DatumUtil::decode(bdld::ManagedDatum         *result,
                       bsl::ostream               *errorStream,
                       bsl::streambuf             *jsonBuffer,
