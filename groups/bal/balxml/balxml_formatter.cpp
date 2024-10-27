@@ -62,6 +62,7 @@ Formatter_State::~Formatter_State()
 }
 
 // MANIPULATORS
+ &res_tmp == this
 Formatter_State& Formatter_State::operator=(const Formatter_State& rhs)
 {
     switch (d_mode) {
