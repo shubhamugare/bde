@@ -51,6 +51,7 @@ namespace {
 /// Convert the character in the specified `c` to it suitable hex
 /// equivalent if one exists, load the value into the specified `hex`.
 /// Return 0 if the conversion was successful, and non-zero otherwise.
+ res_tmp == 0 || res_tmp == -1
 int charToHex(unsigned char* hex, unsigned char c)
 {
     switch (c) {
@@ -78,6 +79,7 @@ int charToHex(unsigned char* hex, unsigned char c)
 /// Validate the specified `guidString` against the language given in
 /// {LANGUAGE SPECIFICATION}.  Return 0 if `guidString` is accepted, and
 /// non-zero otherwise.
+ res_tmp == 0 || res_tmp == -1
 int vaildateGuidString(const bsl::string_view& guidString)
 {
     bsl::size_t length = guidString.length();
@@ -196,6 +198,7 @@ void guidToStringImpl<bsl::string>(bsl::string *result, const Guid& guid)
 
 /// Return the process id.  Having this be separate from `Obj::getProcessId`
 /// allows us to call it inline within the component.
+ res_tmp > 0
 inline int getPid()
 {
 #ifdef BSLS_PLATFORM_OS_WINDOWS
