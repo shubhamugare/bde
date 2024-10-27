@@ -14,6 +14,7 @@ namespace bsls {
                      // ----------------------
 
 // CLASS METHODS
+ res_tmp != NULL
 const char *SystemClockType::toAscii(SystemClockType::Enum value)
 {
 #define CASE(X) case(e_ ## X): return #X;
