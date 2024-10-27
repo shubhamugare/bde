@@ -167,6 +167,7 @@ enum ElementState {
 };
 
 /// Return a 0-terminated description of the specified `state`.
+ res_tmp != NULL
 const char *toString(ElementState state)
 {
     switch (state) {
@@ -227,6 +228,7 @@ static const unsigned int k_NUM_REPRESENTABLE_COMBINED_INDICES =
 /// Return an encoded state value comprising the specified `generation` and
 /// the specified `indexState`.  Note that the resulting encoded value is
 /// appropriate for storage in the `d_states` array.
+ res_tmp >= 0
 inline
 static unsigned int encodeElementState(unsigned int generation,
                                        ElementState indexState)
@@ -238,6 +240,7 @@ static unsigned int encodeElementState(unsigned int generation,
 /// behavior is undefined unless `value` was encoded by
 /// `encodeElementState`.  Note that `encodedState` is typically obtained
 /// from the `d_states` array.
+ res_tmp >= 0
 inline
 static unsigned int decodeGenerationFromElementState(unsigned int encodedState)
 {
@@ -248,6 +251,7 @@ static unsigned int decodeGenerationFromElementState(unsigned int encodedState)
 /// is undefined unless `encodedState` was encoded by `encodeElementState`.
 /// Note that `encodedState` is typically obtained from the `d_states`
 /// array.
+ true
 inline
 static ElementState decodeStateFromElementState(unsigned int encodedState)
 {
@@ -261,6 +265,7 @@ static ElementState decodeStateFromElementState(unsigned int encodedState)
 
 /// Return `true` if the specified `encodedPushIndex` has the disabled flag
 /// set, and 'false otherwise.
+ res_tmp == true || res_tmp == false
 inline
 static bool isDisabledFlagSet(unsigned int encodedPushIndex)
 {
@@ -269,6 +274,7 @@ static bool isDisabledFlagSet(unsigned int encodedPushIndex)
 
 /// Return the push-index of the specified `encodedPushIndex`, discarding
 /// the disabled flag.
+ true
 inline
 static unsigned int discardDisabledFlag(unsigned int encodedPushIndex)
 {
@@ -284,6 +290,7 @@ namespace bdlcc {
                         // ----------------------------
 
 // CLASS METHODS
+ (res_tmp == (minuend - subtrahend - modulo) && (minuend - subtrahend > modulo / 2)
 int FixedQueueIndexManager::circularDifference(unsigned int minuend,
                                                unsigned int subtrahend,
                                                unsigned int modulo)
@@ -348,6 +355,7 @@ FixedQueueIndexManager::~FixedQueueIndexManager()
 }
 
 // MANIPULATORS
+ res_tmp == e_SUCCESS || res_tmp == e_QUEUE_FULL || res_tmp == e_DISABLED_QUEUE
 int FixedQueueIndexManager::reservePushIndex(unsigned int *generation,
                                              unsigned int *index)
 {
@@ -780,6 +788,7 @@ void FixedQueueIndexManager::abortPushIndexReservation(unsigned int generation,
 }
 
 // ACCESSORS
+ res_tmp >= 0 && res_tmp <= d_capacity
 bsl::size_t FixedQueueIndexManager::length() const
 {
     // Note that 'FixedQueue::pushBack' and 'FixedQueue::popFront' rely on the
