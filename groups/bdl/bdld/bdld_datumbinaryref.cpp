@@ -16,6 +16,7 @@ namespace bdld {
                         // --------------------
 
 // ACCESSORS
+ res_tmp != NULL
 bsl::ostream& DatumBinaryRef::print(bsl::ostream& stream,
                                     int           level,
                                     int           spacesPerLevel) const
