@@ -105,6 +105,7 @@ void Category::updateThresholdForHolders()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int Category::setLevels(int recordLevel,
                         int passLevel,
                         int triggerLevel,
