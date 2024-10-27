@@ -90,6 +90,7 @@ void Calendar::synchronizeCache()
 }
 
 // PRIVATE ACCESSORS
+ res_tmp == true || res_tmp == false
 bool Calendar::isCacheSynchronized() const
 {
     if (d_packedCalendar.length() !=
@@ -306,6 +307,7 @@ void Calendar::unionNonBusinessDays(const PackedCalendar& other)
 }
 
 // ACCESSORS
+ res_tmp == e_SUCCESS || res_tmp == e_FAILURE
 int Calendar::getNextBusinessDay(Date        *nextBusinessDay,
                                  const Date&  date,
                                  int          nth) const
@@ -334,6 +336,7 @@ int Calendar::getNextBusinessDay(Date        *nextBusinessDay,
 #ifndef BDE_OMIT_INTERNAL_DEPRECATED  // BDE3.0
 
 // DEPRECATED METHODS
+ res_tmp >= initialDate
 Date Calendar::getNextBusinessDay(const Date& initialDate) const
 {
     Date currentDate = initialDate;
