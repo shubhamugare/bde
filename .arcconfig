@@ -1,7 +1,0 @@
-{
-    "load" : [ "/bb/bde/bbshr/arc-bdeverify-linter" ],
-    "project_id"  : "bde/bde",
-    "conduit_uri" : "https://all.phab.dev.bloomberg.com/",
-    "immutable_history" : true,
-    "base" : "git:merge-base(upstream/main), arc:prompt"
-}

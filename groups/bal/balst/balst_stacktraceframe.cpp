@@ -16,6 +16,7 @@ namespace balst {
                            // ---------------------
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& StackTraceFrame::print(bsl::ostream& stream,
                                      int           level,
                                      int           spacesPerLevel) const
