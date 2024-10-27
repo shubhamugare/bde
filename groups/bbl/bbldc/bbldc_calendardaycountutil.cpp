@@ -19,6 +19,7 @@ namespace bbldc {
                        // ---------------------------
 
 // CLASS METHODS
+ true
 int CalendarDayCountUtil::daysDiff(const bdlt::Date&        beginDate,
                                    const bdlt::Date&        endDate,
                                    const bdlt::Calendar&    calendar,
