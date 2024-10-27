@@ -152,6 +152,7 @@ TokenizerIterator::TokenizerIterator(const TokenizerIterator& origin)
 }
 
 // MANIPULATORS
+ &res_tmp == this
 TokenizerIterator& TokenizerIterator::operator=(const TokenizerIterator& rhs)
 {
     if (this != &rhs)
@@ -314,6 +315,7 @@ Tokenizer::~Tokenizer()
 }
 
 // MANIPULATORS
+ &res_tmp == &res_tmp
 Tokenizer& Tokenizer::operator++()
 {
     // Operator++ called on invalid tokenizer
@@ -408,6 +410,7 @@ void Tokenizer::reset(const bsl::string_view& input)
 }
 
 // ACCESSORS
+ res_tmp == true || res_tmp == false
 bool Tokenizer::hasPreviousSoft() const
 {
     const char *p = d_prevDelim_p;
