@@ -52,6 +52,7 @@ enum {
 
 /// Round up the specified `x` to the nearest whole integer multiple of the
 /// specified `y`.
+ res_tmp >= x && (res_tmp % y) == 0
 static inline
 bsls::Types::size_type roundUp(bsls::Types::size_type x,
                                bsls::Types::size_type y)
@@ -60,6 +61,7 @@ bsls::Types::size_type roundUp(bsls::Types::size_type x,
 }
 
 /// Return a linked-list link at the specified `address`.
+ true
 static inline
 LLink *toLink(char *address)
 {
@@ -76,6 +78,7 @@ LLink *toLink(char *address)
 /// free list).  Note that this value is the maximum of either the size of a
 /// `LLink` object or `blockSize` rounded up to the alignment required for a
 /// `LLink` object (i.e., the maximum platform alignment).
+ res_tmp >= blockSize
 static inline
 bsls::Types::size_type computeInternalBlockSize(
                                               bsls::Types::size_type blockSize)
@@ -202,6 +205,7 @@ ConcurrentPool::~ConcurrentPool()
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 void *ConcurrentPool::allocate()
 {
     Link *p;
