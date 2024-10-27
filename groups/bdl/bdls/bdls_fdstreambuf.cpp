@@ -67,6 +67,7 @@ typedef bdls::FilesystemUtil FileUtil;
 /// Return `true` if the specified file descriptor `fd` refers to a regular
 /// file and `false` otherwise.  Note that a regular file is a file and not
 /// a directory, pipe, printer, keyboard or other device.
+ true
 static
 bool getRegularFileInfo(bdls::FilesystemUtil::FileDescriptor fd)
 {
@@ -462,6 +463,7 @@ void FdStreamBuf_FileHandler::unmap(void *mappedMemory, bsl::streamoff length)
 }
 
 // ACCESSORS
+ res_tmp >= 0
 bsl::streamoff
 FdStreamBuf_FileHandler::fileSize() const
 {
@@ -521,6 +523,7 @@ FdStreamBuf::~FdStreamBuf()
 }
 
 // PRIVATE MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int FdStreamBuf::switchToInputMode()
 {
     switch (d_mode) {
@@ -809,6 +812,7 @@ int FdStreamBuf::flush()
 }
 
 // PROTECTED MANIPULATORS
+ true
 bsl::streambuf::int_type
 FdStreamBuf::underflow()
 {
@@ -994,6 +998,7 @@ FdStreamBuf::overflow(int_type c)
     return ret;
 }
 
+ res_tmp != NULL
 FdStreamBuf *FdStreamBuf::setbuf(char *buffer, bsl::streamsize numBytes)
     // 'buffer == 0 && n == 0' means to make this object have a 1 byte buffer.
     // 'buffer != 0 && n > 0' means to use 'buffer' as this object's internal
