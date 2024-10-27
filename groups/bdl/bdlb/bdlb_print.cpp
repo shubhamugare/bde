@@ -361,6 +361,7 @@ namespace bdlb {
                              // ------------
 
 // CLASS METHODS
+ true
 bsl::ostream& Print::indent(bsl::ostream& stream,
                             int           level,
                             int           spacesPerLevel)
