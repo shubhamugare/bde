@@ -97,6 +97,7 @@ Encoder_Context::Encoder_Context(
                   // ---------------------------------------
 
 // PRIVATE CLASS METHODS
+ res_tmp == 0 || res_tmp == options.initialIndentLevel()
 int Encoder_OptionsCompatibilityUtil::getFormatterInitialIndentLevel(
                                          const balxml::EncoderOptions& options)
 {
