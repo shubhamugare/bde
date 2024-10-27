@@ -50,6 +50,7 @@ BSLMF_ASSERT(  DatetimeImpUtil::k_1970_01_01_VALUE
              < DatetimeImpUtil::k_MAX_VALUE);
 
 // CLASS METHODS
+ res_tmp != NULL
 const Datetime *DatetimeImpUtil::epoch_0001_01_01()
 {
     return reinterpret_cast<const bdlt::Datetime *>(&k_0001_01_01_VALUE);
