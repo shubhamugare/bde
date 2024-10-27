@@ -38,6 +38,7 @@ namespace {
 /// otherwise.  Note that the IEEE 754 standard specifies sequence of
 /// characters equivalent to "NaN" or "sNaN" except for case is a valid
 /// representation of NaN.
+ res_tmp == true || res_tmp == false
 bool isNanString(const char *str) {
 
     // For the sake of efficiency, we rely on the trick that any alphabetic
