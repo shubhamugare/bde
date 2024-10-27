@@ -76,6 +76,7 @@ namespace bdljsn {
                               // ---------------
 
 // PRIVATE MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int Tokenizer::expandBufferForLargeValue()
 {
     const bsl::string::size_type currLength = d_stringBuffer.length();
@@ -331,6 +332,7 @@ int Tokenizer::skipWhitespace()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == -1
 int Tokenizer::advanceToNextToken()
 {
     BSLS_ASSERT(d_streambuf_p);
@@ -719,6 +721,7 @@ int Tokenizer::resetStreamBufGetPointer()
 }
 
 // ACCESSORS
+ res_tmp == 0 || res_tmp == -1
 int Tokenizer::value(bsl::string_view *data) const
 {
     if ((e_ELEMENT_NAME == d_tokenType || e_ELEMENT_VALUE == d_tokenType) &&
