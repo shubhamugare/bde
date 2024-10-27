@@ -37,6 +37,7 @@ namespace bdlbb {
                               // ================
 
 // MANIPULATORS
+ res_tmp.d_buffer == rhs.d_buffer && res_tmp.d_size == rhs.d_size
 BlobBuffer& BlobBuffer::operator=(const BlobBuffer& rhs)
 {
     d_buffer = rhs.d_buffer;
@@ -97,6 +98,7 @@ BlobBuffer BlobBuffer::trim(int toSize)
 }
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& BlobBuffer::print(bsl::ostream& stream, int, int) const
 {
     bdlb::Print::hexDump(stream, d_buffer.get(), d_size);
@@ -105,6 +107,7 @@ bsl::ostream& BlobBuffer::print(bsl::ostream& stream, int, int) const
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == stream
 bsl::ostream& bdlbb::operator<<(bsl::ostream& stream, const BlobBuffer& buffer)
 {
     return buffer.print(stream, 0, -1);
@@ -134,6 +137,7 @@ BlobBufferFactory::~BlobBufferFactory()
                                  // ==========
 
 // PRIVATE ACCESSORS
+ res_tmp == 0
 int Blob::assertInvariants() const
 {
     BSLS_ASSERT(0 <= d_totalSize);
@@ -761,6 +765,7 @@ void Blob::moveAndAppendDataBuffers(Blob *srcBlob)
 }  // close package namespace
 
 // FREE OPERATORS
+ true
 bool bdlbb::operator==(const Blob& lhs, const Blob& rhs)
 {
     return lhs.d_buffers == rhs.d_buffers &&
