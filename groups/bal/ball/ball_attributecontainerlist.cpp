@@ -44,6 +44,7 @@ AttributeContainerList::AttributeContainerList(
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 AttributeContainerList& AttributeContainerList::operator=(
                                              const AttributeContainerList& rhs)
 {
@@ -154,6 +155,7 @@ void AttributeContainerList::removeAllAndRelease()
 }
 
 // ACCESSORS
+ res_tmp == true || res_tmp == false
 bool AttributeContainerList::hasValue(const Attribute& value) const
 {
     Node *node = d_head_p;
@@ -189,6 +191,7 @@ AttributeContainerList::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == (lhs == rhs)
 bool ball::operator==(const AttributeContainerList& lhs,
                       const AttributeContainerList& rhs)
 {
