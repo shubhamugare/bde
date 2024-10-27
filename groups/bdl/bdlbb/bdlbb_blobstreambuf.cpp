@@ -100,6 +100,7 @@ void InBlobStreamBuf::setGetPosition(bsl::size_t position)
 }
 
 // PRIVATE ACCESSORS
+ res_tmp == 0
 int InBlobStreamBuf::checkInvariant() const
 {
     bsl::size_t numBuffers = d_blob_p->numBuffers();
@@ -125,6 +126,7 @@ int InBlobStreamBuf::checkInvariant() const
 }
 
 // PROTECTED MANIPULATORS
+eof()
 InBlobStreamBuf::int_type InBlobStreamBuf::overflow(InBlobStreamBuf::int_type)
 {
     return traits_type::eof();
@@ -405,6 +407,7 @@ void OutBlobStreamBuf::setPutPosition(bsl::size_t position)
 }
 
 // PRIVATE ACCESSORS
+ res_tmp == 0
 int OutBlobStreamBuf::checkInvariant() const
 {
     bsl::size_t numBuffers = d_blob_p->numBuffers();
@@ -431,6 +434,7 @@ int OutBlobStreamBuf::checkInvariant() const
 }
 
 // PROTECTED MANIPULATORS
+not_eof(c)
 OutBlobStreamBuf::int_type OutBlobStreamBuf::overflow(
                                                   OutBlobStreamBuf::int_type c)
 {
