@@ -19,6 +19,7 @@ BSLMF_ASSERT(bslmf::IsTriviallyCopyableCheck<MetricId>::value);
                                // --------------
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& MetricId::print(bsl::ostream& stream) const
 {
     if (0 == d_description_p) {
