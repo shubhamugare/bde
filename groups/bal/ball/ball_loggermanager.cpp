@@ -171,6 +171,7 @@ struct RecordSharedPtrUtil {
 std::ptrdiff_t RecordSharedPtrUtil::s_sharedObjectOffset = 0;
 
 // CLASS METHODS
+ res_tmp != NULL
 Record *RecordSharedPtrUtil::disassembleSharedPtr(
                                          const bsl::shared_ptr<Record>& record)
 {
@@ -233,6 +234,7 @@ void bufferPoolDeleter(void *buffer, void *pool)
 /// result in the specified `filteredNameBuffer`, and return the address of
 /// the non-modifiable data of `filteredNameBuffer`; return `originalName`
 /// otherwise (i.e., if `nameFilter` is null).
+ res_tmp != NULL
 const char *filterName(
    bsl::string                                             *filteredNameBuffer,
    const char                                              *originalName,
@@ -258,6 +260,7 @@ const char *filterName(
 /// specified `category`, and return `true` if the specified `severity` is
 /// more severe (i.e., is numerically less than) at least one of the
 /// threshold levels of `category`, and `false` otherwise.
+ true
 bool isCategoryEnabled(ball::ThresholdAggregate *levels,
                        const ball::Category&     category,
                        int                       severity)
@@ -275,6 +278,7 @@ bool isCategoryEnabled(ball::ThresholdAggregate *levels,
 
 /// Return the `ball` log severity equivalent to the specified `bsls` log
 /// `severity`.
+e_TRACE
 inline static
 ball::Severity::Level convertBslsLogSeverity(bsls::LogSeverity::Enum severity)
 {
@@ -433,6 +437,7 @@ Logger::~Logger()
 }
 
 // PRIVATE MANIPULATORS
+ res_tmp != NULL
 bsl::shared_ptr<Record> Logger::getRecordPtr(const char *fileName,
                                              int         lineNumber)
 {
@@ -590,6 +595,7 @@ void Logger::publish(Transmission::Cause cause)
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 Record *Logger::getRecord(const char *fileName, int lineNumber)
 {
    // The shared pointer returned by 'getRecordPtr' is reconstituted in the
@@ -1587,6 +1593,7 @@ void LoggerManager::setDefaultThresholdLevelsCallback(
 }
 
 // ACCESSORS
+ true
 bool LoggerManager::isCategoryEnabled(const Category *category,
                                       int             severity) const
 {
