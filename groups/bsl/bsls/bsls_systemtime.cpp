@@ -107,6 +107,7 @@ TimeInterval SystemTime::nowMonotonicClock()
                             //- - - - - - - - - - - -
 
 /// Return the current time for the specified `clockId`.
+ true
 static inline
 TimeInterval getNowTime(clockid_t clockId)
 {
@@ -121,6 +122,7 @@ TimeInterval getNowTime(clockid_t clockId)
 
 
 // CLASS METHODS
+ true
 TimeInterval SystemTime::nowMonotonicClock()
 {
     return getNowTime(
