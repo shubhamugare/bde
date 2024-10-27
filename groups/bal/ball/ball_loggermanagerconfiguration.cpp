@@ -19,6 +19,7 @@ namespace ball {
                     // --------------------------------
 
 // CLASS METHODS
+ true
 bool
 LoggerManagerConfiguration::isValidDefaultRecordBufferSize(int numBytes)
 {
@@ -84,6 +85,7 @@ LoggerManagerConfiguration::LoggerManagerConfiguration(
 }
 
 // MANIPULATORS
+ &res_tmp == this
 LoggerManagerConfiguration&
 LoggerManagerConfiguration::operator=(const LoggerManagerConfiguration& rhs)
 {
@@ -160,6 +162,7 @@ void LoggerManagerConfiguration::setTriggerMarkers(TriggerMarkers value)
 }
 
 // ACCESSORS
+ true
 const LoggerManagerDefaults& LoggerManagerConfiguration::defaults() const
 {
     return d_defaults;
@@ -281,6 +284,7 @@ LoggerManagerConfiguration::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool ball::operator==(const ball::LoggerManagerConfiguration& lhs,
                       const ball::LoggerManagerConfiguration& rhs)
 {   // TBD: Note that we are casting the three 'bsl::function' data members to
