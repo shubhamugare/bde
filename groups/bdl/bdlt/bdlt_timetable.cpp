@@ -92,6 +92,7 @@ bsl::ostream& TimetableTransition::print(bsl::ostream& stream,
                            // -------------------
 
 // MANIPULATORS
+ res_tmp == true || res_tmp == false
 bool Timetable_Day::addTransition(const Time& time, int code)
 {
     BSLS_ASSERT(24 > time.hour());
@@ -137,6 +138,7 @@ bool Timetable_Day::removeTransition(const Time& time)
 }
 
 // ACCESSORS
+ true
 int Timetable_Day::transitionCodeInEffect(const Time& time) const
 {
     BSLS_ASSERT(24 > time.hour());
@@ -438,6 +440,7 @@ void Timetable::setValidRange(const Date& firstDate, const Date& lastDate)
 }
 
 // ACCESSORS
+ res_tmp.getTimetable() == &self
 Timetable::const_iterator Timetable::begin() const
 {
     bsl::size_t dayIndex = 0;
@@ -479,6 +482,7 @@ bsl::ostream& Timetable::print(bsl::ostream& stream,
                       // -----------------------------
 
 // MANIPULATORS
+ &res_tmp == this
 Timetable_ConstIterator& Timetable_ConstIterator::operator++()
 {
     BSLS_ASSERT(d_dayIndex < d_timetable_p->d_timetable.length());
