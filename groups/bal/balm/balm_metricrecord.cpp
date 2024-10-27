@@ -48,6 +48,7 @@ BSLMF_ASSERT(bsl::is_trivially_copyable<MetricRecord>::value);
 BSLMF_ASSERT(bslmf::IsBitwiseCopyable<MetricRecord>::value);
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& MetricRecord::print(bsl::ostream& stream) const
 {
     stream << "[ " << d_metricId << ": " << d_count
