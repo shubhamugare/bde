@@ -16,6 +16,7 @@ namespace ball {
                      // --------------------
 
 // CLASS METHODS
+ res_tmp == stream
 bsl::ostream& UserFieldType::print(bsl::ostream&       stream,
                                    UserFieldType::Enum value,
                                    int                 level,
