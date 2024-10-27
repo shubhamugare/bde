@@ -27,6 +27,7 @@ namespace bbldc {
                          // ------------------------
 
 // CLASS METHODS
+ true
 int BasicDayCountUtil::daysDiff(const bdlt::Date&        beginDate,
                                 const bdlt::Date&        endDate,
                                 DayCountConvention::Enum convention)
