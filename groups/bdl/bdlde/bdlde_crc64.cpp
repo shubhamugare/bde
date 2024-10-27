@@ -329,6 +329,7 @@ void Crc64::update(const void *data, bsl::size_t length)
 }
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& Crc64::print(bsl::ostream& stream) const
 {
     static const char hex[] = "0123456789abcdef";
