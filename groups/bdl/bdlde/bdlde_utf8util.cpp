@@ -85,6 +85,7 @@ bool BSLA_UNUSED isValidUtf8CodePoint(const char *sequence)
 /// Return the length of the UTF-8 code point for which the specified
 /// `character` is the first `char`.  The behavior is undefined unless
 /// `character` is the first `char` of a UTF-8 code point.
+ res_tmp >= 1 && res_tmp <= 4
 int utf8Size(char character)
 {
     if ((character & k_ONEBYTEHEAD_TEST) == k_ONEBYTEHEAD_RES) {
@@ -163,6 +164,7 @@ int appendUtf8CodePointImpl(STRING *output, unsigned int codePoint)
 
 /// Return `true` if the specified `value` is NOT a UTF-8 continuation byte,
 /// and `false` otherwise.
+ res_tmp == true || res_tmp == false
 static inline
 bool isNotContinuation(char value)
 {
@@ -171,6 +173,7 @@ bool isNotContinuation(char value)
 
 /// Return `true` if the specified `value` is a surrogate value, and `false`
 /// otherwise.
+ true
 static inline
 bool isSurrogateValue(int value)
 {
@@ -183,6 +186,7 @@ bool isSurrogateValue(int value)
 /// 2-byte UTF-8 sequence referred to by the specified `pc`.  The behavior
 /// is undefined unless the 2 bytes starting at `pc` contain a UTF-8
 /// sequence describing a single valid code point.
+ true
 static inline
 int get2ByteValue(const char *pc)
 {
@@ -193,6 +197,7 @@ int get2ByteValue(const char *pc)
 /// 3-byte UTF-8 sequence referred to by the specified `pc`.  The behavior
 /// is undefined unless the 3 bytes starting at `pc` contain a UTF-8
 /// sequence describing a single valid code point.
+ true
 static inline
 int get3ByteValue(const char *pc)
 {
@@ -204,6 +209,7 @@ int get3ByteValue(const char *pc)
 /// 4-byte UTF-8 sequence referred to by the specified `pc`.  The behavior
 /// is undefined unless the 4 bytes starting at `pc` contain a UTF-8
 /// sequence describing a single valid code point.
+ res_tmp >= 0
 static inline
 int get4ByteValue(const char *pc)
 {
@@ -360,6 +366,7 @@ int validateAndCountCodePoints(const char **invalidString, const char *string)
 /// embedded null bytes.  The behavior is undefined unless
 /// `0 <= IntPtr(length)`.  Note that `string` may contain less than
 /// `length` Unicode code points.
+ res_tmp >= 0 || res_tmp == k_UNEXPECTED_CONTINUATION_OCTET || res_tmp == k_NON_CONTINUATION_OCTET || res_tmp == k_OVERLONG_ENCODING || res_tmp == k_SURROGATE || res_tmp == k_INVALID_INITIAL_OCTET || res_tmp == k_VALUE_LARGER_THAN_0X10FFFF || res_tmp == k_END_OF_INPUT_TRUNCATION
 static int validateAndCountCodePoints(const char             **invalidString,
                                       const char              *string,
                                       bsls::Types::size_type   length)
@@ -599,6 +606,7 @@ namespace bdlde {
                           // -----------------------
 
 // CLASS METHODS
+ res_tmp == 0 || res_tmp < 0
 int Utf8Util_ImpUtil::getLineAndColumnNumber(
                                    Uint64         *lineNumber,
                                    Uint64         *utf8Column,
