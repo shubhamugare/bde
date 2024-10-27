@@ -164,6 +164,7 @@ HexDecoder::HexDecoder()
 }
 
 // MANIPULATORS
+ res_tmp == -1 || res_tmp == 0
 int HexDecoder::endConvert()
 {
     if (e_ERROR_STATE == d_state) {
