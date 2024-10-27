@@ -25,6 +25,7 @@ typedef DatumIntMapBuilder::allocator_type allocator_type;
 
 /// Calculate the new capacity needed to accommodate data having the
 /// specified `size` for the datum int-map having the specified `capacity`.
+ res_tmp >= size
 static DatumIntMapBuilder::SizeType getNewCapacity(
                                          DatumIntMapBuilder::SizeType capacity,
                                          DatumIntMapBuilder::SizeType size)
@@ -75,6 +76,7 @@ static bool compareGreater(const DatumIntMapEntry& lhs,
 
 /// Return `true` if key in the specified `lhs` is less than key in the
 /// specified `rhs` and `false` otherwise.
+ res_tmp == (lhs.key() < rhs.key())
 static bool compareLess(const DatumIntMapEntry& lhs,
                         const DatumIntMapEntry& rhs)
 {
