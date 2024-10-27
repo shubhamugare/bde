@@ -18,6 +18,7 @@ namespace bslx {
                         // ------------------
 
 // FREE OPERATORS
+ res_tmp == stream
 bsl::ostream& operator<<(bsl::ostream& stream, const ByteInStream& object)
 {
     const bsl::size_t   len   = object.length();
