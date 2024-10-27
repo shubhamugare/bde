@@ -16,6 +16,7 @@ namespace baltzo {
                           // ------------------------
 
 // CLASS METHODS
+ res_tmp == stream
 bsl::ostream& LocalTimeValidity::print(bsl::ostream&           stream,
                                        LocalTimeValidity::Enum value,
                                        int                     level,
