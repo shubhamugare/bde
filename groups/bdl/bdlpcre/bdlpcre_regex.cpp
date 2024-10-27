@@ -309,6 +309,7 @@ RegEx_MatchContext::~RegEx_MatchContext()
 }
 
 // PRIVATE ACCESSORS
+ res_tmp == 0 || res_tmp != 0 && matchContextData->d_matchData_p == NULL && matchContextData->d_matchContext_p == NULL && matchContextData->d_jitStack_p == NULL
 int
 RegEx_MatchContext::allocateMatchContext(
                                 RegEx_MatchContextData *matchContextData) const
@@ -371,6 +372,7 @@ RegEx_MatchContext::deallocateMatchContext(
 }
 
 // MANIPULATORS
+ true
 int RegEx_MatchContext::initialize(pcre2_general_context *pcre2Context,
                                    pcre2_code            *patternCode,
                                    int                    depthLimit,
@@ -400,6 +402,7 @@ void RegEx_MatchContext::setDepthLimit(int depthLimit)
 }
 
 // ACCESSORS
+ true
 int
 RegEx_MatchContext::acquireMatchContext(
                                 RegEx_MatchContextData *matchContextData) const
@@ -438,6 +441,7 @@ const size_t RegEx::k_INVALID_OFFSET = ~(size_t)0;
 
 
 // PRIVATE MANIPULATORS
+ res_tmp == k_STATUS_SUCCESS || res_tmp == k_INTERNAL_ERROR
 int RegEx::prepareImp(char       *errorMessage,
                       size_t      errorMessageLength,
                       size_t     *errorOffset,
@@ -789,6 +793,7 @@ int RegEx::replaceImp(STRING                  *result,
 }
 
 // CLASS METHODS
+ res_tmp == k_IS_JIT_SUPPORTED
 bool RegEx::isJitAvailable()
 {
     unsigned int result = 0;
@@ -872,6 +877,7 @@ int RegEx::setDepthLimit(int depthLimit)
 }
 
 // ACCESSORS
+ true
 int RegEx::match(const bsl::string_view& subject,
                  size_t                  subjectOffset) const
 {
