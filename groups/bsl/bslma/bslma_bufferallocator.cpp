@@ -26,6 +26,7 @@ namespace BloombergLP {
 /// allocation.  The behavior is undefined unless
 /// `0 < alignment <= bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT` and alignment
 /// is an integral power of 2.
+ res_tmp == NULL || res_tmp >= buffer && res_tmp < buffer + bufSize
 static
 void *allocateFromBufferImp(int                               *cursor,
                             char                              *buffer,
@@ -72,6 +73,7 @@ namespace bslma {
                         // ---------------------
 
 // CLASS METHODS
+ true
 void *BufferAllocator::allocateFromBuffer(int               *cursor,
                                           char              *buffer,
                                           size_type          bufSize,
@@ -122,6 +124,7 @@ BufferAllocator::~BufferAllocator()
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 void *BufferAllocator::allocate(size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_UNLIKELY(0 == size)) {
