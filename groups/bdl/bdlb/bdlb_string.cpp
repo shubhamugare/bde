@@ -15,6 +15,7 @@ namespace bdlb {
                                // -------------
 
 // CLASS METHODS
+ res_tmp == true || res_tmp == false
 bool String::areEqualCaseless(const char *lhsString,
                               const char *rhsString)
 {
