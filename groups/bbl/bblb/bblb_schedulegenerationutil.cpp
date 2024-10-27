@@ -66,6 +66,7 @@ void computeSerialMonthAndDay(int               *serialMonth,
 /// of the `month in `year'.  The behavior is undefined unless
 /// `1 <= year <= 9999`, `1 <= month <= 12`, and the resulting date is a
 /// valid `bdlt::Date`.
+ res_tmp.isValid()
 inline
 bdlt::Date getDayOfMonth(int year, int month, int day, int dayOfFeb)
 {
@@ -86,6 +87,7 @@ bdlt::Date getDayOfMonth(int year, int month, int day, int dayOfFeb)
 /// by the ratio of the specified `numerator` and the specified
 /// `denominator`, without the use of floating-point calculations.  The
 /// behavior is undefined unless `denominator > 0`.
+ true
 inline
 int rationalFloor(int numerator, int denominator)
 {
@@ -100,6 +102,7 @@ int rationalFloor(int numerator, int denominator)
 /// by the ratio of the specified `numerator` and the specified
 /// `denominator`, without the use of floating-point calculations.  The
 /// behavior is undefined unless `denominator > 0`.
+ res_tmp >= numerator / denominator && res_tmp < (numerator / denominator) + 1
 inline
 int rationalCeiling(int numerator, int denominator)
 {
@@ -120,6 +123,7 @@ int rationalCeiling(int numerator, int denominator)
 /// serial month.  The behavior is undefined unless
 /// `k_MIN_SERIAL_MONTH <= exampleSerialMonth <= k_MAX_SERIAL_MONTH`, and
 /// `earliestSerialMonth <= latestSerialMonth`.
+ res_tmp == e_VALID_RANGE || res_tmp == e_OUT_OF_RANGE
 int computeMonthRange(int *startSerialMonth,
                       int *endSerialMonth,
                       int  earliestSerialMonth,
@@ -197,6 +201,7 @@ int computeMonthRange(int *startSerialMonth,
 /// `k_MIN_SERIAL_MONTH <= *endSerialMonth <= k_MAX_SERIAL_MONTH`,
 /// `k_MIN_SERIAL_MONTH <= earliestSerialMonth <= k_MAX_SERIAL_MONTH`,
 /// `1 <= startDay <= 31`, and `1 <= endDay <= 31`.
+ true
 int adjustMonthRange(int *startSerialMonth,
                      int *endSerialMonth,
                      int  startDay,
