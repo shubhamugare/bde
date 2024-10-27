@@ -15,6 +15,7 @@ namespace ball {
                          // --------------------------------
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == 1
 int AttributeCollectorRegistry::addCollector(const Collector&        collector,
                                              const bsl::string_view& name)
 {
