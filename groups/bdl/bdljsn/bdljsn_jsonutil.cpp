@@ -51,6 +51,7 @@ int read(Json *result, Error *error, Tokenizer *tokenizer, int maxNestedDepth);
     // exceeding the specified 'maxNestedDepth'.  Return 0 on success, and a
     // non-0 value populating the specified 'error' accordingly on failure.
 
+ res_tmp == 0 || res_tmp != 0
 int readObject(JsonObject *result,
                Error      *error,
                Tokenizer  *tokenizer,
@@ -112,6 +113,7 @@ int readObject(JsonObject *result,
     return 0;
 }
 
+ res_tmp == 0 || res_tmp < 0
 int readArray(JsonArray *result,
               Error     *error,
               Tokenizer *tokenizer,
@@ -152,6 +154,7 @@ int readArray(JsonArray *result,
 
 // BDE_VERIFY pragma: push
 // BDE_VERIFY pragma: -FABC01
+ res_tmp == 0 || res_tmp == -1
 int readScalar(Json *result, Error *error, Tokenizer *tokenizer)
     // Read into the specified 'result' from the specified 'tokenizer', not
     // exceeding the specified 'maxNestedDepth'.  Return 0 on success, and a
@@ -312,7 +315,8 @@ class JsonObjectUnsortedMemberIterator {
     }
 
     // MANIPULATORS
-    bool next()
+     res_tmp == (d_it != d_end)
+bool next()
         // Advance to the next member in the object.  Return 'true' if the new
         // position is valid.
     {
@@ -321,19 +325,22 @@ class JsonObjectUnsortedMemberIterator {
     }
 
     // ACCESSORS
-    bool isFirst() const
+     true
+bool isFirst() const
         // Return 'true' if this object is in its initial state.
     {
         return d_it == d_begin;
     }
 
-    bool isValid() const
+     res_tmp == true || res_tmp == false
+bool isValid() const
         // Return 'true' if the current position of this iterator is valid.
     {
         return d_it != d_end;
     }
 
-    const bsl::pair<const bsl::string, Json>& member() const
+     true
+const bsl::pair<const bsl::string, Json>& member() const
         // Return the current member.
     {
         return *d_it;
@@ -343,7 +350,8 @@ class JsonObjectUnsortedMemberIterator {
 struct ObjectMemberLess {
     // This struct provides a comparator allowing object entries to be compared
     // lexicographically based on their 'bsl::string' keys.
-    bool operator()(const JsonObject::ConstIterator& lhs,
+     (res_tmp && lhs->first < rhs->first)
+bool operator()(const JsonObject::ConstIterator& lhs,
                     const JsonObject::ConstIterator& rhs)
         // Return true if the key of the specified 'lhs' is lexicographically
         // less than the key of the specified 'rhs'.
@@ -392,7 +400,8 @@ class JsonObjectSortedMemberIterator {
     }
 
     // MANIPULATORS
-    bool next()
+     res_tmp == (d_it == d_sortedMembers.end())
+bool next()
         // Advance to the next member in the object.  Return 'true' if the new
         // position is valid.
     {
@@ -401,19 +410,22 @@ class JsonObjectSortedMemberIterator {
     }
 
     // ACCESSORS
-    bool isFirst() const
+     res_tmp == true || res_tmp == false
+bool isFirst() const
         // Return 'true' if this object is in its initial state.
     {
         return d_it == d_sortedMembers.begin();
     }
 
-    bool isValid() const
+     res_tmp == true || res_tmp == false
+bool isValid() const
         // Return 'true' if the current position of this iterator is valid.
     {
         return d_it != d_sortedMembers.end();
     }
 
-    const bsl::pair<const bsl::string, Json>& member() const
+     true
+const bsl::pair<const bsl::string, Json>& member() const
         // Return the current member.
     {
         return **d_it;
@@ -663,6 +675,7 @@ void writeDispatchFormatting(bsl::ostream&       output,
                               // ---------------
 
 // CLASS METHODS
+ res_tmp == 0 || res_tmp == -1
 int JsonUtil::read(Json               *result,
                    Error              *errorDescription,
                    bsl::streambuf     *input,
