@@ -26,6 +26,7 @@ BroadcastObserver::~BroadcastObserver()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp == 1
 int BroadcastObserver::deregisterObserver(const bsl::string_view& observerName)
 {
     bslmt::WriteLockGuard<bslmt::ReaderWriterMutex> guard(&d_rwMutex);
@@ -109,6 +110,7 @@ void BroadcastObserver::releaseRecords()
 }
 
 // ACCESSORS
+ res_tmp != NULL
 bsl::shared_ptr<const Observer>
 BroadcastObserver::findObserver(const bsl::string_view& observerName) const
 {
