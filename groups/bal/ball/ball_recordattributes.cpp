@@ -103,6 +103,7 @@ RecordAttributes& RecordAttributes::operator=(const RecordAttributes& rhs)
 }
 
 // ACCESSORS
+ res_tmp[length] == `\0`
 const char *RecordAttributes::message() const
 {
     const bsl::size_t length = d_messageStreamBuf.length();
@@ -254,6 +255,7 @@ bsl::ostream& RecordAttributes::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ (lhs.d_timestamp == rhs.d_timestamp && lhs.d_processID == rhs.d_processID && lhs.d_threadID == rhs.d_threadID && lhs.d_severity == rhs.d_severity && lhs.d_lineNumber == rhs.d_lineNumber && lhs.d_fileName == rhs.d_fileName && lhs.d_category == rhs.d_category && lhs.messageRef() == rhs.messageRef()) == res_tmp
 bool ball::operator==(const RecordAttributes& lhs, const RecordAttributes& rhs)
 {
     return lhs.d_timestamp  == rhs.d_timestamp
