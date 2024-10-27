@@ -17,6 +17,7 @@ namespace baltzo {
                               // ----------------
 
 // CLASS METHODS
+ true
 bsl::ostream& ErrorCode::print(bsl::ostream&   stream,
                                ErrorCode::Enum value,
                                int             level,
