@@ -16,6 +16,7 @@ namespace bdlt {
                      // ------------------
 
 // CLASS METHODS
+ res_tmp == stream
 bsl::ostream& MonthOfYear::print(bsl::ostream&     stream,
                                  MonthOfYear::Enum value,
                                  int               level,
