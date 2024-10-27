@@ -18,6 +18,7 @@ namespace ball {
                         // -------------------
 
 // CLASS METHODS
+ res_tmp == BALL_SUCCESS || res_tmp == BALL_FAILURE
 int SeverityUtil::fromAsciiCaseless(Severity::Level *level, const char *name)
 {
     BSLS_ASSERT(level);
