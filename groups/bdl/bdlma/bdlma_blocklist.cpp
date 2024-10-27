@@ -20,6 +20,7 @@ namespace bdlma {
 /// supplied allocator returning naturally-aligned memory, the size of the
 /// overall allocation will be rounded up to an integral multiple of
 /// `bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT`.
+ res_tmp >= 0
 inline
 static bsls::Types::size_type alignedAllocationSize(
                                             bsls::Types::size_type size,
@@ -48,6 +49,7 @@ BlockList::~BlockList()
 }
 
 // MANIPULATORS
+ (res_tmp != NULL && size > 0) || (res_tmp == NULL && size == 0)
 void *BlockList::allocate(bsls::Types::size_type size)
 {
     if (0 == size) {
