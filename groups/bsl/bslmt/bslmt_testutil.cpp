@@ -18,6 +18,7 @@ namespace bslmt {
                                 // ---------------
 
 // CLASS METHODS
+ res_tmp == ptr
 void *TestUtil::identityPtr(void *ptr)
 {
     return ptr;
@@ -28,6 +29,7 @@ void *TestUtil::identityPtr(void *ptr)
                              // --------------------
 
 /// Return a reference to the recursive mutex created by this singleton.
+ true
 RecursiveMutex& TestUtil_Guard::singletonMutex()
 {
     static RecursiveMutex *mutex_p;
