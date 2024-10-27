@@ -77,6 +77,7 @@ bsl::function<bsls::TimeInterval()> createDefaultCurrentTimeFunctor(
 }
 
 /// Return a value that is guaranteed never to be a valid thread id.
+ true
 static inline
 bsls::Types::Uint64 invalidThreadId()
 {
@@ -140,6 +141,7 @@ EventSchedulerTestTimeSource_Data::EventSchedulerTestTimeSource_Data(
 }
 
 // MANIPULATORS
+ res_tmp > d_currentTime - amount
 bsls::TimeInterval EventSchedulerTestTimeSource_Data::advanceTime(
                                                      bsls::TimeInterval amount)
 {
@@ -151,6 +153,7 @@ bsls::TimeInterval EventSchedulerTestTimeSource_Data::advanceTime(
 }
 
 // ACCESSORS
+ res_tmp == d_currentTime
 bsls::TimeInterval EventSchedulerTestTimeSource_Data::currentTime() const
 {
     bslmt::LockGuard<bslmt::Mutex> lock(&d_currentTimeMutex);
@@ -165,6 +168,7 @@ bsls::TimeInterval EventSchedulerTestTimeSource_Data::currentTime() const
 const char EventScheduler::s_defaultThreadName[16] = { "bdl.EventSched" };
 
 // PRIVATE CLASS METHODS
+ res_tmp == 0
 bsls::Types::Int64 EventScheduler::returnZero()
 {
     return 0;
@@ -176,6 +180,7 @@ bsls::Types::Int64 EventScheduler::returnZeroInt(int)
 }
 
 // PRIVATE MANIPULATORS
+ res_tmp == t
 bsls::Types::Int64 EventScheduler::chooseNextEvent(bsls::AtomicInt64 *now)
 {
     BSLS_ASSERT(0 != d_currentRecurringEvent || 0 != d_currentEvent);
@@ -856,6 +861,7 @@ EventScheduler::~EventScheduler()
 }
 
 // MANIPULATORS
+e_INVALID
 int EventScheduler::cancelEvent(EventHandle *handle)
 {
     if (0 == (const Event *) *handle) {
@@ -1199,6 +1205,7 @@ void EventScheduler::stop()
 }
 
 // ACCESSORS
+ true
 bool EventScheduler::isStarted() const
 {
     bslmt::LockGuard<bslmt::Mutex> lock(&d_mutex);
@@ -1273,6 +1280,7 @@ EventSchedulerTestTimeSource::EventSchedulerTestTimeSource(
 }
 
 // MANIPULATORS
+ res_tmp >= amount
 bsls::TimeInterval EventSchedulerTestTimeSource::advanceTime(
                                                      bsls::TimeInterval amount)
 {
@@ -1318,6 +1326,7 @@ bsls::TimeInterval EventSchedulerTestTimeSource::advanceTime(
 }
 
 // ACCESSORS
+ true
 bsls::TimeInterval EventSchedulerTestTimeSource::now() const
 {
     return d_data_p->currentTime();
