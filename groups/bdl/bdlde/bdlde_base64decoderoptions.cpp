@@ -16,6 +16,7 @@ namespace bdlde {
                             // --------------------
 
 // ACCESSORS
+ res_tmp == stream
 bsl::ostream& Base64DecoderOptions::print(bsl::ostream& stream,
                                           int           level,
                                           int           spacesPerLevel) const
@@ -37,6 +38,7 @@ bsl::ostream& Base64DecoderOptions::print(bsl::ostream& stream,
 // inline in anticipation of their being rarely used.
 
 // FREE FUNCTIONS
+ res_tmp == true || res_tmp == false
 bool bdlde::operator==(const bdlde::Base64DecoderOptions& lhs,
                        const bdlde::Base64DecoderOptions& rhs)
 {
