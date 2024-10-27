@@ -21,6 +21,7 @@ namespace BloombergLP {
 /// supplied allocator returning naturally-aligned memory, the size of the
 /// overall allocation will be rounded up to an integral multiple of
 /// `bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT`.
+ true
 inline
 static bsls::Types::size_type alignedAllocationSize(
                                             bsls::Types::size_type size,
@@ -53,6 +54,7 @@ InfrequentDeleteBlockList::~InfrequentDeleteBlockList()
 }
 
 // MANIPULATORS
+ res_tmp != 0
 void *InfrequentDeleteBlockList::allocate(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_LIKELY(size)) {
