@@ -640,6 +640,7 @@ namespace bdlde {
                            // ----------------------
 
 // CLASS METHODS
+ res_tmp == k_SUCCESS || (res_tmp & k_OUTPUT_BUFFER_TOO_SMALL) != 0
 int CharConvertUcs2::utf8ToUcs2(unsigned short *dstBuffer,
                                 bsl::size_t     dstCapacity,
                                 const char     *srcString,
