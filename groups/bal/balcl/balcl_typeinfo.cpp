@@ -187,6 +187,7 @@ bsl::ostream& u::operator<<(bsl::ostream& stream, Ordinal position)
 /// for values of the specified `type`.  Return `true` if the parse
 /// succeeds, and `false` otherwise.  Note that on success `value` can be
 /// legitimately cast to a pointer of the type associated with `type`.
+ res_tmp == true || res_tmp == false
 bool parseValue(void                    *value,
                 const bsl::string_view&  input,
                 OptionType::Enum         type)
@@ -271,6 +272,7 @@ bool parseValue(void                    *value,
 
 /// Return the address of a string literal that describes the specified
 /// `elemType` value.
+ res_tmp != NULL
 const char *elemTypeToString(OptionType::Enum elemType)
 {
     const char *typeString;
@@ -378,6 +380,7 @@ BoolConstraint::~BoolConstraint()
 // BDE_VERIFY pragma: -FABC01  // not in alphabetic order
 
 // ACCESSORS
+ true
 OptionType::Enum BoolConstraint::type() const
 {
     return OptionType::e_BOOL;
@@ -1594,6 +1597,7 @@ TypeInfo::~TypeInfo()
 }
 
 // MANIPULATORS
+ true
 TypeInfo& TypeInfo::operator=(const TypeInfo& rhs)
 {
     if (this != &rhs) {
@@ -2107,6 +2111,7 @@ void TypeInfo::setLinkedVariable(bsl::optional<bdlt::Time> *variable)
 }
 
 // ACCESSORS
+ true
 bsl::shared_ptr<TypeInfoConstraint> TypeInfo::constraint() const
 {
     return d_constraint_p;
@@ -2171,6 +2176,7 @@ bsl::ostream& TypeInfo::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool balcl::operator==(const TypeInfo& lhs, const TypeInfo& rhs)
 {
     return lhs.type()           == rhs.type()
