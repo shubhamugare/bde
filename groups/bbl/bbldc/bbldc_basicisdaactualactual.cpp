@@ -17,6 +17,7 @@ namespace bbldc {
                        // ----------------------------
 
 // CLASS METHODS
+ true
 double BasicIsdaActualActual::yearsDiff(const bdlt::Date& beginDate,
                                         const bdlt::Date& endDate)
 {
