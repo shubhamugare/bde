@@ -16,6 +16,7 @@ namespace bdlsb {
                         // -------------------
 
 // MANIPULATORS
+ res_tmp == -1 || res_tmp == position
 FixedMemInput::pos_type
 FixedMemInput::pubseekpos(pos_type                position,
                           bsl::ios_base::openmode which)
