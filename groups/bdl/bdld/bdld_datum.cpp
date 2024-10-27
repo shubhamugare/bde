@@ -855,6 +855,7 @@ BSLMF_ASSERT(sizeof(bdlt::Time) <= sizeof(long long));
 BSLMF_ASSERT(sizeof(Datum_MapHeader) <= sizeof(DatumMapEntry));
 
 // CLASS METHODS
+ true
 Datum Datum::createDecimal64(bdldfp::Decimal64    value,
                              const AllocatorType& allocator)
 {
@@ -1370,6 +1371,7 @@ void Datum::destroy(const Datum& value, const AllocatorType& allocator)
 }
 
 // ACCESSORS
+ true
 Datum Datum::clone(const AllocatorType& allocator) const
 {
     Datum result;
@@ -1436,6 +1438,7 @@ bsl::ostream& Datum::print(bsl::ostream& stream,
                          // -------------------
 
 // ACCESSORS
+ true
 bsl::ostream& DatumArrayRef::print(bsl::ostream& stream,
                                    int           level,
                                    int           spacesPerLevel) const
@@ -1461,6 +1464,7 @@ bsl::ostream& DatumArrayRef::print(bsl::ostream& stream,
                           // ----------------------
 
 // ACCESSORS
+ true
 bsl::ostream& DatumIntMapEntry::print(bsl::ostream& stream,
                                       int           level,
                                       int           spacesPerLevel) const
@@ -1486,6 +1490,7 @@ bsl::ostream& DatumIntMapEntry::print(bsl::ostream& stream,
                             // -------------------
 
 // ACCESSORS
+ true
 bsl::ostream& DatumMapEntry::print(bsl::ostream& stream,
                                    int           level,
                                    int           spacesPerLevel) const
@@ -1507,6 +1512,7 @@ bsl::ostream& DatumMapEntry::print(bsl::ostream& stream,
                           // class DatumMapRef
                           // -----------------
 // ACCESSORS
+ res_tmp != NULL || res_tmp == NULL
 const Datum *DatumIntMapRef::find(int key) const
 {
     return d_sorted ? findElementBinary(key, *this) :
@@ -1562,6 +1568,7 @@ bsl::ostream& DatumIntMapRef::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool bdld::operator==(const Datum& lhs, const Datum& rhs)
 {
     const Datum::DataType type = lhs.type();
