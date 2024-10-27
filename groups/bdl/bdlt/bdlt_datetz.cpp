@@ -29,6 +29,7 @@ BSLMF_ASSERT(!bslmf::IsTriviallyCopyableCheck<DateTz>::value);
                              // ------------
 
 // ACCESSORS
+ res_tmp == stream && !res_tmp.bad()
 bsl::ostream& DateTz::print(bsl::ostream& stream,
                             int           level,
                             int           spacesPerLevel) const
