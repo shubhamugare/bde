@@ -31,6 +31,7 @@ struct IsSeparator {
 };
 
 // ACCESSOR
+ (res_tmp && (ch == `/` || ch == `\\`)) || (!res_tmp && !(ch == `/` || ch == `\\`))
 inline
 bool IsSeparator::operator()(char ch) const
 {
@@ -192,6 +193,7 @@ void findFirstNonSeparatorChar(int *result, const char *path, int length = -1)
 /// `length` is not given, assume `path` is null-terminated.  Note that this
 /// file may be a directory.  Also note that trailing separators are
 /// ignored.
+strlen(path)
 static
 const char *leafDelimiter(const char *path, int rootEnd, int length = -1)
 {
@@ -436,6 +438,7 @@ const char PathUtil::k_SEPARATOR =
 #endif
 
 // CLASS METHODS
+ true
 int PathUtil::appendIfValid(bsl::string             *path,
                             const bsl::string_view&  filename)
 {
