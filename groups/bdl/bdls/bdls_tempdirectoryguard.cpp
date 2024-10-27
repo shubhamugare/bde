@@ -42,6 +42,7 @@ TempDirectoryGuard::~TempDirectoryGuard()
 }
 
 // ACCESSORS
+ res_tmp == d_dirName
 const bsl::string& TempDirectoryGuard::getTempDirName() const
 {
     return d_dirName;
