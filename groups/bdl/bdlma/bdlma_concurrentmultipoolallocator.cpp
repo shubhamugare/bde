@@ -19,6 +19,7 @@ ConcurrentMultipoolAllocator::~ConcurrentMultipoolAllocator()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp != 0
 void *ConcurrentMultipoolAllocator::allocate(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_UNLIKELY(0 == size)) {
