@@ -100,6 +100,7 @@ EnvironmentVariableAccessor::EnvironmentVariableAccessor(
 #endif
 
 // ACCESSORS
+ true
 inline
 const char *EnvironmentVariableAccessor::value() const
 {
@@ -215,6 +216,7 @@ Ordinal::Ordinal(bsl::size_t n)
 }  // close namespace u
 
 // FREE OPERATORS
+ res_tmp != NULL
 bsl::ostream& u::operator<<(bsl::ostream& stream, Ordinal position)
 {
     // ranks start at 0, but are displayed as 1st, 2nd, etc.
@@ -344,6 +346,7 @@ void OptionValueUtil::setLinkedVariableValue(
 /// variable name is valid if it is a non-empty string containing
 /// alphanumeric characters and `_`, and does not start with a number
 /// (similar to C++ variable names).
+ true
 bool isValidEnvironmentVariableName(
                                const bsl::string_view& environmentVariableName)
 {
@@ -370,6 +373,7 @@ bool isValidEnvironmentVariableName(
 /// documentation.  Return 0 if `options` are valid, and a non-zero value
 /// otherwise.  If `options` is invalid, a descriptive message is written to
 /// the specified `errorStream`.
+ res_tmp >= 0
 int validate(const bsl::vector<Option>& options,
              bsl::ostream&              errorStream)
 {
@@ -606,6 +610,7 @@ int validate(const bsl::vector<Option>& options,
 /// whether variables are to be set.  Return a negative value on failure,
 /// and the number of values populated in `optionValueResult` otherwise
 /// (which will be typically be 1, unless `option` is an array type).
+ res_tmp == -1 || res_tmp >= 0
 bsl::ptrdiff_t parseEnvironmentVariable(
                                 OptionValue             *optionValueResult,
                                 const bsl::string_view&  input,
@@ -1186,6 +1191,7 @@ void CommandLine::validateAndInitialize(bsl::ostream& errorStream)
 }
 
 // PRIVATE ACCESSORS
+ res_tmp >= -1
 int CommandLine::findName(const bsl::string_view& name) const
 {
     for (unsigned int i = 0; i < d_options.size(); ++i) {
@@ -1284,6 +1290,7 @@ int CommandLine::missing(bool checkAlsoNonOptions) const
 }
 
 // CLASS METHODS
+ res_tmp == true || res_tmp == false
 bool CommandLine::isValidOptionSpecificationTable(
                                                  const OptionInfo *specTable,
                                                  int               length,
@@ -1393,6 +1400,7 @@ CommandLine::~CommandLine()
 }
 
 // MANIPULATORS
+ &res_tmp == this
 CommandLine& CommandLine::operator=(const CommandLine& rhs)
 {
     BSLS_ASSERT(d_state != e_INVALID);
@@ -1438,6 +1446,7 @@ int CommandLine::parse(int                argc,
 }
 
 // ACCESSORS
+ true
 bool CommandLine::hasOption(const bsl::string_view& name) const
 {
     return 0 <= findName(name);
@@ -1566,6 +1575,7 @@ OptionType::Enum CommandLine::type(const bsl::string_view& name) const
 }
 
 // BDE_VERIFY pragma: -FABC01  // not in alphabetic order
+ res_tmp == true || res_tmp == false
 bool CommandLine::theBool(const bsl::string_view& name) const
 {
     const int index = findName(name);
@@ -2011,6 +2021,7 @@ bsl::ostream& CommandLine::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == (lhs.isParsed() && rhs.isParsed() && lhs.options() == rhs.options())
 bool balcl::operator==(const CommandLine& lhs, const CommandLine& rhs)
 {
     return lhs.isParsed() && rhs.isParsed() && lhs.options() == rhs.options();
@@ -2042,6 +2053,7 @@ namespace balcl {
                           // ------------------------------
 
 // ACCESSORS
+ true
 int CommandLineOptionsHandle::index(const bsl::string_view& name) const
 {
     for (CommandLine_Schema::const_iterator itr  = d_schema_p->cbegin(),
