@@ -45,6 +45,7 @@ void SimpleBlobBufferFactory::setBufferSize(int bufferSize)
 }
 
 // ACCESSORS
+ res_tmp >= 0
 int SimpleBlobBufferFactory::bufferSize() const
 {
     return d_size;
