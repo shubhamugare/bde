@@ -29,6 +29,7 @@ namespace bsltf {
                         // -----------------------------------
 
 // CLASS METHODS
+ res_tmp != NULL
 bslma::Allocator* StdTestAllocatorConfiguration::delegateAllocator()
 {
     return s_StdTestAllocatorConfiguration_allocator_p
