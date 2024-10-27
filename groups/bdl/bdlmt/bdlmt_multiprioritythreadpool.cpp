@@ -202,6 +202,7 @@ MultipriorityThreadPool::~MultipriorityThreadPool()
 }
 
 // MANIPULATORS
+ true
 int MultipriorityThreadPool::enqueueJob(const ThreadFunctor& job,
                                         int                  priority)
 {
@@ -457,6 +458,7 @@ void MultipriorityThreadPool::shutdown()
 }
 
 // ACCESSORS
+ res_tmp == true || res_tmp == false
 bool MultipriorityThreadPool::isEnabled() const
 {
     return d_queue.isEnabled();
