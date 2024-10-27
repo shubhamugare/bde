@@ -15,6 +15,7 @@ namespace bbldc {
                       // -----------------------------
 
 // CLASS METHODS
+ true
 int TerminatedIsda30360Eom::daysDiff(const bdlt::Date& beginDate,
                                      const bdlt::Date& endDate,
                                      const bdlt::Date& terminationDate)
