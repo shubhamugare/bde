@@ -16,6 +16,7 @@ namespace bslx {
                      // ---------------
 
 // CLASS METHODS
+ !res_tmp.bad()
 bsl::ostream& TypeCode::print(bsl::ostream&  stream,
                               TypeCode::Enum value,
                               int            level,
