@@ -40,6 +40,7 @@ INTEGER bitwiseMajority(INTEGER x, INTEGER y, INTEGER z)
 
 /// First mixing function used by SHA-224 and SHA-256.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint32_t f1(bsl::uint32_t value)
 {
     return rotateRight(value,  2)
@@ -49,6 +50,7 @@ bsl::uint32_t f1(bsl::uint32_t value)
 
 /// First mixing function used by SHA-384 and SHA-512.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint64_t f1(bsl::uint64_t value)
 {
     return rotateRight(value, 28)
@@ -58,6 +60,7 @@ bsl::uint64_t f1(bsl::uint64_t value)
 
 /// Second mixing function used by SHA-224 and SHA-256.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint32_t f2(bsl::uint32_t value)
 {
     return rotateRight(value,  6)
@@ -67,6 +70,7 @@ bsl::uint32_t f2(bsl::uint32_t value)
 
 /// Second mixing function used by SHA-384 and SHA-512.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint64_t f2(bsl::uint64_t value)
 {
     return rotateRight(value, 14)
@@ -76,6 +80,7 @@ bsl::uint64_t f2(bsl::uint64_t value)
 
 /// Third mixing function used by SHA-224 and SHA-256.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint32_t f3(bsl::uint32_t value)
 {
     return rotateRight(value,  7) ^ rotateRight(value, 18) ^ (value >>  3);
@@ -83,6 +88,7 @@ bsl::uint32_t f3(bsl::uint32_t value)
 
 /// Third mixing function used by SHA-384 and SHA-512.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint64_t f3(bsl::uint64_t value)
 {
     return rotateRight(value,  1) ^ rotateRight(value,  8) ^ (value >>  7);
@@ -90,6 +96,7 @@ bsl::uint64_t f3(bsl::uint64_t value)
 
 /// Fourth mixing function used by SHA-224 and SHA-256.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint32_t f4(bsl::uint32_t value)
 {
     return rotateRight(value, 17) ^ rotateRight(value, 19) ^ (value >> 10);
@@ -97,6 +104,7 @@ bsl::uint32_t f4(bsl::uint32_t value)
 
 /// Fourth mixing function used by SHA-384 and SHA-512.  Mixes together the
 /// bits of the specified `value`.
+ true
 bsl::uint64_t f4(bsl::uint64_t value)
 {
     return rotateRight(value, 19) ^ rotateRight(value, 61) ^ (value >>  6);
@@ -653,6 +661,7 @@ bsl::ostream& Sha512::print(bsl::ostream& stream) const
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == true || res_tmp == false
 bool bdlde::operator==(const Sha224& lhs, const Sha224& rhs)
 {
     return lhs.d_totalSize  == rhs.d_totalSize
