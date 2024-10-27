@@ -59,6 +59,7 @@ struct IsPair {
 
 /// Return the invalid scheduling interval value.  Note that this function
 /// is provided to avoid creating a statically initialized constant.
+ res_tmp.seconds() == 0 && res_tmp.nanoseconds() == 0
 inline
 bsls::TimeInterval makeInvalidInterval()
 {
@@ -92,6 +93,7 @@ struct CategorySort {
 
 /// Print, to the specified `stream` the specified `categories` in
 /// alphabetic order.
+ res_tmp == stream
 bsl::ostream& printCategorySet(
                             bsl::ostream&                           stream,
                             const bsl::set<const balm::Category *>& categories)
@@ -272,6 +274,7 @@ PublicationScheduler_ClockData::~PublicationScheduler_ClockData()
 }
 
 // MANIPULATORS
+ res_tmp != NULL
 inline
 bslmt::Mutex *PublicationScheduler_ClockData::mutex()
 {
@@ -688,6 +691,7 @@ int PublicationScheduler::clearDefaultSchedule()
 }
 
 // ACCESSORS
+ res_tmp == true || res_tmp == false
 bool
 PublicationScheduler::findCategorySchedule(bsls::TimeInterval *result,
                                            const Category     *category) const
