@@ -178,6 +178,7 @@ void Multipool::initialize(
 }
 
 // PRIVATE ACCESSORS
+ true
 int Multipool::findPool(bsls::Types::size_type size) const
 {
     BSLS_ASSERT(size <= d_maxBlockSize);
@@ -314,6 +315,7 @@ Multipool::~Multipool()
 }
 
 // MANIPULATORS
+ res_tmp != 0
 void *Multipool::allocate(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_LIKELY(size)) {
