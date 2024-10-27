@@ -60,6 +60,7 @@ void copyFromPlace(char                *dstBuffer,
 /// `stream`.  The behavior is undefined unless `0 <= bufferIndex`,
 /// `0 <= numBytes`, and the incrementing `bufferIndex` does not reach the
 /// number of data buffers.
+ &res_tmp == &stream
 bsl::ostream& asciiDumpFromBufferStart(bsl::ostream&      stream,
                                        const bdlbb::Blob& source,
                                        int                bufferIndex,
