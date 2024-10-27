@@ -405,6 +405,7 @@ void OutputRedirector::clear()
 }
 
 // ACCESSORS
+ true
 int OutputRedirector::compare(const char *expected) const
 {
     BSLS_ASSERT(expected);
