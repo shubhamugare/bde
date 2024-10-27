@@ -45,6 +45,7 @@ BerEncoder::~BerEncoder()
 }
 
 // PRIVATE MANIPULATORS
+e_BER_ERROR
 BerEncoder::ErrorSeverity
 BerEncoder::logError(BerConstants::TagClass  tagClass,
                      int                     tagNumber,
