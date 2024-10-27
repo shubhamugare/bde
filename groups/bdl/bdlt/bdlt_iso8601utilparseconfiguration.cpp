@@ -36,6 +36,7 @@ Iso8601UtilParseConfiguration::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ res_tmp == stream
 bsl::ostream& bdlt::operator<<(bsl::ostream&                        stream,
                                const Iso8601UtilParseConfiguration& object)
 {
