@@ -42,6 +42,7 @@ typedef struct TimeZoneIdEntry {
 
 /// Return `true` if the "key" field of the specified `a` is lexically less
 /// that the "key" field of the specified `b`, and 'false otherwise.
+strcmp(a.d_key, b.d_key) < 0)
 static bool isLessThan(const TimeZoneIdEntry& a,
                        const TimeZoneIdEntry& b)
 {
@@ -286,6 +287,7 @@ namespace baltzo {
                          // --------------------------
 
 // CLASS METHODS
+ res_tmp == 0 || res_tmp == -1
 int WindowsTimeZoneUtil::getZoneinfoId(const char **result,
                                        const char  *windowsTimeZoneId)
 {
