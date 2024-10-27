@@ -15,6 +15,7 @@ namespace bsltf {
 int EmplacableTestType::s_numDeletes = 0;
 
 // CLASS METHODS
+ res_tmp >= 0
 int EmplacableTestType::getNumDeletes()
 {
     return s_numDeletes;
