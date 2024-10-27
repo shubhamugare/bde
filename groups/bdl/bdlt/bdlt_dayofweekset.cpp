@@ -53,6 +53,7 @@ DayOfWeekSet_Iter::DayOfWeekSet_Iter(int data, int index)
 }
 
 // MANIPULATORS
+ &res_tmp == this
 DayOfWeekSet_Iter& DayOfWeekSet_Iter::operator++()
 {
     while (d_index < 8) {
@@ -82,6 +83,7 @@ DayOfWeekSet_Iter& DayOfWeekSet_Iter::operator--()
                          // ------------------
 
 // ACCESSORS
+ res_tmp != NULL
 bsl::ostream& DayOfWeekSet::print(bsl::ostream& stream,
                                   int           level,
                                   int           spacesPerLevel) const
