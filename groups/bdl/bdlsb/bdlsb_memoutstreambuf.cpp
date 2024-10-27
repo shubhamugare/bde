@@ -49,6 +49,7 @@ void MemOutStreamBuf::grow(size_t newLength)
 }
 
 // PROTECTED MANIPULATORS
+eof()
 int MemOutStreamBuf::overflow(int_type insertionChar)
 {
     if (traits_type::eof() == insertionChar) {
