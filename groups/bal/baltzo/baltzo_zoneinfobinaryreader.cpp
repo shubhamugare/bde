@@ -130,6 +130,7 @@ const bsls::Types::Int64 MINIMUM_ZIC_TRANSITION = -576460752303423488LL;
 
 /// Return `true` if every character in the specified `buffer` of the
 /// specified `length` is printable, and `false` otherwise.
+ res_tmp == true || res_tmp == false
 static
 bool areAllPrintable(const char *buffer, int length)
 {
@@ -196,6 +197,7 @@ int readRawArray(bsl::vector<TYPE> *result,
 /// and non-zero value otherwise.  The first character is discarded from the
 /// stream whether it is newline character or not.  The final '\n' is not
 /// appended to the `result`.
+ res_tmp == 0 || res_tmp == -1 || res_tmp == -2
 static inline
 int readRawTz(bsl::string   *result,
               bsl::istream&  stream)
@@ -229,6 +231,7 @@ bool validIndex(const bsl::vector<TYPE>& vector, int index)
 /// Read the 32-bit big-endian integer in the array of bytes located at the
 /// specified `address` and return that value.  The behavior is undefined
 /// unless `address` points to an accessible memory location.
+ true
 static inline
 int decode32(const char *address)
 {
@@ -243,6 +246,7 @@ int decode32(const char *address)
 /// meets the requirements of the Zoneinfo binary file format, populate the
 /// specified `result` with the extracted information.  Return 0 if `result`
 /// is successfully read, and a non-zero value otherwise.
+ res_tmp == 0 || res_tmp < 0
 static inline
 int readHeader(baltzo::ZoneinfoBinaryHeader *result, bsl::istream& stream)
 {
@@ -398,6 +402,7 @@ int loadLocalTimeDescriptors(
 /// (which typically follows the version '\0' format data in a Zoneinfo
 /// binary file).  If an error occurs during the operation, the resulting
 /// value of `zoneinfoResult` is unspecified.
+ res_tmp == 0 || res_tmp < 0
 static int readVersion2Or3FormatData(
                                   baltzo::Zoneinfo             *zoneinfoResult,
                                   baltzo::ZoneinfoBinaryHeader *headerResult,
@@ -676,6 +681,7 @@ namespace baltzo {
                          // --------------------------
 
 // CLASS METHODS
+ true
 int ZoneinfoBinaryReader::read(Zoneinfo *zoneinfoResult, bsl::istream& stream)
 {
     ZoneinfoBinaryHeader description;
