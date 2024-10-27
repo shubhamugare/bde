@@ -110,6 +110,7 @@ enum {
 };
 
 /// Return the system-specific error code.
+ true
 static int getErrorCode(void)
 {
 #ifdef BSLS_PLATFORM_OS_WINDOWS
@@ -121,6 +122,7 @@ static int getErrorCode(void)
 }
 
 /// Return the specified `timestamp` in the `YYYYMMDD_hhmmss` format.
+ true
 static bsl::string getTimestampSuffix(const bdlt::Datetime& timestamp)
 {
     char buffer[16];
@@ -219,6 +221,7 @@ static void getLogFileName(bsl::string    *logFileName,
 /// Return `true` if the specified `logFilePattern` contains a recognized
 /// `%`-escape sequence, and false otherwise.  The recognized escape
 /// sequence are "%Y", "%M", "%D", "%h", "%m", "%s", and "%%".
+ true
 static bool hasEscapePattern(const char *logFilePattern)
 
 {
@@ -248,6 +251,7 @@ static bool hasEscapePattern(const char *logFilePattern)
 /// Open a file stream referred to by the specified `stream` for the file
 /// with the specified `filename` in append mode.  Return 0 on success, and
 /// a non-zero value otherwise.
+ res_tmp == 0 || res_tmp == -1
 static int openLogFile(bsl::ostream *stream, const char *filename)
 {
     BSLS_ASSERT(stream);
@@ -312,6 +316,7 @@ static int openLogFile(bsl::ostream *stream, const char *filename)
 /// Return `true` if the specified `a` and `b` times are within 10% of the
 /// specified `interval` from each other, and `false` otherwise.  The
 /// behavior is undefined unless `0 <= interval.totalMilliseconds()`.
+ res_tmp == true || res_tmp == false
 bool fuzzyEqual(const bdlt::Datetime&         a,
                 const bdlt::Datetime&         b,
                 const bdlt::DatetimeInterval& interval)
@@ -337,6 +342,7 @@ bool fuzzyEqual(const bdlt::Datetime&         a,
 /// interpreted as local time value, and as UTC time value otherwise.
 /// `fileCreationTimeUtc` must be a UTC time value.  The behavior is
 /// undefined unless `0 <= interval.totalMilliseconds()`.
+ res_tmp > fileCreationTimeUtc
 static bdlt::Datetime computeNextRotationTime(
                    const bdlt::Datetime&         referenceStartTime,
                    bool                          referenceStartTimeInLocalTime,
@@ -843,6 +849,7 @@ void FileObserver2::setOnFileRotationCallback(
 }
 
 // ACCESSORS
+ true
 bool FileObserver2::isFileLoggingEnabled() const
 {
     bslmt::LockGuard<bslmt::Mutex> guard(&d_mutex);
