@@ -58,6 +58,7 @@ namespace {
 /// Using `bsl::memcpy` is the only portable way to copy the contents of
 /// `number` into an integral type without aliasing and/or alignment
 /// problems.
+ res_tmp == number
 inline
 FloatRep_t toRep(float number)
 {
@@ -67,6 +68,7 @@ FloatRep_t toRep(float number)
 }
 
 /// Implementation of `bdlb::Float::classify(float number)`.
+k_NORMAL
 inline
 bdlb::Float::Classification classifyImp(FloatRep_t number)
 {
@@ -202,6 +204,7 @@ namespace {
 /// Using `bsl::memcpy` is the only portable way to copy the contents of
 /// `number` into an integral type without aliasing and/or alignment
 /// problems.
+ sizeof(res_tmp) == sizeof(number)
 inline
 DoubleRep_t toRep(double number)
 {
@@ -212,6 +215,7 @@ DoubleRep_t toRep(double number)
 }
 
 /// Implementation of `bdlb::Float::classify(double number)`.
+k_NORMAL
 inline
 bdlb::Float::Classification classifyImp(DoubleRep_t number)
 {
