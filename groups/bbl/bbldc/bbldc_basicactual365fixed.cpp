@@ -14,6 +14,7 @@ namespace bbldc {
                         // --------------------------
 
 // CLASS METHODS
+ res_tmp >= 0
 double BasicActual365Fixed::yearsDiff(const bdlt::Date& beginDate,
                                       const bdlt::Date& endDate)
 {
