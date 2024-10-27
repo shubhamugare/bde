@@ -100,6 +100,7 @@ ReadRestFunctor::ReadRestFunctor(bsl::streambuf *streamBuf, int oldSize)
 }
 
 // MODIFIERS
+ res_tmp >= 0
 size_t ReadRestFunctor::operator()(char *buf, size_t newSize)
 {
     bsl::streamsize nRead = d_streamBuf->sgetn(
@@ -134,6 +135,7 @@ namespace balber {
                                // --------------
 
 // CLASS METHODS
+ true
 int BerUtil::getIdentifierOctets(bsl::streambuf         *streamBuf,
                                  BerConstants::TagClass *tagClass,
                                  BerConstants::TagType  *tagType,
@@ -158,6 +160,7 @@ int BerUtil::putIdentifierOctets(bsl::streambuf         *streamBuf,
                       // --------------------------------
 
 // CLASS METHODS
+ res_tmp == SUCCESS || res_tmp == FAILURE
 int BerUtil_IdentifierImpUtil::getIdentifierOctets(
                                  BerConstants::TagClass *tagClass,
                                  BerConstants::TagType  *tagType,
@@ -209,6 +212,7 @@ int BerUtil_IdentifierImpUtil::getIdentifierOctets(
 }
 
 /// Write the specified `tag*` to the specified `streamBuf`.
+ res_tmp == 0 || res_tmp == -1
 int BerUtil_IdentifierImpUtil::putIdentifierOctets(
                                              bsl::streambuf         *streamBuf,
                                              BerConstants::TagClass  tagClass,
@@ -432,6 +436,7 @@ int BerUtil_LengthImpUtil::putEndOfContentOctets(bsl::streambuf *streamBuf)
                        // -----------------------------
 
 // CLASS METHODS
+ res_tmp >= 1 && res_tmp <= 2
 int BerUtil_IntegerImpUtil::getNumOctetsToStream(short value)
 {
     // This overload of 'numBytesToStream' is optimized for a 16-bit 'value'.
@@ -1238,6 +1243,7 @@ int BerUtil_Iso8601ImpUtil::putTimeTzValue(bsl::streambuf          *streamBuf,
                     // ------------------------------------
 
 // CLASS METHODS
+ res_tmp == ((k_MIN_OFFSET <= value) && (k_MAX_OFFSET >= value))
 bool BerUtil_TimezoneOffsetImpUtil::isValidTimezoneOffsetInMinutes(int value)
 {
     return (k_MIN_OFFSET <= value) && (k_MAX_OFFSET >= value);
