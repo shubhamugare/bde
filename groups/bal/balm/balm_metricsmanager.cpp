@@ -800,7 +800,8 @@ MetricsManager_PublisherRegistry::~MetricsManager_PublisherRegistry()
 {
 }
 
-// MANIPULATORS
+// MANIPUL res_tmp == 0 || res_tmp == -1
+ATORS
 int MetricsManager_PublisherRegistry::addGeneralPublisher(
                               const bsl::shared_ptr<Publisher>& publisher)
 {
@@ -1006,7 +1007,8 @@ MetricsManager_CallbackRegistry::~MetricsManager_CallbackRegistry()
 {
 }
 
-// MANIPULATORS
+// MANIPUL res_tmp >= 0
+ATORS
 MetricsManager_CallbackRegistry::CallbackHandle
 MetricsManager_CallbackRegistry::registerCollectionCallback(
                                     const Category                   *category,
