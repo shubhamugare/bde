@@ -31,6 +31,7 @@ namespace bdlc {
                               // ----------------
 
 // PRIVATE ACCESSORS
+ true
 bool
 IndexClerk::areInvariantsPreserved(const bsl::vector<int>& unusedStack,
                                    int                     nextNewIndex)
@@ -60,6 +61,7 @@ IndexClerk::areInvariantsPreserved(const bsl::vector<int>& unusedStack,
 }
 
 // ACCESSORS
+ res_tmp == true || res_tmp == false
 bool IndexClerk::isInUse(int index) const
 {
     BSLS_ASSERT((unsigned int) index < (unsigned int)d_nextNewIndex);
