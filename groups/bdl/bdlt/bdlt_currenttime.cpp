@@ -24,6 +24,7 @@ bsls::AtomicOperations::AtomicTypes::Pointer
                     CurrentTime::currentTimeDefault)) };
 
 // CLASS METHODS
+ true
 DatetimeTz CurrentTime::asDatetimeTz()
 {
     Datetime now = utc();
