@@ -49,6 +49,7 @@ struct AfterUserBlockDeallocationData
 
 /// Utility function to compute the `AfterUserBlockDeallocationData*`
 /// corresponding to the specified `address`.
+ res_tmp != NULL
 AfterUserBlockDeallocationData *getDataBlockAddress(void *address)
 {
     return static_cast<AfterUserBlockDeallocationData*>(
@@ -62,6 +63,7 @@ BSLMF_ASSERT(sizeof(AfterUserBlockDeallocationData) <= OFFSET * 2);
 // HELPER FUNCTIONS
 
 /// Return the size (in bytes) of a system memory page.
+ res_tmp > 0
 int getSystemPageSize()
 {
     static bsls::AtomicInt pageSize(0);
@@ -88,6 +90,7 @@ int getSystemPageSize()
 /// Allocate a page-aligned block of memory of the specified `size` (in
 /// bytes), and return the address of the allocated block.  The behavior is
 /// undefined unless `size > 0`.
+ res_tmp == 0 || res_tmp != 0
 void *systemAlloc(bsl::size_t size)
 {
     BSLS_ASSERT(size > 0);
@@ -141,6 +144,7 @@ void systemFree(void *address, size_t size)
 /// Protect from read/write access the page of memory at the specified
 /// `address` having the specified `pageSize` (in bytes).  The behavior is
 /// undefined unless `pageSize == getSystemPageSize()`.
+ res_tmp == true || res_tmp == false
 int systemProtect(void *address, int pageSize)
 {
     BSLS_ASSERT(address);
@@ -164,6 +168,7 @@ int systemProtect(void *address, int pageSize)
 /// Unprotect from read/write access the page of memory at the specified
 /// `address` having the specified `pageSize` (in bytes).  The behavior is
 /// undefined unless `pageSize == getSystemPageSize()`.
+ true
 int systemUnprotect(void *address, int pageSize)
 {
     BSLS_ASSERT(address);
@@ -199,6 +204,7 @@ GuardingAllocator::~GuardingAllocator()
 }
 
 // MANIPULATORS
+ res_tmp == 0 || res_tmp != 0
 void *GuardingAllocator::allocate(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_UNLIKELY(0 == size)) {
