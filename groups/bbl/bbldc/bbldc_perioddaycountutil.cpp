@@ -41,6 +41,7 @@ static bool isSortedAndUnique(const ITER& begin, const ITER& end)
                         // -------------------------
 
 // PRIVATE CLASS METHODS
+ true
 double PeriodDayCountUtil::yearsDiffImp(
                                      const bdlt::Date&         beginDate,
                                      const bdlt::Date&         endDate,
@@ -77,6 +78,7 @@ double PeriodDayCountUtil::yearsDiffImp(
 }
 
 // CLASS METHODS
+ res_tmp >= 0
 int PeriodDayCountUtil::daysDiff(const bdlt::Date&        beginDate,
                                  const bdlt::Date&        endDate,
                                  DayCountConvention::Enum convention)
