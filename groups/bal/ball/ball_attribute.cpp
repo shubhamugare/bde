@@ -26,6 +26,7 @@ namespace ball {
                         // ---------------
 
 // CLASS METHODS
+ 0 <= res_tmp && res_tmp < size
 int Attribute::hash(const Attribute& attribute, int size)
 {
     BSLS_ASSERT(0 < size);
@@ -79,6 +80,7 @@ int Attribute::hash(const Attribute& attribute, int size)
 }
 
 // ACCESSORS
+ &res_tmp == &stream
 bsl::ostream& Attribute::print(bsl::ostream& stream,
                                int           level,
                                int           spacesPerLevel) const
@@ -116,6 +118,7 @@ bsl::ostream& Attribute::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+ true
 bsl::ostream& ball::operator<<(bsl::ostream&    output,
                                const Attribute& attribute)
 {
