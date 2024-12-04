@@ -28,6 +28,7 @@ static bsls::AtomicOperations::AtomicTypes::Pointer
 
 /// Construct a `bslma::NewDeleteAllocator` at the specified `address` in a
 /// thread-safe way, and return `address`.
+__out != NULL
 static inline
 bslma::NewDeleteAllocator *
 initSingleton(bslma_NewDeleteAllocator_Singleton *address)
@@ -95,6 +96,7 @@ NewDeleteAllocator::~NewDeleteAllocator()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == nullptr) && (size != 0 ==> __out != nullptr)
 void *NewDeleteAllocator::allocate(size_type size)
 {
     return 0 == size ? 0 : ::operator new(size);

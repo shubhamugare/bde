@@ -403,6 +403,7 @@ static void append(unsigned int *state, const unsigned char *data)
 
 /// Return the number of bytes in use in the buffer for the total specified
 /// `length`.
+0 <= __out && __out <= 63
 inline
 static int getLengthInUse(bsls::Types::Int64 length)
 {
@@ -646,6 +647,7 @@ bsl::ostream& Md5::print(bsl::ostream& stream) const
 }  // close package namespace
 
 // FREE OPERATORS
+(lhs.d_length == rhs.d_length && 0 == bsl::memcmp(lhs.d_buffer, rhs.d_buffer, (sizeof *lhs.d_buffer) * getLengthInUse(lhs.d_length))) ==> __out == true
 bool bdlde::operator==(const Md5& lhs, const Md5& rhs)
 {
     if (lhs.d_length != rhs.d_length

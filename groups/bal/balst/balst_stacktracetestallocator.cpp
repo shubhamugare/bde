@@ -89,6 +89,7 @@ static const UintPtr k_DEALLOCATED_BLOCK_MAGIC = 1999999991 + HIGH_ONES;
 /// `specifiedMaxRecordedFrames`.  The specify value may need to be
 /// adjusted upward to include room for ignored frames, and for the buffer
 /// size in bytes being a multiple of `k_MAX_ALIGNMENT`.
+__out >= specifiedMaxRecordedFrames && __out % k_PTRS_PER_MAX == 0
 static
 int getTraceBufferLength(int specifiedMaxRecordedFrames)
 {
@@ -175,6 +176,7 @@ StackTraceTestAllocator::BlockHeader::BlockHeader(
                  // ------------------------------------------
 
 // PRIVATE ACCESSORS
+__out == 0 || __out == -1) POST(__out == 0 || __out == -1
 int StackTraceTestAllocator::checkBlockHeader(
                                              const BlockHeader *blockHdr) const
 {
@@ -337,6 +339,7 @@ StackTraceTestAllocator::~StackTraceTestAllocator()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *StackTraceTestAllocator::allocate(size_type size)
 {
     // All updates are protected by a mutex lock, so as to not interleave the
@@ -526,6 +529,7 @@ void StackTraceTestAllocator::setOstream(bsl::ostream *ostream)
 }
 
 // ACCESSORS
+__out == d_allocationLimit
 bsls::Types::Int64 StackTraceTestAllocator::allocationLimit() const
 {
     return d_allocationLimit.loadRelaxed();

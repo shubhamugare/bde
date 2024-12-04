@@ -38,6 +38,7 @@ BSLS_IDENT_RCSID(balst_stacktraceutil_cpp,"$Id$ $CSID$")
 /// address.  If there are no separator characters, return the address of
 /// the first character of `pathName`.  If the last character of `pathName`
 /// is a separator charactor, return the address of the terminating '\0'.
+__out >= pathName && __out <= pathName + bsl::strlen(pathName)
 static
 const char *findBasename(const char *pathName)
 {

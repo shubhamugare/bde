@@ -286,6 +286,7 @@ namespace baltzo {
                          // --------------------------
 
 // CLASS METHODS
+(__out == -1 ==> *result == nullptr) || (__out == 0 ==> *result != nullptr)
 int WindowsTimeZoneUtil::getZoneinfoId(const char **result,
                                        const char  *windowsTimeZoneId)
 {

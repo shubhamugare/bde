@@ -147,6 +147,7 @@ void CategoryProctor::release()
                     // ---------------------
 
 // PRIVATE MANIPULATORS
+__out != NULL
 Category *CategoryManager::addNewCategory(const char *categoryName,
                                           int         recordLevel,
                                           int         passLevel,

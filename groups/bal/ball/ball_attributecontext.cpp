@@ -106,6 +106,7 @@ AttributeContext_RuleEvaluationCache::update(
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream&
 AttributeContext_RuleEvaluationCache::print(bsl::ostream& stream,
                                             int           level,
@@ -213,6 +214,7 @@ void AttributeContext::removeContext(void *arg)
 }
 
 // CLASS METHODS
+__out != NULL
 AttributeContext *AttributeContext::getContext()
 {
 #ifdef BSLMT_THREAD_LOCAL_VARIABLE
@@ -422,6 +424,7 @@ AttributeContext::determineThresholdLevels(ThresholdAggregate *levels,
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& AttributeContext::print(bsl::ostream& stream,
                                       int           level,
                                       int           spacesPerLevel) const

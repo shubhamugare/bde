@@ -54,6 +54,7 @@ void Category::registerCategoryHolder(CategoryHolder *holder)
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& Category::print(bsl::ostream& stream) const
 {
     stream << "[ " << d_name_p << (d_enabled ? " ENABLED ]" : " DISABLED ]");

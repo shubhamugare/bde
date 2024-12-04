@@ -56,6 +56,7 @@ MetricSample::MetricSample(const MetricSample&  original,
 }
 
 // MANIPULATORS
+(__out.d_records == rhs.d_records) && (__out.d_timeStamp == rhs.d_timeStamp) && (__out.d_numRecords == rhs.d_numRecords)
 MetricSample& MetricSample::operator=(const MetricSample& rhs)
 {
     if (this != &rhs) {
@@ -67,6 +68,7 @@ MetricSample& MetricSample::operator=(const MetricSample& rhs)
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& MetricSample::print(bsl::ostream& stream,
                                   int           level,
                                   int           spacesPerLevel) const

@@ -417,6 +417,7 @@ bsl::ostream& Option::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+__out == (static_cast<const OptionInfo&>(lhs) == static_cast<const OptionInfo&>(rhs))
 bool balcl::operator==(const Option& lhs, const Option& rhs)
 {
     return static_cast<const OptionInfo&>(lhs)

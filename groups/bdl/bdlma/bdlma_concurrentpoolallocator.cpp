@@ -142,6 +142,7 @@ ConcurrentPoolAllocator::~ConcurrentPoolAllocator()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *ConcurrentPoolAllocator::allocate(size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_UNLIKELY(0 == size)) {

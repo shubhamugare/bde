@@ -13,6 +13,7 @@ namespace BloombergLP {
                         // ---------------------------
 
 // FREE OPERATORS
+__out == stream
 bsl::ostream& operator<<(bsl::ostream&               stream,
                          const bdlat_EnumeratorInfo& enumeratorInfo)
 {

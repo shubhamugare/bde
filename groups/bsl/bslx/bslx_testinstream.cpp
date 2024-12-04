@@ -132,6 +132,7 @@ TestInStream::~TestInStream()
 }
 
 // MANIPULATORS
+&__out == this
 TestInStream& TestInStream::getLength(int& variable)
 {
     if (length() - cursor() < k_SIZEOF_CODE + Util::k_SIZEOF_INT8) {
@@ -843,6 +844,7 @@ TestInStream& TestInStream::getArrayFloat32(float *variables, int numVariables)
 }
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& operator<<(bsl::ostream& stream, const TestInStream& object)
 {
     const bsl::size_t   len   = object.length();

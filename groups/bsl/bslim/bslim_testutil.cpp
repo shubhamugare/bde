@@ -14,6 +14,7 @@ namespace bslim {
                         // --------------
 
 // CLASS METHODS
+(__out == true ==> lhs.length() == rhs.length() && lhs == rhs) && (__out == false ==> lhs.length() != rhs.length() || lhs != rhs)
 bool TestUtil::compareText(bslstl::StringRef lhs,
                            bslstl::StringRef rhs,
                            bsl::ostream&     errorStream)

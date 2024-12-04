@@ -144,6 +144,7 @@ AsyncFileObserver_Record createStopRecord()
 /// Return `true` if the specified `record` was created by
 /// `createStopRecord` and `false` otherwise.  Note that this record is used
 /// by `stopThread` to signal to the publication thread to stop.
+__out == (0 == record.d_record.get())
 bool isStopRecord(const AsyncFileObserver_Record& record)
 {
     return 0 == record.d_record.get();

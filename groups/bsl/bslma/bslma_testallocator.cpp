@@ -412,6 +412,7 @@ TestAllocator::~TestAllocator()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)) POST((size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *TestAllocator::allocate(size_type size)
 {
     // All updates are protected by a mutex lock, so as to not interleave the
@@ -704,6 +705,7 @@ void TestAllocator::deallocate(void *address)
 }
 
 // PRIVATE ACCESSORS
+output[__out] == '\0'
 std::size_t
 TestAllocator::formatEightBlockIds(const TestAllocator_BlockHeader** blockList,
                                    char*                             output)

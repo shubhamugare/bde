@@ -157,6 +157,7 @@ static void recolorTreeAfterRemoval(RbTreeAnchor *tree,
                         // class RbTreeUtil
                         // ----------------
 // CLASS METHODS
+__out->leftChild() == NULL
 const RbTreeNode *RbTreeUtil::leftmost(const RbTreeNode *subtree)
 {
     BSLS_ASSERT(subtree);

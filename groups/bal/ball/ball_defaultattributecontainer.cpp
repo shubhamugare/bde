@@ -21,6 +21,7 @@ int DefaultAttributeContainer::AttributeHash::s_hashtableSize = INT_MAX;
 int DefaultAttributeContainer::s_initialSize = 8;
 
 // MANIPULATORS
+__out.size() == rhs.size() && __out.getAllAttributes() == rhs.getAllAttributes()
 DefaultAttributeContainer&
 DefaultAttributeContainer::operator=(const DefaultAttributeContainer& rhs)
 {
@@ -66,6 +67,7 @@ void DefaultAttributeContainer::visitAttributes(
 }  // close package namespace
 
 // FREE OPERATORS
+(__out == true) || (__out == false)
 bool ball::operator==(const DefaultAttributeContainer& lhs,
                       const DefaultAttributeContainer& rhs)
 {

@@ -222,6 +222,7 @@ void Capacity::operator-=(int delta)
 
 /// Return `true` if `d_capacity` is less than the specified `rhs`, and
 /// `false` otherwise.
+__out == (d_capacity < rhs)
 inline
 bool Capacity::operator<( bsl::size_t rhs) const
 {
@@ -230,6 +231,7 @@ bool Capacity::operator<( bsl::size_t rhs) const
 
 /// Return `true` if `d_capacity` is greater than or equal to the specified
 /// `rhs`, and `false` otherwise.
+(__out == true) == (d_capacity >= rhs)
 inline
 bool Capacity::operator>=(bsl::size_t rhs) const
 {
@@ -296,6 +298,7 @@ void NoopCapacity::operator-=(int)
 // ACCESSORS
 
 /// Return `false`.
+__out == false
 inline
 bool NoopCapacity::operator<( bsl::size_t) const
 {
@@ -403,6 +406,7 @@ Utf8PtrBasedEnd::Utf8PtrBasedEnd(const char *end)
 {}
 
 // ACCESSORS
+(position < d_end ==> __out == false) && (position >= d_end ==> __out == true)
 inline
 bool Utf8PtrBasedEnd::isFinished(const OctetType *position) const
 {
@@ -498,6 +502,7 @@ Utf8ZeroBasedEnd::Utf8ZeroBasedEnd()
 }
 
 // ACCESSORS
+(__out == true ==> *position == 0) && (__out == false ==> *position != 0)
 inline
 bool Utf8ZeroBasedEnd::isFinished(const OctetType *position) const
 {
@@ -580,6 +585,7 @@ Utf32PtrBasedEnd::Utf32PtrBasedEnd(const unsigned int *end)
 {}
 
 // ACCESSORS
+(__out == true ==> position == d_end_p) && (__out == false ==> position < d_end_p)
 inline
 bool Utf32PtrBasedEnd::isFinished(const unsigned int *position) const
 {
@@ -620,6 +626,7 @@ Utf32ZeroBasedEnd::Utf32ZeroBasedEnd()
 }
 
 // ACCESSORS
+__out == (*position == 0)
 inline
 bool Utf32ZeroBasedEnd::isFinished(const unsigned int *position) const
 {
@@ -632,6 +639,7 @@ bool Utf32ZeroBasedEnd::isFinished(const unsigned int *position) const
 /// `static_cast` does not work here, and the idea is to be sure in these
 /// casts that one is never accidentally casting between pointers to `char`
 /// or `OctetType` and pointers to `unsigned int`.
+reinterpret_cast<const char*>(__out) == ptr
 static inline
 const OctetType *constOctetCast(const char *ptr)
 {
@@ -643,6 +651,7 @@ const OctetType *constOctetCast(const char *ptr)
 /// `static_cast` does not work here, and the idea is to be sure in these
 /// casts that one is never accidentally casting between pointers to `char`
 /// or `OctetType` and pointers to `unsigned int`.
+reinterpret_cast<char*>(__out) == ptr
 static inline
 OctetType *octetCast(char *ptr)
 {

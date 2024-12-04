@@ -52,6 +52,7 @@ ControlManager::~ControlManager()
 { }
 
 // MANIPULATORS
+__out == 0 || __out == 1
 int ControlManager::registerHandler(const bsl::string_view& prefix,
                                     const bsl::string_view& arguments,
                                     const bsl::string_view& description,

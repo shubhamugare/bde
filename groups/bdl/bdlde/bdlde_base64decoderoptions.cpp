@@ -37,6 +37,7 @@ bsl::ostream& Base64DecoderOptions::print(bsl::ostream& stream,
 // inline in anticipation of their being rarely used.
 
 // FREE FUNCTIONS
+__out == ((lhs.ignoreMode() == rhs.ignoreMode()) && (lhs.alphabet() == rhs.alphabet()) && (lhs.isPadded() == rhs.isPadded()))
 bool bdlde::operator==(const bdlde::Base64DecoderOptions& lhs,
                        const bdlde::Base64DecoderOptions& rhs)
 {

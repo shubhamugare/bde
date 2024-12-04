@@ -64,6 +64,7 @@ bool isPrefix(const char *candidatePrefix, const char *string)
 namespace balm {
 
 // PRIVATE MANIPULATORS
+(__out.second == false ==> d_metrics.find(MetricId(__out.first)) != d_metrics.end()) && (__out.second == true ==> d_metrics.find(MetricId(__out.first)) == d_metrics.end() || d_metrics.count(MetricId(__out.first)) == 1)
 bsl::pair<MetricId, bool>
 MetricRegistry::insertId(const char *category, const char *name)
 {
@@ -172,6 +173,7 @@ MetricRegistry::~MetricRegistry()
 }
 
 // MANIPULATORS
+(__out != MetricId()) || (__out == MetricId())
 MetricId MetricRegistry::addId(const char *category,
                                const char *name)
 {
@@ -393,6 +395,7 @@ MetricDescription::UserDataKey MetricRegistry::createUserDataKey()
 }
 
 // ACCESSORS
+__out >= 0
 bsl::size_t MetricRegistry::numMetrics() const
 {
     bslmt::ReadLockGuard<bslmt::RWMutex> guard(&d_lock);

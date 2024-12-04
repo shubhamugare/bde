@@ -94,6 +94,7 @@ void concatenatePath(STRING             *result,
 
 /// Returns 0 if the specified `timeZoneId` contains only valid characters
 /// and does not start with `/`, and a non-zero value otherwise.
+__out == -1 || __out == -2 || __out == 0
 int validateTimeZoneId(const char *timeZoneId)
 {
     BSLS_ASSERT(timeZoneId);
@@ -151,6 +152,7 @@ int loadTimeZoneFilePath_Impl(STRING             *result,
 /// A return status of `ErrorCode::k_UNSUPPORTED_ID` indicates that
 /// `timeZoneId` is not recognized.  If an error occurs during this
 /// operation, `result` will be left in a valid, but unspecified state.
+(!loader.isRootPathPlausible() && !infile.is_open() ==> __out <= 0)
 int loadTimeZoneImpl(baltzo::Zoneinfo              *result,
                      const baltzo::DataFileLoader&  loader,
                      const char                    *timeZoneId,
@@ -206,6 +208,7 @@ namespace baltzo {
                             // --------------------
 
 // CLASS METHODS
+(!bdls::FilesystemUtil::isDirectory(path, true) ==> !__out) && (__out ==> bdls::FilesystemUtil::isRegularFile(u::concatenatePath(bsl::string(), path, "GMT").c_str(), true))
 bool DataFileLoader::isPlausibleZoneinfoRootPath(const char *path)
 {
     BSLS_ASSERT(path);

@@ -66,6 +66,7 @@ bsl::ostream& MetricFormatSpec::formatValue(bsl::ostream&           stream,
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& MetricFormatSpec::print(bsl::ostream& stream,
                                       int           level,
                                       int           spacesPerLevel) const
@@ -104,6 +105,7 @@ void MetricFormat::clearFormatSpec(
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& MetricFormat::print(bsl::ostream& stream,
                                   int      level,
                                   int      spacesPerLevel) const

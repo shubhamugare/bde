@@ -23,6 +23,7 @@ namespace ball {
                          // ----------
 
 // CLASS METHODS
+__out >= 0 && __out < size
 int Rule::hash(const Rule& rule, int size)
 {
     BSLS_ASSERT(0 < size);
@@ -53,6 +54,7 @@ Rule& Rule::operator=(const Rule& rhs)
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& Rule::print(bsl::ostream& stream,
                           int           level,
                           int           spacesPerLevel) const

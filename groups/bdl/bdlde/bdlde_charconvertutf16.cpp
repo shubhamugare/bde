@@ -414,7 +414,8 @@ struct Utf8 {
         {}
 
         // ACCESSORS
-        bool isFinished(const OctetType *position) const
+        (position < d_end ==> !__out) && (position == d_end ==> __out)
+bool isFinished(const OctetType *position) const
             // Return 'true' if the specified 'position' is at the end of
             // input, and 'false' otherwise.  The behavior is undefined unless
             // 'position <= d_end'.
@@ -428,7 +429,8 @@ struct Utf8 {
             }
         }
 
-        const OctetType *skipContinuations(const OctetType *octets) const
+        (__out >= octets) && ((__out == d_end) || ((*__out & CONTINUE_MASK) != CONTINUE_TAG))
+const OctetType *skipContinuations(const OctetType *octets) const
             // Return a pointer to after all the consecutive continuation
             // bytes following the specified 'octets' that are prior to
             // 'd_end'.  The behavior is undefined unless 'octets <= d_end'.
@@ -482,14 +484,16 @@ struct Utf8 {
         }
 
         // ACCESSORS
-        bool isFinished(const OctetType *position) const
+        __out == (*position == 0)
+bool isFinished(const OctetType *position) const
             // Return 'true' if the specified 'position' is at the end of
             // input, and 'false' otherwise.
         {
             return 0 == *position;
         }
 
-        const OctetType *skipContinuations(const OctetType *octets) const
+        (*__out & CONTINUE_MASK) != CONTINUE_TAG
+const OctetType *skipContinuations(const OctetType *octets) const
             // Return a pointer to after all the consecutive continuation
             // bytes following the specified 'octets'.  The behavior is
             // undefined unless 'octets <= d_end'.
@@ -567,7 +571,8 @@ struct Utf8 {
         return (oct & THREE_OCTET_MASK) == THREE_OCTET_TAG;
     }
 
-    static
+    (__out == true) == ((oct & FOUR_OCTET_MASK) == FOUR_OCTET_TAG)
+static
     bool isFourOctetHeader(OctetType oct)
         // Return 'true' if the specified 'oct' is the start of a four-octet
         // sequence, and 'false' otherwise.
@@ -634,7 +639,8 @@ struct Utf8 {
     //    code point (i.e., that it does not lie in the d800-to-dfff reserved
     //    range).
 
-    static
+    __out == (0 == (uc & ~UnicodeCodePoint(0) << ONE_OCT_CONT_WID))
+static
     bool fitsInSingleOctet(UnicodeCodePoint uc)
         // Return 'true' if the specified Unicode code point 'uc' will fit in a
         // single octet of UTF-8, and 'false' otherwise.
@@ -749,7 +755,8 @@ struct Utf16 {
             // 'end'.
 
         // ACCESSORS
-        bool isFinished(const UTF16_WORD *utf16Buf) const
+        (utf16Buf < d_end ==> !__out) && (utf16Buf >= d_end ==> __out)
+bool isFinished(const UTF16_WORD *utf16Buf) const
             // Return 'true' if the specified 'utf16Buf' is at the end of
             // input, and 'false' otherwise.
         {
@@ -776,7 +783,8 @@ struct Utf16 {
         }
 
         // ACCESSORS
-        bool isFinished(const UTF16_WORD *u16Buf) const
+        (!*u16Buf ==> __out == true) && (*u16Buf != 0 ==> __out == false)
+bool isFinished(const UTF16_WORD *u16Buf) const
             // Return 'true' if the specified 'utf16Buf' is at the end of
             // input, and 'false' otherwise.
         {
@@ -873,7 +881,8 @@ struct Utf16 {
     //     invalid result for a code point that can be encoded in a single
     //     word.
 
-    static
+    __out == (uc < RESERVE_OFFSET)
+static
     bool fitsInOneWord(UnicodeCodePoint uc)
         // Return 'true' if the specified 'uc' will fit in a single word of
         // UTF-16, and 'false' otherwise.
@@ -898,7 +907,8 @@ struct Utf16 {
         return uc < UPPER_LIMIT;
     }
 
-    static
+    __out == RESERVE_OFFSET + (((first & ~HEADER_MASK) << CONTENT_CONT_WID) | (second & ~HEADER_MASK))
+static
     UnicodeCodePoint combineTwoWords(UnicodeCodePoint first,
                                      UnicodeCodePoint second)
         // Assume that the specified 'first' is a valid first word of a 2-word
@@ -973,7 +983,8 @@ struct NoOpSwapper {
     // to be in host byte order.
 
     // CLASS METHODS
-    static
+    __out == *u16Buf
+static
     UnicodeCodePoint decodeSingleWord(const UTF16_WORD *u16Buf)
         // Return the Unicode code point version of the specified '*utf16Buf'
         // in host byte order.  'utf16Buf' points to a single-word Unicode code
@@ -982,7 +993,8 @@ struct NoOpSwapper {
         return *u16Buf;
     }
 
-    static
+    __out == static_cast<UTF16_WORD>(uc)
+static
     UTF16_WORD encodeSingleWord(UnicodeCodePoint uc)
         // Return the single-word encoding of the specified 'uc' in host byte
         // order.  The 'uc' is a Unicode code point encodable as a single

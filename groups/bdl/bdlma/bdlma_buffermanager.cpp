@@ -14,6 +14,7 @@ namespace bdlma {
                            // -------------------
 
 // MANIPULATORS
+(static_cast<char *>(address) + size == d_buffer_p + d_cursor) ==> __out == size + d_bufferSize - d_cursor || __out == size
 bsls::Types::size_type BufferManager::expand(void                   *address,
                                              bsls::Types::size_type  size)
 {

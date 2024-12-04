@@ -160,6 +160,7 @@ const char* ComponentName::str() const
 /// characters that compare equal.  Since the compare operation dereferences
 /// this type, and this type has two non-reference values (empty and error):
 /// The behavior is undefined if either `lhs` or `rhs` is empty or an error.
+(lhs.length() == rhs.length() && 0 == memcmp(lhs.str(), rhs.str(), lhs.length())) ==> __out == true
 bool operator==(const ComponentName& lhs, const ComponentName& rhs)
 {
     return lhs.length() == rhs.length() &&
@@ -170,6 +171,7 @@ bool operator==(const ComponentName& lhs, const ComponentName& rhs)
 /// names are considered the same in testing:
 /// * If either of the names was missing, we assume they are the same.
 /// * If both component names are provided they must match, including case.
+__out == (testName.isEmpty() || throwName.isEmpty() || throwName == testName)
 static
 bool areTheSameComponent(const ComponentName& throwName,
                          const ComponentName& testName)

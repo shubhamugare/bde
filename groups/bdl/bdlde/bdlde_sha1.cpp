@@ -97,6 +97,7 @@ static Sha1Word f(Sha1Word x, Sha1Word y, Sha1Word z, int index)
 /// indicated by the specified `bytes` interpreted as a big-endian integer
 /// of type `Word`.  The behavior is undefined unless
 /// `[bytes, bytes + sizeof(INTEGER))` is a valid range.
+(__out == 0) == (std::all_of(bytes, bytes + sizeof(Sha1Word), [](unsigned char c){ return c == 0;}))
 static Sha1Word pack(const unsigned char *bytes)
 {
     bsl::size_t shift = sizeof(Sha1Word) * CHAR_BIT;
@@ -360,6 +361,7 @@ bsl::ostream& Sha1::print(bsl::ostream& stream) const
 }  // close package namespace
 
 // FREE OPERATORS
+__out == ((lhs.d_totalSize == rhs.d_totalSize) && (lhs.d_bufferSize == rhs.d_bufferSize) && (bsl::equal(lhs.d_buffer, lhs.d_buffer + lhs.d_bufferSize, rhs.d_buffer)) && (bsl::equal(bsl::begin(lhs.d_state), bsl::end(lhs.d_state), bsl::begin(rhs.d_state))))
 bool bdlde::operator==(const Sha1& lhs, const Sha1& rhs)
 {
     return lhs.d_totalSize == rhs.d_totalSize &&
