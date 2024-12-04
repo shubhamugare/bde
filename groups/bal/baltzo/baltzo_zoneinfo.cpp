@@ -44,6 +44,7 @@ namespace baltzo {
                           // ------------------------
 
 // ACCESSORS
+__out == stream
 bsl::ostream&
 ZoneinfoTransition::print(bsl::ostream& stream,
                           int           level,
@@ -98,6 +99,7 @@ ZoneinfoTransition::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& baltzo::operator<<(bsl::ostream&             stream,
                                  const ZoneinfoTransition& object)
 {
@@ -346,6 +348,7 @@ bsl::ostream& Zoneinfo::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& baltzo::operator<<(bsl::ostream& stream, const Zoneinfo& object)
 {
     stream << "[ \"" << object.identifier() << "\" "

@@ -12,6 +12,7 @@ namespace bsltf {
                      // ----------------
 
 // CLASS METHODS
+(value == NOT_MOVED && std::strcmp(__out, "NOT_MOVED") == 0) || (value == MOVED && std::strcmp(__out, "MOVED") == 0) || (value == UNKNOWN && std::strcmp(__out, "UNKNOWN") == 0) || (std::strcmp(__out, "(* UNKNOWN *)") == 0)
 const char *MoveState::toAscii(MoveState::Enum value)
 {
 #define CASE(X) case(e_ ## X): return #X;

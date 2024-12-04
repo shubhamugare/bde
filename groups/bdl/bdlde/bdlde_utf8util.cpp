@@ -85,6 +85,7 @@ bool BSLA_UNUSED isValidUtf8CodePoint(const char *sequence)
 /// Return the length of the UTF-8 code point for which the specified
 /// `character` is the first `char`.  The behavior is undefined unless
 /// `character` is the first `char` of a UTF-8 code point.
+__out == 1 || __out == 2 || __out == 3 || __out == 4
 int utf8Size(char character)
 {
     if ((character & k_ONEBYTEHEAD_TEST) == k_ONEBYTEHEAD_RES) {
@@ -171,6 +172,7 @@ bool isNotContinuation(char value)
 
 /// Return `true` if the specified `value` is a surrogate value, and `false`
 /// otherwise.
+(__out == true) == (((value & k_SURROGATE_MASK) == k_MIN_SURROGATE))
 static inline
 bool isSurrogateValue(int value)
 {
@@ -599,6 +601,7 @@ namespace bdlde {
                           // -----------------------
 
 // CLASS METHODS
+(__out == k_LOCATION_NOT_FOUND) || (__out == 0) || (__out < 0)
 int Utf8Util_ImpUtil::getLineAndColumnNumber(
                                    Uint64         *lineNumber,
                                    Uint64         *utf8Column,

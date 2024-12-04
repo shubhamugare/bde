@@ -79,6 +79,7 @@ bool RateLimiter::supportsRateLimitsExactly(
 }
 
 // MANIPULATORS
+__out >= 0
 bsls::TimeInterval RateLimiter::calculateTimeToSubmit(
                                          const bsls::TimeInterval& currentTime)
 {

@@ -215,6 +215,7 @@ Ordinal::Ordinal(bsl::size_t n)
 }  // close namespace u
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& u::operator<<(bsl::ostream& stream, Ordinal position)
 {
     // ranks start at 0, but are displayed as 1st, 2nd, etc.
@@ -344,6 +345,7 @@ void OptionValueUtil::setLinkedVariableValue(
 /// variable name is valid if it is a non-empty string containing
 /// alphanumeric characters and `_`, and does not start with a number
 /// (similar to C++ variable names).
+(environmentVariableName.empty() || !::isalpha(environmentVariableName.front()) && environmentVariableName.front() != '_') ==> __out == false && (!environmentVariableName.empty() && (::isalpha(environmentVariableName.front()) || environmentVariableName.front() == '_')) && (std::all_of(environmentVariableName.begin(), environmentVariableName.end(), [](unsigned char c){ return ::isalnum(c) || c == '_'; })) ==> __out == true
 bool isValidEnvironmentVariableName(
                                const bsl::string_view& environmentVariableName)
 {
@@ -370,6 +372,7 @@ bool isValidEnvironmentVariableName(
 /// documentation.  Return 0 if `options` are valid, and a non-zero value
 /// otherwise.  If `options` is invalid, a descriptive message is written to
 /// the specified `errorStream`.
+__out >= 0
 int validate(const bsl::vector<Option>& options,
              bsl::ostream&              errorStream)
 {
@@ -606,6 +609,7 @@ int validate(const bsl::vector<Option>& options,
 /// whether variables are to be set.  Return a negative value on failure,
 /// and the number of values populated in `optionValueResult` otherwise
 /// (which will be typically be 1, unless `option` is an array type).
+__out == -1 || __out == 1 || (__out >= 0 && __out != 1)
 bsl::ptrdiff_t parseEnvironmentVariable(
                                 OptionValue             *optionValueResult,
                                 const bsl::string_view&  input,
@@ -1186,6 +1190,7 @@ void CommandLine::validateAndInitialize(bsl::ostream& errorStream)
 }
 
 // PRIVATE ACCESSORS
+(__out >= 0 && __out < static_cast<int>(d_options.size())) || __out == -1
 int CommandLine::findName(const bsl::string_view& name) const
 {
     for (unsigned int i = 0; i < d_options.size(); ++i) {
@@ -1438,6 +1443,7 @@ int CommandLine::parse(int                argc,
 }
 
 // ACCESSORS
+__out == (0 <= findName(name))
 bool CommandLine::hasOption(const bsl::string_view& name) const
 {
     return 0 <= findName(name);
@@ -2042,6 +2048,7 @@ namespace balcl {
                           // ------------------------------
 
 // ACCESSORS
+__out == -1 || __out >= 0
 int CommandLineOptionsHandle::index(const bsl::string_view& name) const
 {
     for (CommandLine_Schema::const_iterator itr  = d_schema_p->cbegin(),

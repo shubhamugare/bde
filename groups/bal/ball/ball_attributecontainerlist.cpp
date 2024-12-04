@@ -154,6 +154,7 @@ void AttributeContainerList::removeAllAndRelease()
 }
 
 // ACCESSORS
+__out == (exists(Node *node : list(d_head_p), node->d_value_p->hasValue(value)))
 bool AttributeContainerList::hasValue(const Attribute& value) const
 {
     Node *node = d_head_p;
@@ -189,6 +190,7 @@ AttributeContainerList::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+(lhs.numContainers() != rhs.numContainers() ==> __out == false) && (lhs.numContainers() == rhs.numContainers() && std::equal(lhs.begin(), lhs.end(), rhs.begin()) ==> __out == true)
 bool ball::operator==(const AttributeContainerList& lhs,
                       const AttributeContainerList& rhs)
 {

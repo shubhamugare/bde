@@ -121,6 +121,7 @@ TimeInterval getNowTime(clockid_t clockId)
 
 
 // CLASS METHODS
+__out >= 0
 TimeInterval SystemTime::nowMonotonicClock()
 {
     return getNowTime(

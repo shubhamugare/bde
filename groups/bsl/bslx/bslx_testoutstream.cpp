@@ -39,6 +39,7 @@ TestOutStream::~TestOutStream()
 }
 
 // MANIPULATORS
+&__out == this
 TestOutStream& TestOutStream::putLength(int length)
 {
     BSLS_ASSERT(0 <= length);
@@ -833,6 +834,7 @@ TestOutStream& TestOutStream::putArrayFloat32(const float *values,
 }
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& operator<<(bsl::ostream& stream, const TestOutStream& object)
 {
     return stream << object.d_imp;

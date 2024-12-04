@@ -16,6 +16,7 @@ namespace ball {
                              // --------------------
 
 // ACCESSORS
+__out == ball::UserFieldType::e_VOID || __out == ball::UserFieldType::e_INT64 || __out == ball::UserFieldType::e_DOUBLE || __out == ball::UserFieldType::e_STRING || __out == ball::UserFieldType::e_DATETIMETZ || __out == ball::UserFieldType::e_CHAR_ARRAY
 ball::UserFieldType::Enum UserFieldValue::type() const
 {
     switch (d_value.typeIndex()) {

@@ -18,6 +18,7 @@ namespace bslmt {
                                 // ---------------
 
 // CLASS METHODS
+__out == ptr
 void *TestUtil::identityPtr(void *ptr)
 {
     return ptr;

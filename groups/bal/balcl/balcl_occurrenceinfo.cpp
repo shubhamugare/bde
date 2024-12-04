@@ -309,6 +309,7 @@ bsl::ostream& OccurrenceInfo::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+(lhs.occurrenceType() == rhs.occurrenceType() && lhs.hasDefaultValue() == rhs.hasDefaultValue() && (!lhs.hasDefaultValue() || lhs.defaultValue() == rhs.defaultValue())) ==> __out == true && (!(lhs.occurrenceType() == rhs.occurrenceType() && lhs.hasDefaultValue() == rhs.hasDefaultValue() && (!lhs.hasDefaultValue() || lhs.defaultValue() == rhs.defaultValue()))) ==> __out == false
 bool balcl::operator==(const OccurrenceInfo& lhs, const OccurrenceInfo& rhs)
 {
     return lhs.occurrenceType()  == rhs.occurrenceType()

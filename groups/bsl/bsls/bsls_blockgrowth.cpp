@@ -13,6 +13,7 @@ namespace bsls {
                         // ------------------
 
 // CLASS METHODS
+(value == BlockGrowth::GEOMETRIC ==> __out == "GEOMETRIC") && (value == BlockGrowth::CONSTANT ==> __out == "CONSTANT") && (value != BlockGrowth::GEOMETRIC && value != BlockGrowth::CONSTANT ==> __out == "(* UNKNOWN *)")
 const char *BlockGrowth::toAscii(BlockGrowth::Strategy value)
 {
 #define CASE(X) case(BSLS_ ## X): return #X;

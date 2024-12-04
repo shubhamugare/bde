@@ -58,6 +58,7 @@ ByteOutStream& ByteOutStream::putString(const bsl::string& value)
 }
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& operator<<(bsl::ostream& stream, const ByteOutStream& object)
 {
     const int           len   = static_cast<int>(object.d_buffer.size());

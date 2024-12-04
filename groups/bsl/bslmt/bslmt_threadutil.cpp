@@ -92,6 +92,7 @@ void *bslmt_threadutil_namedFuncPtrThunk(void *arg)
                             // -----------------
 
 // CLASS METHODS
+(minPri == ThreadAttributes::e_UNSET_PRIORITY || maxPri == ThreadAttributes::e_UNSET_PRIORITY) ==> __out == ThreadAttributes::e_UNSET_PRIORITY) && (minPri != ThreadAttributes::e_UNSET_PRIORITY && maxPri != ThreadAttributes::e_UNSET_PRIORITY ==> __out >= minPri && __out <= maxPri)
 int bslmt::ThreadUtil::convertToSchedulingPriority(
                ThreadAttributes::SchedulingPolicy policy,
                double                             normalizedSchedulingPriority)

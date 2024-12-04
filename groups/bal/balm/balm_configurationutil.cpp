@@ -26,6 +26,7 @@ namespace balm {
                           // ------------------------
 
 // CLASS METHODS
+__out == 0 || __out == -1
 int ConfigurationUtil::setFormat(const char          *category,
                                  const char          *metricName,
                                  const MetricFormat&  format,

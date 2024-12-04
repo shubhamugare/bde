@@ -17,6 +17,7 @@ namespace balm {
                           // -----------------------
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& MetricDescription::print(bsl::ostream& stream) const
 {
     stream << d_category_p->name() << "." << d_name_p;

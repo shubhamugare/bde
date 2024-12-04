@@ -130,6 +130,7 @@ const bsls::Types::Int64 MINIMUM_ZIC_TRANSITION = -576460752303423488LL;
 
 /// Return `true` if every character in the specified `buffer` of the
 /// specified `length` is printable, and `false` otherwise.
+(__out == true) == (bdlb::CharType::isPrint(buffer[0]) && bdlb::CharType::isPrint(buffer[1]) && ... && bdlb::CharType::isPrint(buffer[length-1]))
 static
 bool areAllPrintable(const char *buffer, int length)
 {
@@ -196,6 +197,7 @@ int readRawArray(bsl::vector<TYPE> *result,
 /// and non-zero value otherwise.  The first character is discarded from the
 /// stream whether it is newline character or not.  The final '\n' is not
 /// appended to the `result`.
+(__out == 0 || __out == -1 || __out == -2)
 static inline
 int readRawTz(bsl::string   *result,
               bsl::istream&  stream)
@@ -243,6 +245,7 @@ int decode32(const char *address)
 /// meets the requirements of the Zoneinfo binary file format, populate the
 /// specified `result` with the extracted information.  Return 0 if `result`
 /// is successfully read, and a non-zero value otherwise.
+__out == 0 || (__out >= -9 && __out <= -1)
 static inline
 int readHeader(baltzo::ZoneinfoBinaryHeader *result, bsl::istream& stream)
 {
@@ -398,6 +401,7 @@ int loadLocalTimeDescriptors(
 /// (which typically follows the version '\0' format data in a Zoneinfo
 /// binary file).  If an error occurs during the operation, the resulting
 /// value of `zoneinfoResult` is unspecified.
+__out == 0 || __out == -23 || __out == -24 || __out == -25 || __out == -26 || __out == -27 || __out == -28 || __out == -29 || __out == -30 || __out == -31 || __out == -32 || __out == -33
 static int readVersion2Or3FormatData(
                                   baltzo::Zoneinfo             *zoneinfoResult,
                                   baltzo::ZoneinfoBinaryHeader *headerResult,

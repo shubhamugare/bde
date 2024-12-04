@@ -85,6 +85,7 @@ const char *doesProcExist()
 
 /// Return the process id.  Having this be separate from `Obj::getProcessId`
 /// allows us to call it inline within the component.
+__out > 0
 static inline
 int getPid()
 {

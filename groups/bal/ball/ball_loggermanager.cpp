@@ -171,6 +171,7 @@ struct RecordSharedPtrUtil {
 std::ptrdiff_t RecordSharedPtrUtil::s_sharedObjectOffset = 0;
 
 // CLASS METHODS
+__out == record.get()
 Record *RecordSharedPtrUtil::disassembleSharedPtr(
                                          const bsl::shared_ptr<Record>& record)
 {
@@ -233,6 +234,7 @@ void bufferPoolDeleter(void *buffer, void *pool)
 /// result in the specified `filteredNameBuffer`, and return the address of
 /// the non-modifiable data of `filteredNameBuffer`; return `originalName`
 /// otherwise (i.e., if `nameFilter` is null).
+((nameFilter != nullptr) ==> (__out == filteredNameBuffer->c_str())) && ((nameFilter == nullptr) ==> (__out == originalName))
 const char *filterName(
    bsl::string                                             *filteredNameBuffer,
    const char                                              *originalName,
@@ -258,6 +260,7 @@ const char *filterName(
 /// specified `category`, and return `true` if the specified `severity` is
 /// more severe (i.e., is numerically less than) at least one of the
 /// threshold levels of `category`, and `false` otherwise.
+__out == (category.maxLevel() >= severity) || __out == (ball::ThresholdAggregate::maxLevel(*levels) >= severity)
 bool isCategoryEnabled(ball::ThresholdAggregate *levels,
                        const ball::Category&     category,
                        int                       severity)
@@ -275,6 +278,7 @@ bool isCategoryEnabled(ball::ThresholdAggregate *levels,
 
 /// Return the `ball` log severity equivalent to the specified `bsls` log
 /// `severity`.
+(severity == bsls::LogSeverity::e_FATAL ==> __out == ball::Severity::e_FATAL
 inline static
 ball::Severity::Level convertBslsLogSeverity(bsls::LogSeverity::Enum severity)
 {
@@ -590,6 +594,7 @@ void Logger::publish(Transmission::Cause cause)
 }
 
 // MANIPULATORS
+__out != NULL
 Record *Logger::getRecord(const char *fileName, int lineNumber)
 {
    // The shared pointer returned by 'getRecordPtr' is reconstituted in the
@@ -1587,6 +1592,7 @@ void LoggerManager::setDefaultThresholdLevelsCallback(
 }
 
 // ACCESSORS
+(category->relevantRuleMask() && __out) ==> (AttributeContext::getContext()->determineThresholdLevels(&levels, category).maxLevel() >= severity) || (!category->relevantRuleMask() && __out) ==> (category->maxLevel() >= severity)
 bool LoggerManager::isCategoryEnabled(const Category *category,
                                       int             severity) const
 {

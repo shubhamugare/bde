@@ -33,6 +33,7 @@ Allocator::~Allocator()
 }
 
 // PROTECTED MANIPULATORS
+__out != nullptr || __out == nullptr
 void *Allocator::do_allocate(std::size_t bytes, std::size_t)
 {
     return this->allocate(bytes);

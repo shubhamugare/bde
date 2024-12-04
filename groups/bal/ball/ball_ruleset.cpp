@@ -80,6 +80,7 @@ RuleSet::RuleSet(const RuleSet& original, bslma::Allocator *basicAllocator)
 }
 
 // MANIPULATORS
+(__out == -1 || __out == -2 || __out >= 0)
 int RuleSet::addRule(const Rule& value)
 {
     if (d_ruleHashtable.find(value) != d_ruleHashtable.end()) {
@@ -182,6 +183,7 @@ RuleSet& RuleSet::operator=(const RuleSet& rhs)
 }
 
 // ACCESSORS
+__out == -1 || (__out >= 0 && __out < d_ruleAddresses.size())
 int RuleSet::ruleId(const Rule& value) const
 {
     HashtableType::const_iterator iter = d_ruleHashtable.find(value);

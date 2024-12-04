@@ -160,6 +160,7 @@ namespace u {
 
 /// Convert the specified `str` to a string view, and then return the result
 /// of `substr` on that passing the specified `idx` and `len`.
+__out.length() <= len
 bsl::string_view substr(const bsl::string& str,
                         const size_t       idx,
                         const size_t       len = bsl::string::npos)
@@ -525,6 +526,7 @@ int getProcessId()
 /// otherwise.  This is equivalent to `isDotOrDots`, except it is called in
 /// the case where we know there are no `/`s in the file name, making the
 /// check simpler and faster.
+(__out == true ==> ('.' == *path && (!path[1] || ('.' == path[1] && !path[2])))) && (__out == false ==> ('.' != *path || (path[1] && ('.' != path[1] || path[2]))))
 static inline
 bool shortIsDotOrDots(const char *path)
 {
@@ -824,6 +826,7 @@ void invokeCloseFD(void *fd_p, void *)
 
 /// Return `true` if the specified `path` is "." or ".." or ends in
 /// "/." or "/..", and `false` otherwise.
+(path[length-1] == '.' && (length == 1 || path[length-2] == '/')) || (path[length-1] == '.' && path[length-2] == '.' && (length == 2 || path[length-3] == '/')) ==> __out == true) && ((path[length-1] != '.' || (length > 1 && path[length-2] != '.' && path[length-2] != '/')) ==> __out == false
 static inline
 bool isDotOrDots(const char *path)
 {
@@ -869,6 +872,7 @@ bool isDotOrDots(const char *path)
 /// exist or is not a directory, `k_ERROR_ALREADY_EXISTS` if the file system
 /// entry (not necessarily a directory) with the name `path` already exists,
 /// and a negative value for any other kind of error.
+__out == 0 || __out == bdls::FilesystemUtil::k_ERROR_ALREADY_EXISTS || __out == bdls::FilesystemUtil::k_ERROR_PATH_NOT_FOUND || __out == -1
 static inline
 int makeDirectory(const char *path, bool isPrivate)
 {
@@ -902,6 +906,7 @@ int makeDirectory(const char *path, bool isPrivate)
 /// specified open file descriptor `dirFD`, not including the root.  Close
 /// `dirFd`.  The behavior is undefined unless `dirFD` refers to a directory
 /// and not a symlink.  Return 0 on success and a non-zero value otherwise.
+(__out == 0) || (__out == -2) || (__out == -7) || (__out == -9) || (__out == -10) || (__out == -11)) POST((__out == 0) || (__out == -2) || (__out == -7) || (__out == -9) || (__out == -10) || (__out == -11)
 static
 int u_removeContentsOfTree(
                  const BloombergLP::bdls::FilesystemUtil::FileDescriptor dirFD)

@@ -49,6 +49,7 @@ namespace {
 namespace u {
 
 /// Return the specified `str` is `str != 0`, and "" otherwise.
+__out == str || __out == ""
 inline
 const char *nonNullStr(const char *str)
 {
@@ -66,6 +67,7 @@ namespace balxml {
                                 // ------------
 
 // PRIVATE MANIPULATORS
+__out == 0 || __out > 0 || __out < 0
 inline
 int Utf8ReaderWrapper::doOpen(const char *url, const char *encoding)
 {

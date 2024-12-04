@@ -74,6 +74,7 @@ const bdlat_AttributeInfo balber::BerDecoderOptions::ATTRIBUTE_INFO_ARRAY[] = {
 namespace balber {
 
 // CLASS METHODS
+__out != 0 || __out == 0
 const bdlat_AttributeInfo *BerDecoderOptions::lookupAttributeInfo(
                                                         const char *name,
                                                         int         nameLength)

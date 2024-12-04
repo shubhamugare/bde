@@ -56,6 +56,7 @@ bslmt::ThreadAttributes::ThreadAttributes(
 }
 
 // MANIPULATORS
+(__out.d_detachedState == rhs.d_detachedState) && (__out.d_guardSize == rhs.d_guardSize) && (__out.d_inheritScheduleFlag == rhs.d_inheritScheduleFlag) && (__out.d_schedulingPolicy == rhs.d_schedulingPolicy) && (__out.d_schedulingPriority == rhs.d_schedulingPriority) && (__out.d_stackSize == rhs.d_stackSize) && (__out.d_threadName == rhs.d_threadName)
 bslmt::ThreadAttributes& bslmt::ThreadAttributes::operator=(
                                             const bslmt::ThreadAttributes& rhs)
 {
@@ -92,6 +93,7 @@ bsl::ostream& bslmt::ThreadAttributes::print(
 }
 
 // FREE OPERATORS
+__out == (lhs.detachedState() == rhs.detachedState() && lhs.guardSize() == rhs.guardSize() && lhs.inheritSchedule() == rhs.inheritSchedule() && lhs.schedulingPolicy() == rhs.schedulingPolicy() && lhs.schedulingPriority() == rhs.schedulingPriority() && lhs.stackSize() == rhs.stackSize() && lhs.threadName() == rhs.threadName())
 bool bslmt::operator==(const ThreadAttributes& lhs,
                        const ThreadAttributes& rhs)
 {

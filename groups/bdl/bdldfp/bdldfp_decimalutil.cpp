@@ -38,6 +38,7 @@ namespace {
 /// otherwise.  Note that the IEEE 754 standard specifies sequence of
 /// characters equivalent to "NaN" or "sNaN" except for case is a valid
 /// representation of NaN.
+(__out == true) ==> (((bsl::strcmp(str, "nan") == 0) || (bsl::strcmp(str, "NaN") == 0) || (bsl::strcmp(str, "Nan") == 0) || (bsl::strcmp(str, "nAn") == 0))) && ((__out == false) ==> (!(bsl::strcmp(str, "nan") == 0) && !(bsl::strcmp(str, "NaN") == 0
 bool isNanString(const char *str) {
 
     // For the sake of efficiency, we rely on the trick that any alphabetic

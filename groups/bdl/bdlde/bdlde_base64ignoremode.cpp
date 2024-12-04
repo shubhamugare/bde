@@ -16,6 +16,7 @@ namespace bdlde {
                           // -----------------------
 
 // CLASS METHODS
+__out.bad() == stream.bad()
 bsl::ostream& Base64IgnoreMode::print(bsl::ostream&          stream,
                                       Base64IgnoreMode::Enum value,
                                       int                    level,
@@ -49,6 +50,7 @@ const char *Base64IgnoreMode::toAscii(Base64IgnoreMode::Enum value)
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& bdlde::operator<<(bsl::ostream&                 stream,
                                 bdlde::Base64IgnoreMode::Enum value)
 {

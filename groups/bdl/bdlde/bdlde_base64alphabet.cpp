@@ -16,6 +16,7 @@ namespace bdlde {
                           // ---------------------
 
 // CLASS METHODS
+__out == stream
 bsl::ostream& Base64Alphabet::print(bsl::ostream&        stream,
                                     Base64Alphabet::Enum value,
                                     int                  level,

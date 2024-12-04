@@ -210,6 +210,7 @@ QuotedPrintableDecoder::~QuotedPrintableDecoder()
 }
 
 // MANIPULATORS
+(__out == -1 || __out == -2 || __out == 0) && (__out != -1 ==> (*numOut >= 0 && *numIn >= 0))
 int QuotedPrintableDecoder::convert(char       *out,
                                     int        *numOut,
                                     int        *numIn,

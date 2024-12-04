@@ -26,6 +26,7 @@ BroadcastObserver::~BroadcastObserver()
 }
 
 // MANIPULATORS
+__out == 0 || __out == 1
 int BroadcastObserver::deregisterObserver(const bsl::string_view& observerName)
 {
     bslmt::WriteLockGuard<bslmt::ReaderWriterMutex> guard(&d_rwMutex);

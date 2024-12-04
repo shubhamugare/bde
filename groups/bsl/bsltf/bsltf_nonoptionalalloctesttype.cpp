@@ -64,6 +64,7 @@ NonOptionalAllocTestType::~NonOptionalAllocTestType()
 }
 
 // MANIPULATORS
+&__out == this
 NonOptionalAllocTestType& NonOptionalAllocTestType::operator=(
                                            const NonOptionalAllocTestType& rhs)
 {
