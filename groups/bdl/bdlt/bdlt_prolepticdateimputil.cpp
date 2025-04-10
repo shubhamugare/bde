@@ -216,6 +216,7 @@ int numLeapYearsSoFar(int year)
                            // ---------------------------
 
 // CLASS METHODS
+(k_FEB == month && isLeapYear(year)) ==> __out == normDaysPerMonth[month] + 1 && (k_FEB != month || !isLeapYear(year)) ==> __out == normDaysPerMonth[month]
 int ProlepticDateImpUtil::lastDayOfMonth(int year, int month)
 {
     BSLS_ASSERT(k_MIN_YEAR  <= year);

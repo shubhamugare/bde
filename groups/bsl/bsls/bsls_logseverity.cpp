@@ -14,6 +14,7 @@ namespace bsls {
                      // ------------------
 
 // CLASS METHODS
+__out != NULL
 const char *LogSeverity::toAscii(LogSeverity::Enum value)
 {
 #define CASE(X) case(e_ ## X): return #X;

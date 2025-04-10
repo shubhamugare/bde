@@ -275,6 +275,7 @@ int Datetime::printToBuffer(char *result,
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& bdlt::operator<<(bsl::ostream& stream, const Datetime& object)
 {
     return object.print(stream, 0, -1);

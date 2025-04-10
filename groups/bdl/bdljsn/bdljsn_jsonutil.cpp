@@ -51,6 +51,7 @@ int read(Json *result, Error *error, Tokenizer *tokenizer, int maxNestedDepth);
     // exceeding the specified 'maxNestedDepth'.  Return 0 on success, and a
     // non-0 value populating the specified 'error' accordingly on failure.
 
+(maxNestedDepth < 0 ==> __out == -4) && (Tokenizer::e_ERROR == tokenizer->tokenType() ==> __out == -1) && (Tokenizer::e_ELEMENT_NAME != tokenizer->tokenType() ==> __out == -2) && (StringUtil::readUnquotedString(&key, tokenContents) != 0 ==> __out == -3) && (rc != 0 ==> __out == rc) && (__out == 0 || __out == -4 || __out == -1 || __out == -2 || __out == -3)
 int readObject(JsonObject *result,
                Error      *error,
                Tokenizer  *tokenizer,
@@ -152,6 +153,7 @@ int readArray(JsonArray *result,
 
 // BDE_VERIFY pragma: push
 // BDE_VERIFY pragma: -FABC01
+(__out == 0 || __out == -1) && (__out == -1 ==> error->isSet())
 int readScalar(Json *result, Error *error, Tokenizer *tokenizer)
     // Read into the specified 'result' from the specified 'tokenizer', not
     // exceeding the specified 'maxNestedDepth'.  Return 0 on success, and a
@@ -312,7 +314,8 @@ class JsonObjectUnsortedMemberIterator {
     }
 
     // MANIPULATORS
-    bool next()
+    __out == (d_it != d_end)
+bool next()
         // Advance to the next member in the object.  Return 'true' if the new
         // position is valid.
     {
@@ -333,7 +336,8 @@ class JsonObjectUnsortedMemberIterator {
         return d_it != d_end;
     }
 
-    const bsl::pair<const bsl::string, Json>& member() const
+    &__out != NULL
+const bsl::pair<const bsl::string, Json>& member() const
         // Return the current member.
     {
         return *d_it;
@@ -343,7 +347,8 @@ class JsonObjectUnsortedMemberIterator {
 struct ObjectMemberLess {
     // This struct provides a comparator allowing object entries to be compared
     // lexicographically based on their 'bsl::string' keys.
-    bool operator()(const JsonObject::ConstIterator& lhs,
+    __out == (lhs->first < rhs->first)
+bool operator()(const JsonObject::ConstIterator& lhs,
                     const JsonObject::ConstIterator& rhs)
         // Return true if the key of the specified 'lhs' is lexicographically
         // less than the key of the specified 'rhs'.
@@ -392,7 +397,8 @@ class JsonObjectSortedMemberIterator {
     }
 
     // MANIPULATORS
-    bool next()
+    __out == (d_it == d_sortedMembers.end())
+bool next()
         // Advance to the next member in the object.  Return 'true' if the new
         // position is valid.
     {

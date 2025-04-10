@@ -84,6 +84,7 @@ LoggerManagerConfiguration::LoggerManagerConfiguration(
 }
 
 // MANIPULATORS
+__out.d_defaults == rhs.d_defaults && __out.d_userPopulator == rhs.d_userPopulator && __out.d_categoryNameFilter == rhs.d_categoryNameFilter && __out.d_defaultThresholdsCb == rhs.d_defaultThresholdsCb && __out.d_logOrder == rhs.d_logOrder && __out.d_triggerMarkers == rhs.d_triggerMarkers
 LoggerManagerConfiguration&
 LoggerManagerConfiguration::operator=(const LoggerManagerConfiguration& rhs)
 {
@@ -160,6 +161,7 @@ void LoggerManagerConfiguration::setTriggerMarkers(TriggerMarkers value)
 }
 
 // ACCESSORS
+&__out == &d_defaults
 const LoggerManagerDefaults& LoggerManagerConfiguration::defaults() const
 {
     return d_defaults;
@@ -281,6 +283,7 @@ LoggerManagerConfiguration::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+__out == ((lhs.d_defaults == rhs.d_defaults
 bool ball::operator==(const ball::LoggerManagerConfiguration& lhs,
                       const ball::LoggerManagerConfiguration& rhs)
 {   // TBD: Note that we are casting the three 'bsl::function' data members to

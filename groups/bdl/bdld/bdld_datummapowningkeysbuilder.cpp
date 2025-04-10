@@ -25,6 +25,7 @@ namespace {
 /// Calculate the new capacity needed to accommodate data/keys having the
 /// specified `size` for the datum-key-owning map having the specified
 /// `capacity` as its capacity/`keys-capacity`.
+__out >= size
 static DatumMapOwningKeysBuilder::SizeType getNewCapacity(
                                   DatumMapOwningKeysBuilder::SizeType capacity,
                                   DatumMapOwningKeysBuilder::SizeType size)

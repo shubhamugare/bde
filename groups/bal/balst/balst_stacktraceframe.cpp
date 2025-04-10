@@ -57,6 +57,7 @@ void StackTraceFrame::swap(StackTraceFrame& other)
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& balst::operator<<(bsl::ostream&          stream,
                                 const StackTraceFrame& object)
 {

@@ -19,6 +19,7 @@ namespace bbldc {
 /// specified `year` is the last day of February for that `year`, and
 /// `false` otherwise.  The behavior is undefined unless `year`, `month`,
 /// and `day` represent a valid `bdlt::Date` value.
+(__out == true) == ((month == 2) && ((day == 29) || (day == 28 && !bdlt::SerialDateImpUtil::isLeapYear(year))))
 inline
 static bool isLastDayOfFebruary(int year, int month, int day)
 {
@@ -33,6 +34,7 @@ static bool isLastDayOfFebruary(int year, int month, int day)
 /// `endDate` according to the SIA 30/360 end-of-month day-count convention.
 /// If `beginDate <= endDate`, then the result is non-negative.  Note that
 /// reversing the order of `beginDate` and `endDate` negates the result.
+__out >= 0 || __out <= 0
 static int computeDaysDiff(const bdlt::Date& beginDate,
                            const bdlt::Date& endDate)
 {

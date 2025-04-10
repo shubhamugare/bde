@@ -800,7 +800,8 @@ MetricsManager_PublisherRegistry::~MetricsManager_PublisherRegistry()
 {
 }
 
-// MANIPULATORS
+// MANIPUL__out == 0 || __out == -1
+ATORS
 int MetricsManager_PublisherRegistry::addGeneralPublisher(
                               const bsl::shared_ptr<Publisher>& publisher)
 {

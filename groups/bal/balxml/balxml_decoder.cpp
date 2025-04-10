@@ -378,6 +378,7 @@ Decoder::checkForErrors(const ErrorInfo& errInfo)
 }
 
 // MANIPULATORS
+(__out == 0 || __out == -1)
 int
 Decoder::parse(Decoder_ElementContext *context)
 {
@@ -525,6 +526,7 @@ bsl::ostream& Decoder::logStream()
 }
 
 // ACCESSORS
+__out == ErrorInfo::e_FATAL_ERROR || __out == ErrorInfo::e_ERROR || __out == ErrorInfo::e_WARNING || __out == ErrorInfo::e_NO_ERROR
 ErrorInfo::Severity Decoder::errorSeverity() const
 {
     if (d_fatalError) {

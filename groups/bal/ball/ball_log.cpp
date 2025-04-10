@@ -37,6 +37,7 @@ namespace ball {
                          // ----------
 
 // CLASS METHODS
+((bsl::size_t)__out >= numBytes ==> __out == -1) && ((bsl::size_t)__out < numBytes ==> __out != -1)
 int Log::format(char *buffer, bsl::size_t numBytes, const char *format, ...)
 {
     bsl::va_list args;

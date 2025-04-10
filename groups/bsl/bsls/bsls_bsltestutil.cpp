@@ -14,6 +14,7 @@ namespace bsls {
                            // ------------------
 
 // PRIVATE CLASS METHODS
+__out == ptr
 void *BslTestUtil::identityPtr(void *ptr)
 {
     return ptr;

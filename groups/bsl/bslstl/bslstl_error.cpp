@@ -87,6 +87,7 @@ const char *system_category_impl::name() const BSLS_KEYWORD_NOEXCEPT
 }  // close unnamed namespace
 
 // FREE FUNCTIONS
+&__out != NULL
 const error_category& system_category()
 {
     static system_category_impl system_category_object;

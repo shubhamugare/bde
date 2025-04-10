@@ -73,6 +73,7 @@ uint64_t SequentialPool::initAlwaysUnavailable(
 }
 
 // PRIVATE MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *SequentialPool::allocateNonFastPath(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_LIKELY(size)) {

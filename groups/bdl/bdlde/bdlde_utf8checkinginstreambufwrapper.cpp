@@ -29,6 +29,7 @@ namespace bdlde {
                      // ------------------------------------
 
 // PRIVATE MANIPULATOR
+__out == -1
 inline
 bsl::streambuf::pos_type Utf8CheckingInStreamBufWrapper::setSeekFailure(
                                                   bsl::ios_base::openmode mode)
@@ -54,6 +55,7 @@ bsl::streambuf::pos_type Utf8CheckingInStreamBufWrapper::setSeekFailure(
 
                             // implementation functions
 
+__out == traits_type::eof()
 bsl::streambuf::int_type
 Utf8CheckingInStreamBufWrapper::overflow(int_type)
     // This method is normally associated with output and is stubbed out in
@@ -340,6 +342,7 @@ bsl::streamsize Utf8CheckingInStreamBufWrapper::xsputn(const char      *,
 }
 
 // PUBLIC CLASS METHOD
+((errorStatus == 0) ==> (strcmp(__out, "NO_ERROR") == 0)) && ((errorStatus == k_SEEK_FAIL) ==> (strcmp(__out, "SEEK_FAIL") == 0)) && ((errorStatus != 0 && errorStatus != k_SEEK_FAIL) ==> (__out != nullptr))
 const char *Utf8CheckingInStreamBufWrapper::toAscii(int errorStatus)
 {
     if (0 == errorStatus) {

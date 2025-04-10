@@ -30,6 +30,7 @@ namespace ball {
                          // ---------------------------
 
 // CLASS METHODS
+__out == (0 < numBytes)
 bool LoggerManagerDefaults::isValidDefaultRecordBufferSize(int numBytes)
 {
     return 0 < numBytes;
@@ -119,6 +120,7 @@ LoggerManagerDefaults::~LoggerManagerDefaults()
 }
 
 // MANIPULATORS
+(__out.d_recordBufferSize == rhs.d_recordBufferSize
 LoggerManagerDefaults& LoggerManagerDefaults::operator=(
                                               const LoggerManagerDefaults& rhs)
 {

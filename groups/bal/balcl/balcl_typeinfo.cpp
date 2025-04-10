@@ -271,6 +271,7 @@ bool parseValue(void                    *value,
 
 /// Return the address of a string literal that describes the specified
 /// `elemType` value.
+__out != NULL
 const char *elemTypeToString(OptionType::Enum elemType)
 {
     const char *typeString;
@@ -378,6 +379,7 @@ BoolConstraint::~BoolConstraint()
 // BDE_VERIFY pragma: -FABC01  // not in alphabetic order
 
 // ACCESSORS
+__out == OptionType::e_BOOL
 OptionType::Enum BoolConstraint::type() const
 {
     return OptionType::e_BOOL;
@@ -1594,6 +1596,7 @@ TypeInfo::~TypeInfo()
 }
 
 // MANIPULATORS
+&__out == this
 TypeInfo& TypeInfo::operator=(const TypeInfo& rhs)
 {
     if (this != &rhs) {
@@ -2171,6 +2174,7 @@ bsl::ostream& TypeInfo::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+(__out == true ==> (lhs.type() == rhs.type() && lhs.linkedVariable() == rhs.linkedVariable() && lhs.constraint() == rhs.constraint())) && (__out == false ==> !(lhs.type() == rhs.type() && lhs.linkedVariable() == rhs.linkedVariable() && lhs.constraint() == rhs.constraint()))
 bool balcl::operator==(const TypeInfo& lhs, const TypeInfo& rhs)
 {
     return lhs.type()           == rhs.type()

@@ -60,6 +60,7 @@ static Sha1Word rotateLeft(Sha1Word value, int shift)
 /// the corresponding bit from the specified `x`, otherwise uses the
 /// corresponding bit from the specified `y`.  This function is named `Ch`
 /// in FIPS 180-4.
+(condition == 0) ==> __out == y && (condition != 0) ==> __out == x
 static Sha1Word bitwiseConditional(Sha1Word condition, Sha1Word x, Sha1Word y)
 {
     // The following implementation, taken from bdlde_sha2.cpp, only uses 3

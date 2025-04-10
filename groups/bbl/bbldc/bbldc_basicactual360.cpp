@@ -14,6 +14,7 @@ namespace bbldc {
                           // ---------------------
 
 // CLASS METHODS
+isfinite(__out)
 double BasicActual360::yearsDiff(const bdlt::Date& beginDate,
                                  const bdlt::Date& endDate)
 {

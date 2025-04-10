@@ -23,6 +23,7 @@ namespace ball {
                            // ------------
 
 // ACCESSORS
+__out == &stream && __out->rdstate() == std::ios_base::goodbit
 bsl::ostream& Record::print(bsl::ostream& stream,
                             int           level,
                             int           spacesPerLevel) const

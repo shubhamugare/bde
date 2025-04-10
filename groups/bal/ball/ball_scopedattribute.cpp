@@ -21,6 +21,7 @@ ScopedAttribute_Container::~ScopedAttribute_Container()
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream&
 ScopedAttribute_Container::print(bsl::ostream& stream,
                                  int           level,

@@ -62,6 +62,7 @@ AllocTestType::~AllocTestType()
 }
 
 // MANIPULATORS
+&__out == this
 AllocTestType& AllocTestType::operator=(const AllocTestType& rhs)
 {
     if (&rhs != this)

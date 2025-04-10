@@ -306,6 +306,7 @@ bool isNegative(const Decimal32& x)
 }
 
 /// Return `true` if the specified `x` is negative and `false` otherwise.
+(x.value().d_raw & k_SIGN_MASK) ? __out : !__out
 inline
 bool isNegative(const Decimal64& x)
 {
@@ -316,6 +317,7 @@ bool isNegative(const Decimal64& x)
 
 
 /// Return `true` if the specified `x` is negative and `false` otherwise.
+__out == (x.value().d_raw.w[(BSLS_PLATFORM_IS_BIG_ENDIAN ? 0 : 1)] & k_SIGN_MASK) != 0
 inline
 bool isNegative(const Decimal128& x)
 {
@@ -341,6 +343,7 @@ namespace bdldfp {
                             // --------------------
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& Decimal_Type64::print(bsl::ostream& stream,
                                     int           level,
                                     int           spacesPerLevel) const

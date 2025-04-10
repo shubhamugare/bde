@@ -37,6 +37,7 @@ namespace bdlbb {
                               // ================
 
 // MANIPULATORS
+&__out == this && __out.d_buffer == rhs.d_buffer && __out.d_size == rhs.d_size
 BlobBuffer& BlobBuffer::operator=(const BlobBuffer& rhs)
 {
     d_buffer = rhs.d_buffer;
@@ -134,6 +135,7 @@ BlobBufferFactory::~BlobBufferFactory()
                                  // ==========
 
 // PRIVATE ACCESSORS
+__out == 0
 int Blob::assertInvariants() const
 {
     BSLS_ASSERT(0 <= d_totalSize);
@@ -761,6 +763,7 @@ void Blob::moveAndAppendDataBuffers(Blob *srcBlob)
 }  // close package namespace
 
 // FREE OPERATORS
+__out == ((lhs.d_buffers == rhs.d_buffers) && (lhs.d_totalSize == rhs.d_totalSize) && (lhs.d_dataLength == rhs.d_dataLength) && (lhs.d_dataIndex == rhs.d_dataIndex) && (lhs.d_preDataIndexLength == rhs.d_preDataIndexLength))
 bool bdlbb::operator==(const Blob& lhs, const Blob& rhs)
 {
     return lhs.d_buffers == rhs.d_buffers &&

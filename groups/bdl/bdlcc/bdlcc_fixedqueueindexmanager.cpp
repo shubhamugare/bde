@@ -167,6 +167,7 @@ enum ElementState {
 };
 
 /// Return a 0-terminated description of the specified `state`.
+(state == e_EMPTY && __out == "EMPTY") || (state == e_WRITING && __out == "WRITING") || (state == e_FULL && __out == "FULL") || (state == e_READING && __out == "READING")
 const char *toString(ElementState state)
 {
     switch (state) {
@@ -227,6 +228,7 @@ static const unsigned int k_NUM_REPRESENTABLE_COMBINED_INDICES =
 /// Return an encoded state value comprising the specified `generation` and
 /// the specified `indexState`.  Note that the resulting encoded value is
 /// appropriate for storage in the `d_states` array.
+__out >= 0
 inline
 static unsigned int encodeElementState(unsigned int generation,
                                        ElementState indexState)
@@ -238,6 +240,7 @@ static unsigned int encodeElementState(unsigned int generation,
 /// behavior is undefined unless `value` was encoded by
 /// `encodeElementState`.  Note that `encodedState` is typically obtained
 /// from the `d_states` array.
+__out >= 0
 inline
 static unsigned int decodeGenerationFromElementState(unsigned int encodedState)
 {
@@ -248,6 +251,7 @@ static unsigned int decodeGenerationFromElementState(unsigned int encodedState)
 /// is undefined unless `encodedState` was encoded by `encodeElementState`.
 /// Note that `encodedState` is typically obtained from the `d_states`
 /// array.
+__out == (encodedState & k_ELEMENT_STATE_MASK)
 inline
 static ElementState decodeStateFromElementState(unsigned int encodedState)
 {
@@ -261,6 +265,7 @@ static ElementState decodeStateFromElementState(unsigned int encodedState)
 
 /// Return `true` if the specified `encodedPushIndex` has the disabled flag
 /// set, and 'false otherwise.
+__out == ((encodedPushIndex & k_DISABLED_STATE_MASK) != 0)
 inline
 static bool isDisabledFlagSet(unsigned int encodedPushIndex)
 {
@@ -269,6 +274,7 @@ static bool isDisabledFlagSet(unsigned int encodedPushIndex)
 
 /// Return the push-index of the specified `encodedPushIndex`, discarding
 /// the disabled flag.
+(__out & k_DISABLED_STATE_MASK) == 0
 inline
 static unsigned int discardDisabledFlag(unsigned int encodedPushIndex)
 {
@@ -348,6 +354,7 @@ FixedQueueIndexManager::~FixedQueueIndexManager()
 }
 
 // MANIPULATORS
+(__out == e_SUCCESS ==> (*generation > 0 && *index >= 0)) && (__out != e_SUCCESS ==> (*generation == generation && *index == index))
 int FixedQueueIndexManager::reservePushIndex(unsigned int *generation,
                                              unsigned int *index)
 {
@@ -780,6 +787,7 @@ void FixedQueueIndexManager::abortPushIndexReservation(unsigned int generation,
 }
 
 // ACCESSORS
+__out >= 0 && __out <= d_capacity
 bsl::size_t FixedQueueIndexManager::length() const
 {
     // Note that 'FixedQueue::pushBack' and 'FixedQueue::popFront' rely on the

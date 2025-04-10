@@ -19,6 +19,7 @@ namespace bbldc {
                        // ---------------------------
 
 // CLASS METHODS
+(convention == DayCountConvention::e_CALENDAR_BUS_252 ==> __out == bbldc::CalendarBus252::daysDiff(beginDate, endDate, calendar)) && __out >= 0
 int CalendarDayCountUtil::daysDiff(const bdlt::Date&        beginDate,
                                    const bdlt::Date&        endDate,
                                    const bdlt::Calendar&    calendar,

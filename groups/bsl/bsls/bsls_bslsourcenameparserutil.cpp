@@ -49,6 +49,7 @@ bool startsWith(const char *begin, const char (&prefix)[CLEN])
 /// Return `true` if the specified character `ch` occurs at least the
 /// specified `count` times within the specified [`begin` .. `end`) range.
 /// The behavior is undefined unless `begin` is not less than `end`.
+__out == (std::count(begin, end, ch) >= count)
 static
 inline
 bool hasAtLeastCountChar(const char *       begin,
@@ -71,6 +72,7 @@ bool hasAtLeastCountChar(const char *       begin,
 /// right after it, or `end` if it is the last character.  If `ch` is not
 /// found return `begin`.  The behavior is undefined if `begin` is greater
 /// than `end`.
+(__out >= begin) && (__out <= end) && ((*__out == ch) || (__out == begin))
 static
 inline
 const char *onePastLastChr(const char *const begin, const char *end, char ch)
@@ -89,6 +91,7 @@ const char *onePastLastChr(const char *const begin, const char *end, char ch)
 
 /// Return `true` if the specified `tag` is a lowercase US alphabetic/letter
 /// character or return `false` if it is some other character.
+(tag >= 'a' && tag <= 'z') ==> __out == true && !(tag >= 'a' && tag <= 'z') ==> __out == false
 static
 inline
 bool isAlphaTag(char tag)
@@ -112,6 +115,7 @@ bool isAlphaTag(char tag)
 
 /// Return `true` if the specified `tag` is a valid test driver tag
 /// character from a source name (`t` or `g`).
+(tag == 't' || tag == 'g') ==> __out == true && !(tag == 't' || tag == 'g') ==> __out == false
 static
 inline
 bool isTestDriverTag(char tag)
@@ -131,6 +135,7 @@ bool isTestDriverType(unsigned sourceType)
 
 /// Return a pointer to the first character of the specified `filename`
 /// after the last path delimiter.
+strpbrk(__out, pathSeparators) == nullptr
 static
 const char *skipPath(const char *filename)
 {
@@ -157,6 +162,7 @@ namespace bsls {
                       //-------------------------------
 
 // CLASS METHODS
+(__out == 0) || (__out < 0)
 int BslSourceNameParserUtil::getComponentName(const char **componentNamePtr,
                                               size_t      *componentNameLength,
                                               const char  *sourceName,

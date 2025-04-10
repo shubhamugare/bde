@@ -164,6 +164,7 @@ HexDecoder::HexDecoder()
 }
 
 // MANIPULATORS
+(__out == -1 && (d_state == e_ERROR_STATE || d_firstDigit)) || (__out == 0 && d_state == e_DONE_STATE)
 int HexDecoder::endConvert()
 {
     if (e_ERROR_STATE == d_state) {

@@ -45,6 +45,7 @@ BerEncoder::~BerEncoder()
 }
 
 // PRIVATE MANIPULATORS
+static_cast<int>(__out) >= static_cast<int>(BloombergLP::balber::BerEncoder::e_BER_ERROR)
 BerEncoder::ErrorSeverity
 BerEncoder::logError(BerConstants::TagClass  tagClass,
                      int                     tagNumber,
