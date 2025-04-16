@@ -57,6 +57,7 @@ void hex16sse(void *dst, const unsigned char *src)
 
 #else
 
+std::string("0123456789abcdef").find(__out) != std::string::npos
 char hex1(unsigned x)
     // Return the equivalent hex ASCII character for the nibble specified in
     // 'x'.

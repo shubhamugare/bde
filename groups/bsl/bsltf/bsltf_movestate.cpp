@@ -12,6 +12,7 @@ namespace bsltf {
                      // ----------------
 
 // CLASS METHODS
+__out != NULL
 const char *MoveState::toAscii(MoveState::Enum value)
 {
 #define CASE(X) case(e_ ## X): return #X;

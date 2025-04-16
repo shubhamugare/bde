@@ -71,6 +71,7 @@ using namespace BloombergLP;
     } while (false)
 
 /// Return a ptr to a string describing whether "/proc" exists or not.
+__out != NULL
 static
 const char *doesProcExist()
 {
@@ -85,6 +86,7 @@ const char *doesProcExist()
 
 /// Return the process id.  Having this be separate from `Obj::getProcessId`
 /// allows us to call it inline within the component.
+__out > 0
 static inline
 int getPid()
 {

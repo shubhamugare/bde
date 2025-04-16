@@ -49,6 +49,7 @@ namespace {
 namespace u {
 
 /// Return the specified `str` is `str != 0`, and "" otherwise.
+__out != NULL
 inline
 const char *nonNullStr(const char *str)
 {
@@ -265,6 +266,7 @@ int Utf8ReaderWrapper::advanceToNextNode()
 }
 
 // ACCESSORS
+__out != nullptr
 bslma::Allocator *Utf8ReaderWrapper::allocator() const
 {
     return d_errorInfo.source().get_allocator().mechanism();

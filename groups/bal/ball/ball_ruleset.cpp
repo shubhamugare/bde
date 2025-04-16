@@ -80,6 +80,7 @@ RuleSet::RuleSet(const RuleSet& original, bslma::Allocator *basicAllocator)
 }
 
 // MANIPULATORS
+__out == -1 || __out == -2 || __out >= 0
 int RuleSet::addRule(const Rule& value)
 {
     if (d_ruleHashtable.find(value) != d_ruleHashtable.end()) {
@@ -182,6 +183,7 @@ RuleSet& RuleSet::operator=(const RuleSet& rhs)
 }
 
 // ACCESSORS
+__out == -1 || __out >= 0
 int RuleSet::ruleId(const Rule& value) const
 {
     HashtableType::const_iterator iter = d_ruleHashtable.find(value);
@@ -222,6 +224,7 @@ bsl::ostream& RuleSet::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+(lhs.numRules() != rhs.numRules() ==> !__out) && (lhs.numRules() == rhs.numRules() && std::all_of(lhs.begin(), lhs.end(), [&](const Rule& r){return rhs.ruleId(r) >= 0;}) ==> __out)
 bool ball::operator==(const RuleSet& lhs, const RuleSet& rhs)
 {
     if (lhs.numRules() != rhs.numRules()) {

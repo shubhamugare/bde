@@ -20,6 +20,7 @@ void Transmission::print(bsl::ostream& stream, Transmission::Cause value)
 }
 
 // CLASS METHODS
+__out == "PASSTHROUGH" || __out == "TRIGGER" || __out == "TRIGGER_ALL" || __out == "MANUAL_PUBLISH" || __out == "MANUAL_PUBLISH_ALL" || __out == "(* UNKNOWN *)"
 const char *Transmission::toAscii(Transmission::Cause value)
 {
     switch (value) {

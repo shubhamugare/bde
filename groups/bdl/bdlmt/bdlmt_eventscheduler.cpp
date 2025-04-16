@@ -140,6 +140,7 @@ EventSchedulerTestTimeSource_Data::EventSchedulerTestTimeSource_Data(
 }
 
 // MANIPULATORS
+__out > amount
 bsls::TimeInterval EventSchedulerTestTimeSource_Data::advanceTime(
                                                      bsls::TimeInterval amount)
 {
@@ -165,6 +166,7 @@ bsls::TimeInterval EventSchedulerTestTimeSource_Data::currentTime() const
 const char EventScheduler::s_defaultThreadName[16] = { "bdl.EventSched" };
 
 // PRIVATE CLASS METHODS
+__out == 0
 bsls::Types::Int64 EventScheduler::returnZero()
 {
     return 0;
@@ -176,6 +178,7 @@ bsls::Types::Int64 EventScheduler::returnZeroInt(int)
 }
 
 // PRIVATE MANIPULATORS
+__out >= 0
 bsls::Types::Int64 EventScheduler::chooseNextEvent(bsls::AtomicInt64 *now)
 {
     BSLS_ASSERT(0 != d_currentRecurringEvent || 0 != d_currentEvent);
@@ -856,6 +859,7 @@ EventScheduler::~EventScheduler()
 }
 
 // MANIPULATORS
+((const Event *) *handle == 0 ==> __out == EventQueue::e_INVALID) && ((const Event *) *handle != 0 ==> __out != EventQueue::e_INVALID)
 int EventScheduler::cancelEvent(EventHandle *handle)
 {
     if (0 == (const Event *) *handle) {
@@ -1273,6 +1277,7 @@ EventSchedulerTestTimeSource::EventSchedulerTestTimeSource(
 }
 
 // MANIPULATORS
+__out > 0
 bsls::TimeInterval EventSchedulerTestTimeSource::advanceTime(
                                                      bsls::TimeInterval amount)
 {

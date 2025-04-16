@@ -152,6 +152,7 @@ TokenizerIterator::TokenizerIterator(const TokenizerIterator& origin)
 }
 
 // MANIPULATORS
+&__out == this
 TokenizerIterator& TokenizerIterator::operator=(const TokenizerIterator& rhs)
 {
     if (this != &rhs)
@@ -314,6 +315,7 @@ Tokenizer::~Tokenizer()
 }
 
 // MANIPULATORS
+&__out == this
 Tokenizer& Tokenizer::operator++()
 {
     // Operator++ called on invalid tokenizer

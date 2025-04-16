@@ -185,6 +185,7 @@ int Throttle::requestPermissionIfValid(bool                      *result,
 }
 
 // ACCESSOR
+(numActions <= 0 || d_maxSimultaneousActions < numActions || k_ALLOW_NONE == d_nanosecondsPerAction) ==> __out == -1) && ((numActions > 0 && d_maxSimultaneousActions >= numActions && k_ALLOW_NONE != d_nanosecondsPerAction) ==> __out == 0
 int Throttle::nextPermit(bsls::TimeInterval *result, int numActions) const
 {
     if (numActions <= 0 || d_maxSimultaneousActions < numActions ||

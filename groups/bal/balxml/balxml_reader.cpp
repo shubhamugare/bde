@@ -21,6 +21,7 @@ Reader::~Reader(void)
 }
 
 // CLASS METHODS
+__out != NULL
 const char *
 Reader::nodeTypeAsString(NodeType nodeType)
 {

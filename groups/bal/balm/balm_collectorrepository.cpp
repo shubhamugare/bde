@@ -403,6 +403,7 @@ void CollectorRepository_MetricCollectors::collect(MetricRecord *record)
 }
 
 // ACCESSORS
+&__out == &d_collectors
 inline
 const CollectorRepository_Collectors<Collector>&
 CollectorRepository_MetricCollectors::collectors() const

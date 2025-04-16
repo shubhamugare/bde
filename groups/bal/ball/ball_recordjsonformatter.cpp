@@ -1135,6 +1135,7 @@ int ThreadIdFormatter::parse(bdld::DatumMapRef v)
                    // -------------------------
 
 // MANIPULATORS
+__out == 0 || __out == -1
 int FixedFieldFormatter::parse(bdld::DatumMapRef v)
 {
     for (bdld::Datum::SizeType i = 0; i < v.size(); ++ i) {
@@ -1352,6 +1353,7 @@ int AttributeFormatter::parse(bdld::DatumMapRef v)
 }
 
 // ACCESSORS
+&__out == &d_key
 const bsl::string& AttributeFormatter::key() const
 {
     return d_key;
@@ -1420,6 +1422,7 @@ int AttributesFormatter::parse(bdld::DatumMapRef v)
                        // -----------------
 
 // CLASS METHODS
+__out != nullptr
 RecordJsonFormatter_FieldFormatter *
 DatumParser::make(const bslstl::StringRef& v)
 {
@@ -1612,6 +1615,7 @@ RecordJsonFormatter::~RecordJsonFormatter()
 }
 
 // MANIPULATORS
+__out == -1 || __out == 0 || __out != 0
 int RecordJsonFormatter::setFormat(const bsl::string_view& format)
 {
     if (format.empty()) {

@@ -49,6 +49,7 @@ BSLMF_ASSERT(!bslmf::IsTriviallyCopyableCheck<Time>::value);
 /// ```
 /// *number == *number % base + (*number / base) * base
 /// ```
+*number == initial - __out * base
 static
 bsls::Types::Int64 fastMod(int *number, int base)
 {
@@ -75,6 +76,7 @@ bsls::Types::Int64 fastMod(int *number, int base)
 /// ```
 /// *number == *number % base + (*number / base) * base
 /// ```
+(*number == initial % base) && (__out == initial / base)
 static
 bsls::Types::Int64 fastMod(bsls::Types::Int64 *number, bsls::Types::Int64 base)
 {
@@ -100,6 +102,7 @@ bsls::Types::Int64 fastMod(bsls::Types::Int64 *number, bsls::Types::Int64 base)
 /// *number == *number % base + (*number / base) * base
 /// ```
 /// The behavior is undefined unless `1 <= base`.
+(0 <= *number) && (*number < base) && (__out == (*number + *number) / base)) The postcondition provided in the reasoning contains an error. Specifically, the expression `(*number + *number
 static
 bsls::Types::Int64 modulo(bsls::Types::Int64 *number, bsls::Types::Int64 base)
 {

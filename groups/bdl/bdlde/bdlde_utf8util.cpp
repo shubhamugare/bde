@@ -85,6 +85,7 @@ bool BSLA_UNUSED isValidUtf8CodePoint(const char *sequence)
 /// Return the length of the UTF-8 code point for which the specified
 /// `character` is the first `char`.  The behavior is undefined unless
 /// `character` is the first `char` of a UTF-8 code point.
+__out == 1 || __out == 2 || __out == 3 || __out == 4
 int utf8Size(char character)
 {
     if ((character & k_ONEBYTEHEAD_TEST) == k_ONEBYTEHEAD_RES) {
@@ -163,6 +164,7 @@ int appendUtf8CodePointImpl(STRING *output, unsigned int codePoint)
 
 /// Return `true` if the specified `value` is NOT a UTF-8 continuation byte,
 /// and `false` otherwise.
+__out == (0x80 != (value & 0xc0))
 static inline
 bool isNotContinuation(char value)
 {
@@ -171,6 +173,7 @@ bool isNotContinuation(char value)
 
 /// Return `true` if the specified `value` is a surrogate value, and `false`
 /// otherwise.
+__out == (((k_SURROGATE_MASK & value) == k_MIN_SURROGATE))
 static inline
 bool isSurrogateValue(int value)
 {
@@ -220,6 +223,7 @@ int get4ByteValue(const char *pc)
 /// `string` is necessarily null-terminated, so it cannot contain embedded
 /// null bytes.  Note that `string` may contain less than
 /// `bsl::strlen(string)` Unicode code points.
+__out >= 0 || __out == k_UNEXPECTED_CONTINUATION_OCTET || __out == k_NON_CONTINUATION_OCTET || __out == k_END_OF_INPUT_TRUNCATION || __out == k_OVERLONG_ENCODING || __out == k_SURROGATE || __out == k_INVALID_INITIAL_OCTET || __out == k_VALUE_LARGER_THAN_0X10FFFF
 static
 int validateAndCountCodePoints(const char **invalidString, const char *string)
 {
@@ -360,6 +364,7 @@ int validateAndCountCodePoints(const char **invalidString, const char *string)
 /// embedded null bytes.  The behavior is undefined unless
 /// `0 <= IntPtr(length)`.  Note that `string` may contain less than
 /// `length` Unicode code points.
+(__out >= 0) || (__out == k_UNEXPECTED_CONTINUATION_OCTET) || (__out == k_NON_CONTINUATION_OCTET) || (__out == k_OVERLONG_ENCODING) || (__out == k_SURROGATE) || (__out == k_INVALID_INITIAL_OCTET
 static int validateAndCountCodePoints(const char             **invalidString,
                                       const char              *string,
                                       bsls::Types::size_type   length)
@@ -599,6 +604,7 @@ namespace bdlde {
                           // -----------------------
 
 // CLASS METHODS
+__out == k_LOCATION_NOT_FOUND || __out == 0 || (__out < 0 && __out != k_LOCATION_NOT_FOUND)
 int Utf8Util_ImpUtil::getLineAndColumnNumber(
                                    Uint64         *lineNumber,
                                    Uint64         *utf8Column,

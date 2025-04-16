@@ -15,6 +15,7 @@ namespace bdlb {
                                // -------------
 
 // CLASS METHODS
+(bdlb::StringUtil::compareCaseless(lhsString, rhsString) == 0) == __out
 bool String::areEqualCaseless(const char *lhsString,
                               const char *rhsString)
 {

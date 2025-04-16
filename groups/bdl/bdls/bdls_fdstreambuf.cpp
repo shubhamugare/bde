@@ -462,6 +462,7 @@ void FdStreamBuf_FileHandler::unmap(void *mappedMemory, bsl::streamoff length)
 }
 
 // ACCESSORS
+__out >= 0
 bsl::streamoff
 FdStreamBuf_FileHandler::fileSize() const
 {
@@ -521,6 +522,7 @@ FdStreamBuf::~FdStreamBuf()
 }
 
 // PRIVATE MANIPULATORS
+__out == 0 || __out == -1
 int FdStreamBuf::switchToInputMode()
 {
     switch (d_mode) {
@@ -809,6 +811,7 @@ int FdStreamBuf::flush()
 }
 
 // PROTECTED MANIPULATORS
+__out != traits_type::eof() || __out == traits_type::eof()
 bsl::streambuf::int_type
 FdStreamBuf::underflow()
 {
@@ -994,6 +997,7 @@ FdStreamBuf::overflow(int_type c)
     return ret;
 }
 
+__out == this
 FdStreamBuf *FdStreamBuf::setbuf(char *buffer, bsl::streamsize numBytes)
     // 'buffer == 0 && n == 0' means to make this object have a 1 byte buffer.
     // 'buffer != 0 && n > 0' means to use 'buffer' as this object's internal

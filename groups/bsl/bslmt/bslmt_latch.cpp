@@ -99,6 +99,7 @@ void Latch::wait()
 }
 
 // ACCESSORS
+__out >= 0
 int Latch::currentCount() const
 {
     // Point 2: The following operation requires acquire semantics to ensure

@@ -262,6 +262,7 @@ int asciiToInt(const char **nextPos,
 /// `*nextPos`) otherwise.  The behavior is undefined unless `begin <= end`.
 /// Note that successfully parsing a date before `end` is reached is not an
 /// error.
+(__out == 0 ==> (*nextPos == end && date->isValid())) || (__out == -1 ==> *nextPos == begin)
 int parseDate(const char **nextPos,
               Date        *date,
               const char  *begin,
@@ -315,6 +316,7 @@ int parseDate(const char **nextPos,
 /// the first 7 are parsed but ignored.  The behavior is undefined unless
 /// `begin <= end`.  Note that successfully parsing a fractional second
 /// before `end` is reached is not an error.
+(__out == 0 ==> (*nextPos >= begin && *nextPos <= end && *microsecond >= 0)) && (__out == -1 ==> *nextPos == begin)
 int parseFractionalSecond(const char **nextPos,
                           int         *microsecond,
                           const char  *begin,
@@ -457,6 +459,7 @@ int parseTimezoneOffset(const char **nextPos,
 /// `*nextPos`) otherwise.  The behavior is undefined unless
 /// `begin <= end`.  Note that successfully parsing a time before `end` is
 /// reached is not an error.
+__out == 0 || __out == -1
 int parseTime(const char **nextPos,
               Time        *time,
               int         *tzOffset,
@@ -575,6 +578,7 @@ int parseTime(const char **nextPos,
 /// that if the decimal string representation of `value` is more than
 /// `paddedLen` digits, only the low-order `paddedLen` digits of `value` are
 /// output.
+__out == paddedLen
 int generateInt(char *buffer, int value, int paddedLen)
 {
     BSLS_ASSERT(buffer);
@@ -599,6 +603,7 @@ int generateInt(char *buffer, int value, int paddedLen)
 /// sufficient capacity to hold `paddedLen` characters.  Note that if the
 /// decimal string representation of `value` is more than `paddedLen`
 /// digits, only the low-order `paddedLen` digits of `value` are output.
+__out > paddedLen
 inline
 int generateInt(char *buffer, int value, int paddedLen, char separator)
 {
@@ -616,6 +621,7 @@ int generateInt(char *buffer, int value, int paddedLen, char separator)
 /// indicated by the specified `tzOffset` and `configuration`, and return
 /// the number of bytes written.  The behavior is undefined unless `buffer`
 /// has sufficient capacity and `-(24 * 60) < tzOffset < 24 * 60`.
+__out >= 0 && (configuration.useZAbbreviationForUtc() && tzOffset == 0 ==> __out == 1) && (!configuration.useZAbbreviationForUtc() || tzOffset != 0 ==> __out >= 6)
 int generateTimezoneOffset(char                        *buffer,
                            int                          tzOffset,
                            const FixUtilConfiguration&  configuration)
@@ -785,6 +791,7 @@ namespace bdlt {
                               // --------------
 
 // CLASS METHODS
+__out == k_DATE_STRLEN
 int FixUtil::generate(char                        *buffer,
                       int                          bufferLength,
                       const Date&                  object,

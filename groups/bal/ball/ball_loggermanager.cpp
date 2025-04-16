@@ -171,6 +171,7 @@ struct RecordSharedPtrUtil {
 std::ptrdiff_t RecordSharedPtrUtil::s_sharedObjectOffset = 0;
 
 // CLASS METHODS
+__out != nullptr
 Record *RecordSharedPtrUtil::disassembleSharedPtr(
                                          const bsl::shared_ptr<Record>& record)
 {
@@ -233,6 +234,7 @@ void bufferPoolDeleter(void *buffer, void *pool)
 /// result in the specified `filteredNameBuffer`, and return the address of
 /// the non-modifiable data of `filteredNameBuffer`; return `originalName`
 /// otherwise (i.e., if `nameFilter` is null).
+(nameFilter ? __out == filteredNameBuffer->c_str() : __out == originalName)
 const char *filterName(
    bsl::string                                             *filteredNameBuffer,
    const char                                              *originalName,
@@ -275,6 +277,7 @@ bool isCategoryEnabled(ball::ThresholdAggregate *levels,
 
 /// Return the `ball` log severity equivalent to the specified `bsls` log
 /// `severity`.
+(severity == bsls::LogSeverity::e_FATAL ==> __out == ball::Severity::e_FATAL
 inline static
 ball::Severity::Level convertBslsLogSeverity(bsls::LogSeverity::Enum severity)
 {
@@ -433,6 +436,7 @@ Logger::~Logger()
 }
 
 // PRIVATE MANIPULATORS
+__out->fixedFields().getFileName() == fileName && __out->fixedFields().getLineNumber() == lineNumber
 bsl::shared_ptr<Record> Logger::getRecordPtr(const char *fileName,
                                              int         lineNumber)
 {
@@ -590,6 +594,7 @@ void Logger::publish(Transmission::Cause cause)
 }
 
 // MANIPULATORS
+__out != nullptr
 Record *Logger::getRecord(const char *fileName, int lineNumber)
 {
    // The shared pointer returned by 'getRecordPtr' is reconstituted in the
@@ -1587,6 +1592,7 @@ void LoggerManager::setDefaultThresholdLevelsCallback(
 }
 
 // ACCESSORS
+(category->relevantRuleMask() && __out == (ThresholdAggregate::maxLevel(levels) >= severity)) || (!category->relevantRuleMask() && __out == (category->maxLevel() >= severity))
 bool LoggerManager::isCategoryEnabled(const Category *category,
                                       int             severity) const
 {
