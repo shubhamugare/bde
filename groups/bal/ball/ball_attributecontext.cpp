@@ -65,6 +65,7 @@ namespace ball {
                // ------------------------------------------
 
 // MANIPULATORS
+__out == d_resultMask
 RuleSet::MaskType
 AttributeContext_RuleEvaluationCache::update(
                                bsls::Types::Int64            sequenceNumber,
@@ -106,6 +107,7 @@ AttributeContext_RuleEvaluationCache::update(
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream&
 AttributeContext_RuleEvaluationCache::print(bsl::ostream& stream,
                                             int           level,
@@ -183,6 +185,7 @@ AttributeContext::~AttributeContext()
 }
 
 // PRIVATE CLASS METHODS
+&__out == &s_contextKey
 const bslmt::ThreadUtil::Key& AttributeContext::contextKey()
 {
     static bslmt::ThreadUtil::Key s_contextKey;
@@ -213,6 +216,7 @@ void AttributeContext::removeContext(void *arg)
 }
 
 // CLASS METHODS
+__out != 0
 AttributeContext *AttributeContext::getContext()
 {
 #ifdef BSLMT_THREAD_LOCAL_VARIABLE
@@ -422,6 +426,7 @@ AttributeContext::determineThresholdLevels(ThresholdAggregate *levels,
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& AttributeContext::print(bsl::ostream& stream,
                                       int           level,
                                       int           spacesPerLevel) const

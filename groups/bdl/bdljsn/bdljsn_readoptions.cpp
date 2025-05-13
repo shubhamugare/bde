@@ -25,6 +25,7 @@ ReadOptions::ReadOptions()
 }
 
 // MANIPULATORS
+&__out == this
 ReadOptions& ReadOptions::reset()
 {
     d_allowTrailingText = s_DEFAULT_INITIALIZER_ALLOW_TRAILING_TEXT;

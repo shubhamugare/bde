@@ -15,6 +15,7 @@ namespace bdlb {
                                // -------------
 
 // CLASS METHODS
+__out == (0 == std::strcmp(lhsString, rhsString)
 bool String::areEqualCaseless(const char *lhsString,
                               const char *rhsString)
 {

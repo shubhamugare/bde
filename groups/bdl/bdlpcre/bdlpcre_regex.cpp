@@ -309,6 +309,7 @@ RegEx_MatchContext::~RegEx_MatchContext()
 }
 
 // PRIVATE ACCESSORS
+__out == 0 || __out == k_INTERNAL_ERROR
 int
 RegEx_MatchContext::allocateMatchContext(
                                 RegEx_MatchContextData *matchContextData) const
@@ -371,6 +372,7 @@ RegEx_MatchContext::deallocateMatchContext(
 }
 
 // MANIPULATORS
+__out == allocateMatchContext(&d_mainThreadMatchData)
 int RegEx_MatchContext::initialize(pcre2_general_context *pcre2Context,
                                    pcre2_code            *patternCode,
                                    int                    depthLimit,
@@ -400,6 +402,7 @@ void RegEx_MatchContext::setDepthLimit(int depthLimit)
 }
 
 // ACCESSORS
+__out == RegEx::k_STATUS_SUCCESS || __out == allocateMatchContext(matchContextData)
 int
 RegEx_MatchContext::acquireMatchContext(
                                 RegEx_MatchContextData *matchContextData) const
@@ -789,6 +792,7 @@ int RegEx::replaceImp(STRING                  *result,
 }
 
 // CLASS METHODS
+__out == k_IS_JIT_SUPPORTED
 bool RegEx::isJitAvailable()
 {
     unsigned int result = 0;

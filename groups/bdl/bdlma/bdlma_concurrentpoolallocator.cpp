@@ -20,6 +20,7 @@ enum {
 };
 
 // STATIC METHODS
+(__out % BloombergLP::bsls::AlignmentUtil::BSLS_MAX_ALIGNMENT == 0) && (__out >= totalSize)
 static inline
 BloombergLP::bsls::Types::size_type calculateMaxAlignedSize(
                                  BloombergLP::bsls::Types::size_type totalSize)
@@ -142,6 +143,7 @@ ConcurrentPoolAllocator::~ConcurrentPoolAllocator()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *ConcurrentPoolAllocator::allocate(size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_UNLIKELY(0 == size)) {

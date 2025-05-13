@@ -61,6 +61,7 @@ FixUtilConfiguration::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& bdlt::operator<<(bsl::ostream&               stream,
                                const FixUtilConfiguration& object)
 {

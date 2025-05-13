@@ -135,6 +135,7 @@ double reparseOutOfRange(const char              **restPtr,
 #else   // end - using 'double' 'from_chars' / begin - using 'strtod'
 
                               // Portability
+(__out == true ==> (bsl::isinf(number) || (bsl::fpclassify(number) == FP_INFINITE))) && (__out == false ==> (!bsl::isinf(number) || bsl::isnan(number) || bsl::fpclassify(number) != FP_INFINITE))
 static
 bool isInf(double number)
     // Return 'true' if the specified 'number' is a positive or negative
@@ -185,6 +186,7 @@ namespace bdlb {
                         // struct NumericParseUtil
                         // -----------------------
 // CLASS METHODS
+(__out == -1) || (0 <= __out && __out < base && (Ct::isDigit(character) || (Ct::isAlpha(character) && Ct::toLower(character) - ('a' - 10) == __out)))
 int NumericParseUtil::characterToDigit(char character, int base)
 {
     BSLS_ASSERT_SAFE(2 <= base);

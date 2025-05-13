@@ -171,6 +171,7 @@ struct RecordSharedPtrUtil {
 std::ptrdiff_t RecordSharedPtrUtil::s_sharedObjectOffset = 0;
 
 // CLASS METHODS
+__out == record.get()
 Record *RecordSharedPtrUtil::disassembleSharedPtr(
                                          const bsl::shared_ptr<Record>& record)
 {
@@ -233,6 +234,7 @@ void bufferPoolDeleter(void *buffer, void *pool)
 /// result in the specified `filteredNameBuffer`, and return the address of
 /// the non-modifiable data of `filteredNameBuffer`; return `originalName`
 /// otherwise (i.e., if `nameFilter` is null).
+__out == originalName || (nameFilter && __out == filteredNameBuffer->c_str())
 const char *filterName(
    bsl::string                                             *filteredNameBuffer,
    const char                                              *originalName,
@@ -258,6 +260,7 @@ const char *filterName(
 /// specified `category`, and return `true` if the specified `severity` is
 /// more severe (i.e., is numerically less than) at least one of the
 /// threshold levels of `category`, and `false` otherwise.
+(category.relevantRuleMask() ==> (ball::ThresholdAggregate::maxLevel(*levels) >= severity == __out)) && (!category.relevantRuleMask() ==> (category.maxLevel() >= severity == __out))
 bool isCategoryEnabled(ball::ThresholdAggregate *levels,
                        const ball::Category&     category,
                        int                       severity)
@@ -433,6 +436,7 @@ Logger::~Logger()
 }
 
 // PRIVATE MANIPULATORS
+__out != nullptr
 bsl::shared_ptr<Record> Logger::getRecordPtr(const char *fileName,
                                              int         lineNumber)
 {
@@ -590,6 +594,7 @@ void Logger::publish(Transmission::Cause cause)
 }
 
 // MANIPULATORS
+__out != NULL
 Record *Logger::getRecord(const char *fileName, int lineNumber)
 {
    // The shared pointer returned by 'getRecordPtr' is reconstituted in the

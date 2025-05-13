@@ -15,6 +15,7 @@ namespace bsltf {
 int EmplacableTestType::s_numDeletes = 0;
 
 // CLASS METHODS
+__out == s_numDeletes
 int EmplacableTestType::getNumDeletes()
 {
     return s_numDeletes;
@@ -300,6 +301,7 @@ EmplacableTestType::~EmplacableTestType()
 }
 
 // MANIPULATORS
+&__out == this
 EmplacableTestType& EmplacableTestType::operator=(
                                                  const EmplacableTestType& rhs)
 {

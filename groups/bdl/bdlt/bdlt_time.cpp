@@ -49,6 +49,7 @@ BSLMF_ASSERT(!bslmf::IsTriviallyCopyableCheck<Time>::value);
 /// ```
 /// *number == *number % base + (*number / base) * base
 /// ```
+__out * base + *number == *number + __out * base
 static
 bsls::Types::Int64 fastMod(int *number, int base)
 {
@@ -75,6 +76,7 @@ bsls::Types::Int64 fastMod(int *number, int base)
 /// ```
 /// *number == *number % base + (*number / base) * base
 /// ```
+__out * base + *number == initial
 static
 bsls::Types::Int64 fastMod(bsls::Types::Int64 *number, bsls::Types::Int64 base)
 {

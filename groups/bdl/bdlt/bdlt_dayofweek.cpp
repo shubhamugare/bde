@@ -19,6 +19,7 @@ namespace bdlt {
                             // ---------------
 
 // CLASS METHODS
+__out == stream
 bsl::ostream& DayOfWeek::print(bsl::ostream&   stream,
                                DayOfWeek::Enum value,
                                int             level,

@@ -37,6 +37,7 @@ enum {
 
 /// Round up the specified `x` to the nearest whole integer multiple of the
 /// specified `y`.  The behavior is undefined unless `1 <= y`.
+__out >= x && __out % y == 0
 static inline
 bsls::Types::size_type roundUp(bsls::Types::size_type x,
                                bsls::Types::size_type y)

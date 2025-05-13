@@ -100,6 +100,7 @@ EnvironmentVariableAccessor::EnvironmentVariableAccessor(
 #endif
 
 // ACCESSORS
+__out == d_returnValue
 inline
 const char *EnvironmentVariableAccessor::value() const
 {
@@ -215,6 +216,7 @@ Ordinal::Ordinal(bsl::size_t n)
 }  // close namespace u
 
 // FREE OPERATORS
+&__out == &stream
 bsl::ostream& u::operator<<(bsl::ostream& stream, Ordinal position)
 {
     // ranks start at 0, but are displayed as 1st, 2nd, etc.
@@ -370,6 +372,7 @@ bool isValidEnvironmentVariableName(
 /// documentation.  Return 0 if `options` are valid, and a non-zero value
 /// otherwise.  If `options` is invalid, a descriptive message is written to
 /// the specified `errorStream`.
+(__out == 0) || (1 <= __out && __out <= 14) || __out == -1 || __out == -2 || __out == -3
 int validate(const bsl::vector<Option>& options,
              bsl::ostream&              errorStream)
 {
@@ -606,6 +609,7 @@ int validate(const bsl::vector<Option>& options,
 /// whether variables are to be set.  Return a negative value on failure,
 /// and the number of values populated in `optionValueResult` otherwise
 /// (which will be typically be 1, unless `option` is an array type).
+(__out == -1) || (__out > 0)
 bsl::ptrdiff_t parseEnvironmentVariable(
                                 OptionValue             *optionValueResult,
                                 const bsl::string_view&  input,
@@ -1186,6 +1190,7 @@ void CommandLine::validateAndInitialize(bsl::ostream& errorStream)
 }
 
 // PRIVATE ACCESSORS
+(__out >= 0 ==> __out < d_options.size()) && (__out >= 0 ==> d_options[__out].name() == name)
 int CommandLine::findName(const bsl::string_view& name) const
 {
     for (unsigned int i = 0; i < d_options.size(); ++i) {
@@ -1284,6 +1289,7 @@ int CommandLine::missing(bool checkAlsoNonOptions) const
 }
 
 // CLASS METHODS
+__out == (0 == u::validate(options, errorStream))
 bool CommandLine::isValidOptionSpecificationTable(
                                                  const OptionInfo *specTable,
                                                  int               length,
@@ -1438,6 +1444,7 @@ int CommandLine::parse(int                argc,
 }
 
 // ACCESSORS
+__out ==> (0 <= findName(name)) && (!__out ==> (findName(name) < 0))
 bool CommandLine::hasOption(const bsl::string_view& name) const
 {
     return 0 <= findName(name);
@@ -1566,6 +1573,7 @@ OptionType::Enum CommandLine::type(const bsl::string_view& name) const
 }
 
 // BDE_VERIFY pragma: -FABC01  // not in alphabetic order
+__out == options().the<OptionType::Bool>(name)
 bool CommandLine::theBool(const bsl::string_view& name) const
 {
     const int index = findName(name);
@@ -2011,6 +2019,7 @@ bsl::ostream& CommandLine::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+__out ==> lhs.isParsed() && rhs.isParsed() && lhs.options() == rhs.options()
 bool balcl::operator==(const CommandLine& lhs, const CommandLine& rhs)
 {
     return lhs.isParsed() && rhs.isParsed() && lhs.options() == rhs.options();
@@ -2042,6 +2051,7 @@ namespace balcl {
                           // ------------------------------
 
 // ACCESSORS
+(__out >= 0 ==> EXISTS(d_schema_p->cbegin(), d_schema_p->cend(), itr, itr->d_name_p == name)) && (__out == -1 ==> !EXISTS(d_schema_p->cbegin(), d_schema_p->cend(), itr, itr->d_name_p == name))
 int CommandLineOptionsHandle::index(const bsl::string_view& name) const
 {
     for (CommandLine_Schema::const_iterator itr  = d_schema_p->cbegin(),

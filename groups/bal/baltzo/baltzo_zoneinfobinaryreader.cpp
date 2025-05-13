@@ -130,6 +130,7 @@ const bsls::Types::Int64 MINIMUM_ZIC_TRANSITION = -576460752303423488LL;
 
 /// Return `true` if every character in the specified `buffer` of the
 /// specified `length` is printable, and `false` otherwise.
+(__out == true ==> FORALL(0, length, i, bdlb::CharType::isPrint(buffer[i]))) && (__out == false ==> EXISTS(0, length, i, !bdlb::CharType::isPrint(buffer[i])))
 static
 bool areAllPrintable(const char *buffer, int length)
 {
@@ -243,6 +244,7 @@ int decode32(const char *address)
 /// meets the requirements of the Zoneinfo binary file format, populate the
 /// specified `result` with the extracted information.  Return 0 if `result`
 /// is successfully read, and a non-zero value otherwise.
+__out <= 0
 static inline
 int readHeader(baltzo::ZoneinfoBinaryHeader *result, bsl::istream& stream)
 {
@@ -398,6 +400,7 @@ int loadLocalTimeDescriptors(
 /// (which typically follows the version '\0' format data in a Zoneinfo
 /// binary file).  If an error occurs during the operation, the resulting
 /// value of `zoneinfoResult` is unspecified.
+__out <= 0
 static int readVersion2Or3FormatData(
                                   baltzo::Zoneinfo             *zoneinfoResult,
                                   baltzo::ZoneinfoBinaryHeader *headerResult,

@@ -222,6 +222,7 @@ void Capacity::operator-=(int delta)
 
 /// Return `true` if `d_capacity` is less than the specified `rhs`, and
 /// `false` otherwise.
+__out == (d_capacity < rhs)
 inline
 bool Capacity::operator<( bsl::size_t rhs) const
 {
@@ -230,6 +231,7 @@ bool Capacity::operator<( bsl::size_t rhs) const
 
 /// Return `true` if `d_capacity` is greater than or equal to the specified
 /// `rhs`, and `false` otherwise.
+__out == (d_capacity >= rhs)
 inline
 bool Capacity::operator>=(bsl::size_t rhs) const
 {
@@ -296,6 +298,7 @@ void NoopCapacity::operator-=(int)
 // ACCESSORS
 
 /// Return `false`.
+!__out
 inline
 bool NoopCapacity::operator<( bsl::size_t) const
 {
@@ -303,6 +306,7 @@ bool NoopCapacity::operator<( bsl::size_t) const
 }
 
 /// Return `true`.
+__out == true
 inline
 bool NoopCapacity::operator>=(bsl::size_t) const
 {
@@ -403,6 +407,7 @@ Utf8PtrBasedEnd::Utf8PtrBasedEnd(const char *end)
 {}
 
 // ACCESSORS
+(position < d_end ==> __out == false) && (position >= d_end ==> __out == true)
 inline
 bool Utf8PtrBasedEnd::isFinished(const OctetType *position) const
 {
@@ -498,6 +503,7 @@ Utf8ZeroBasedEnd::Utf8ZeroBasedEnd()
 }
 
 // ACCESSORS
+__out == (*position == 0)
 inline
 bool Utf8ZeroBasedEnd::isFinished(const OctetType *position) const
 {
@@ -580,6 +586,7 @@ Utf32PtrBasedEnd::Utf32PtrBasedEnd(const unsigned int *end)
 {}
 
 // ACCESSORS
+(position < d_end_p ==> __out == false) && (position >= d_end_p ==> __out == true)
 inline
 bool Utf32PtrBasedEnd::isFinished(const unsigned int *position) const
 {
@@ -620,6 +627,7 @@ Utf32ZeroBasedEnd::Utf32ZeroBasedEnd()
 }
 
 // ACCESSORS
+__out == (*position == 0)
 inline
 bool Utf32ZeroBasedEnd::isFinished(const unsigned int *position) const
 {
@@ -632,6 +640,7 @@ bool Utf32ZeroBasedEnd::isFinished(const unsigned int *position) const
 /// `static_cast` does not work here, and the idea is to be sure in these
 /// casts that one is never accidentally casting between pointers to `char`
 /// or `OctetType` and pointers to `unsigned int`.
+__out == reinterpret_cast<const OctetType *>(ptr)
 static inline
 const OctetType *constOctetCast(const char *ptr)
 {
@@ -643,6 +652,7 @@ const OctetType *constOctetCast(const char *ptr)
 /// `static_cast` does not work here, and the idea is to be sure in these
 /// casts that one is never accidentally casting between pointers to `char`
 /// or `OctetType` and pointers to `unsigned int`.
+__out == reinterpret_cast<unsigned char*>(ptr)
 static inline
 OctetType *octetCast(char *ptr)
 {
@@ -651,6 +661,7 @@ OctetType *octetCast(char *ptr)
 }
 
 /// Return `true` if the specified `oct` is a single-octet UTF-8 sequence.
+__out == ((oct & k_ONE_OCTET_MASK) == 0)
 static inline
 bool isSingleOctet(OctetType oct)
 {
@@ -659,6 +670,7 @@ bool isSingleOctet(OctetType oct)
 
 /// Return `true` if the specified `oct` is a continuation octet and `false`
 /// otherwise.
+__out == ((oct & k_CONTINUE_MASK) == k_CONTINUE_TAG)
 static inline
 bool isContinuation(OctetType oct)
 {
@@ -667,6 +679,7 @@ bool isContinuation(OctetType oct)
 
 /// Return `true` if the specified `oct` is the first octet of a two-octet
 /// UTF-8 sequence and `false` otherwise.
+(__out == true ==> (oct & k_TWO_OCTET_MASK) == k_TWO_OCTET_TAG) && (__out == false ==> (oct & k_TWO_OCTET_MASK) != k_TWO_OCTET_TAG)
 static inline
 bool isTwoOctetHeader(OctetType oct)
 {
@@ -675,6 +688,7 @@ bool isTwoOctetHeader(OctetType oct)
 
 /// Return `true` if the specified `oct` is the first octet of a three-octet
 /// UTF-8 sequence and `false` otherwise.
+(__out == true ==> (oct & k_THREE_OCTET_MASK) == k_THREE_OCTET_TAG) && (__out == false ==> (oct & k_THREE_OCTET_MASK) != k_THREE_OCTET_TAG)
 static inline
 bool isThreeOctetHeader(OctetType oct)
 {
@@ -683,6 +697,7 @@ bool isThreeOctetHeader(OctetType oct)
 
 /// Return `true` if the specified `oct` is the first octet of a four-octet
 /// UTF-8 sequence and `false` otherwise.
+__out == ((oct & k_FOUR_OCTET_MASK) == k_FOUR_OCTET_TAG)
 static inline
 bool isFourOctetHeader(OctetType oct)
 {
@@ -691,6 +706,7 @@ bool isFourOctetHeader(OctetType oct)
 
 /// Return the value of the two-octet sequence that begins with the octet
 /// pointed to by the specified `octBuf`.
+__out == ((octBuf[1] & ~k_CONTINUE_MASK) | ((octBuf[0] & ~k_TWO_OCTET_MASK) << k_CONTINUE_CONT_WID))
 static inline
 unsigned int decodeTwoOctets(const OctetType *octBuf)
 {
@@ -710,6 +726,7 @@ unsigned int decodeThreeOctets(const OctetType *octBuf)
 
 /// Return the value of the four-octet sequence that begins with the octet
 /// pointed to by the specified `octBuf`.
+__out == ( (octBuf[3] & ~k_CONTINUE_MASK) | ((octBuf[2] & ~k_CONTINUE_MASK) << k_CONTINUE_CONT_WID) | ((octBuf[1] & ~k_CONTINUE_MASK) << (2 * k_CONTINUE_CONT_WID)) | ((octBuf[0] & ~k_FOUR_OCTET_MASK) << (3 * k_CONTINUE_CONT_WID)) )
 static inline
 unsigned int decodeFourOctets(const OctetType *octBuf)
 {
@@ -722,6 +739,7 @@ unsigned int decodeFourOctets(const OctetType *octBuf)
 /// Return the number of continuation octets beginning at the specified
 /// `octBuf`, up to but not greater than the specified `n`.  Note that a
 /// null octet is not a continuation and is taken to end the scan.
+__out >= 0 && __out <= n
 static inline
 bsl::size_t lookaheadContinuations(const OctetType * const octBuf, int n)
 {
@@ -743,6 +761,7 @@ bool fitsInSingleOctet(unsigned int uc)
 
 /// Return `true` if the specified Unicode value `uc` can be coded in two
 /// UTF-8 octets or less and `false` otherwise.
+__out == true ==> uc < (1 << (k_TWO_OCT_CONT_WID + k_CONTINUE_CONT_WID))
 static inline
 bool fitsInTwoOctets(unsigned int uc)
 {
@@ -761,6 +780,7 @@ bool fitsInThreeOctets(unsigned int uc)
 
 /// Return `true` if the specified Unicode value `uc` can be coded in four
 /// UTF-8 octets or less and `false` otherwise.
+__out == (0 == (uc & (~ (unsigned int) 0 << (k_FOUR_OCT_CONT_WID + 3 * k_CONTINUE_CONT_WID))))
 static inline
 bool fitsInFourOctets(unsigned int uc)
 {
@@ -807,6 +827,7 @@ void encodeFourOctets(OctetType *octBuf, unsigned int isoBuf)
 /// Return `true` if the specified Unicode value `uc` is a value reserved
 /// for the encoding of double-word planes in UTF-16 (such values are
 /// illegal in ANY Unicode format) and `false` otherwise.
+__out == (uc >= 0xd800 && uc < 0xe000)
 static inline
 bool isIllegal16BitValue(unsigned int uc)
 {
@@ -815,6 +836,7 @@ bool isIllegal16BitValue(unsigned int uc)
 
 /// Return `true` if the specified 32-bit value `uc` is too high to be
 /// represented in Unicode and `false` otherwise.
+(uc > 0x10FFFF) ==> __out == true && (uc <= 0x10FFFF) ==> __out == false
 static inline
 bool isIllegalFourOctetValue(unsigned int uc)
 {

@@ -152,6 +152,7 @@ namespace bdlb {
                             // ---------------
 
 // CLASS METHODS
+__out >= 0
 unsigned int HashUtil::hash1(const char *data, int length)
 {
     BSLS_ASSERT(0 <= length);

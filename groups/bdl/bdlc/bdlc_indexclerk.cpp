@@ -31,6 +31,7 @@ namespace bdlc {
                               // ----------------
 
 // PRIVATE ACCESSORS
+__out == true ==> FORALL(0, unusedStack.size(), i, 0 <= unusedStack[i] && unusedStack[i] < nextNewIndex && bin[unusedStack[i]] < 2)
 bool
 IndexClerk::areInvariantsPreserved(const bsl::vector<int>& unusedStack,
                                    int                     nextNewIndex)

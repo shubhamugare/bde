@@ -33,6 +33,7 @@ static const char *const months[] = {
                                   // ----------
 
 // MANIPULATORS
+(__out == 0 ==> d_serialDate == (d_serialDate - numDays) + numDays) && (__out == -1 ==> d_serialDate == d_serialDate - numDays || !Date::isValidSerial(d_serialDate + numDays))
 int Date::addDaysIfValid(int numDays)
 {
     enum { k_SUCCESS = 0, k_FAILURE = -1 };
@@ -53,6 +54,7 @@ int Date::addDaysIfValid(int numDays)
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& Date::print(bsl::ostream& stream,
                           int           level,
                           int           spacesPerLevel) const

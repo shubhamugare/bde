@@ -18,6 +18,7 @@ namespace ball {
                       // ---------------------
 
 // CLASS METHODS
+__out == 0 || __out == 1
 int Administration::addCategory(const char *categoryName,
                                 int         recordLevel,
                                 int         passLevel,

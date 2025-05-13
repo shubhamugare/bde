@@ -90,6 +90,7 @@ bslmt::Sluice::~Sluice()
 }
 
 // MANIPULATORS
+__out != NULL
 const void *bslmt::Sluice::enter()
 {
     LockGuard<Mutex> lock(&d_mutex);

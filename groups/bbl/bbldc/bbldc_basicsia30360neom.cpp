@@ -54,6 +54,7 @@ static int computeDaysDiff(const bdlt::Date& beginDate,
                          // ------------------------
 
 // CLASS METHODS
+__out == computeDaysDiff(beginDate, endDate)
 int BasicSia30360Neom::daysDiff(const bdlt::Date& beginDate,
                                 const bdlt::Date& endDate)
 {

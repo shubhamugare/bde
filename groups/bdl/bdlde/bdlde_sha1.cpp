@@ -51,6 +51,7 @@ const Sha1Word k_SHA1_CONSTANTS[80] = {
 /// Return the result of a bitwise rotation on the specified `value` by the
 /// specified `shift` number of bits.  The behavior is undefined unless
 /// `shift` is positive and strictly less than 32.
+__out == ((value << shift) | (value >> ((sizeof(value) * CHAR_BIT) - shift)))
 static Sha1Word rotateLeft(Sha1Word value, int shift)
 {
     return (value << shift) | (value >> ((sizeof(value) * CHAR_BIT) - shift));
@@ -60,6 +61,7 @@ static Sha1Word rotateLeft(Sha1Word value, int shift)
 /// the corresponding bit from the specified `x`, otherwise uses the
 /// corresponding bit from the specified `y`.  This function is named `Ch`
 /// in FIPS 180-4.
+__out == ((condition & (x ^ y)) ^ y)
 static Sha1Word bitwiseConditional(Sha1Word condition, Sha1Word x, Sha1Word y)
 {
     // The following implementation, taken from bdlde_sha2.cpp, only uses 3
@@ -73,6 +75,7 @@ static Sha1Word bitwiseConditional(Sha1Word condition, Sha1Word x, Sha1Word y)
 /// Return a value that has each bit set if and only if the corresponding
 /// bit is set in at least two out of three of the specified `x`, `y`, and
 /// `z`.  This function is named `Maj` in FIPS 180-4.
+__out == ((x & y) | ((x | y) & z))
 static Sha1Word bitwiseMajority(Sha1Word x, Sha1Word y, Sha1Word z)
 {
     return (x & y) | ((x | y) & z);
@@ -97,6 +100,7 @@ static Sha1Word f(Sha1Word x, Sha1Word y, Sha1Word z, int index)
 /// indicated by the specified `bytes` interpreted as a big-endian integer
 /// of type `Word`.  The behavior is undefined unless
 /// `[bytes, bytes + sizeof(INTEGER))` is a valid range.
+__out >= 0 && __out <= 0xFFFFFFFF
 static Sha1Word pack(const unsigned char *bytes)
 {
     bsl::size_t shift = sizeof(Sha1Word) * CHAR_BIT;
@@ -360,6 +364,7 @@ bsl::ostream& Sha1::print(bsl::ostream& stream) const
 }  // close package namespace
 
 // FREE OPERATORS
+(__out == true) ==> (lhs.d_totalSize == rhs.d_totalSize && lhs.d_bufferSize == rhs.d_bufferSize && bsl::equal(lhs.d_buffer, lhs.d_buffer + lhs.d_bufferSize, rhs.d_buffer) && bsl::equal(bsl::begin(lhs.d_state), bsl::end(lhs.d_state), bsl::begin(rhs.d_state)))
 bool bdlde::operator==(const Sha1& lhs, const Sha1& rhs)
 {
     return lhs.d_totalSize == rhs.d_totalSize &&

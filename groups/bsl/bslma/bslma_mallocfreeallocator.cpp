@@ -41,6 +41,7 @@ static bsls::AtomicOperations::AtomicTypes::Pointer
 
 /// Construct a `bslma::MallocFreeAllocator` at the location specified by
 /// `p` in a thread-safe way.  Return `p`.
+__out != nullptr
 static inline
 bslma::MallocFreeAllocator *initSingleton(
                                         bslma_MallocFreeAllocator_Singleton *p)
@@ -84,6 +85,7 @@ namespace bslma {
                         // -------------------------
 
 // CLASS METHODS
+&__out == &MallocFreeAllocator::singleton()
 MallocFreeAllocator& MallocFreeAllocator::singleton()
 {
     // This initialization is not guaranteed to happen once, but repeated
@@ -103,6 +105,7 @@ MallocFreeAllocator& MallocFreeAllocator::singleton()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *MallocFreeAllocator::allocate(size_type size)
 {
     if (!size) {

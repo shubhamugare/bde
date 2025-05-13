@@ -26,6 +26,7 @@ namespace baltzo {
                              // ------------------
 
 // CLASS METHODS
+__out == 0 ==> result != 0
 int TimeZoneUtil::addInterval(LocalDatetime             *result,
                               const LocalDatetime&       originalTime,
                               const bsls::TimeInterval&  interval)

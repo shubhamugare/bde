@@ -403,6 +403,7 @@ static void append(unsigned int *state, const unsigned char *data)
 
 /// Return the number of bytes in use in the buffer for the total specified
 /// `length`.
+__out >= 0 && __out < 64
 inline
 static int getLengthInUse(bsls::Types::Int64 length)
 {

@@ -18,6 +18,7 @@ namespace bbldc {
                       // -----------------------------
 
 // CLASS METHODS
+(convention == DayCountConvention::e_ISDA_30_360_EOM ==> __out == bbldc::TerminatedIsda30360Eom::daysDiff(beginDate, endDate, terminationDate)) && (convention != DayCountConvention::e_ISDA_30_360_EOM ==> __out == 0)
 int TerminatedDayCountUtil::daysDiff(const bdlt::Date&        beginDate,
                                      const bdlt::Date&        endDate,
                                      const bdlt::Date&        terminationDate,

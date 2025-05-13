@@ -16,6 +16,7 @@ namespace bdlsb {
                         // -------------------
 
 // MANIPULATORS
+(which & bsl::ios_base::in) && (static_cast<bsl::size_t>(position) <= d_bufferSize) && (off_type(position) >= 0) ==> __out == position
 FixedMemInput::pos_type
 FixedMemInput::pubseekpos(pos_type                position,
                           bsl::ios_base::openmode which)
