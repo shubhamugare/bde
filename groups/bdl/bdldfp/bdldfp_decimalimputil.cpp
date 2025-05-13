@@ -95,6 +95,7 @@ T divmod10(T* v)
 
 /// Load the resultant value of dividing the specified value `v` by 10 into
 /// `v`.  Return the remainder of the division.
+__out >= 0 && __out <= 9
 bsls::Types::Uint64 divmod10(Uint128* v)
 {
     // Set a = v.high(), b = v.low().

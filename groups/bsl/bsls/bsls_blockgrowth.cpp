@@ -13,6 +13,7 @@ namespace bsls {
                         // ------------------
 
 // CLASS METHODS
+__out != nullptr
 const char *BlockGrowth::toAscii(BlockGrowth::Strategy value)
 {
 #define CASE(X) case(BSLS_ ## X): return #X;

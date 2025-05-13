@@ -53,6 +53,7 @@ void OverflowMemOutStreamBuf::privateSync() const
 
 
 // PROTECTED MANIPULATORS
+(c == EOF ==> __out != EOF) && (c != EOF ==> __out == c)
 OverflowMemOutStreamBuf::int_type
 OverflowMemOutStreamBuf::overflow(OverflowMemOutStreamBuf::int_type c)
 {

@@ -58,6 +58,7 @@ bsl::uint64_t f1(bsl::uint64_t value)
 
 /// Second mixing function used by SHA-224 and SHA-256.  Mixes together the
 /// bits of the specified `value`.
+__out == (rotateRight(value, 6) ^ rotateRight(value, 11) ^ rotateRight(value, 25))
 bsl::uint32_t f2(bsl::uint32_t value)
 {
     return rotateRight(value,  6)
@@ -653,6 +654,7 @@ bsl::ostream& Sha512::print(bsl::ostream& stream) const
 }  // close package namespace
 
 // FREE OPERATORS
+__out == (lhs.d_totalSize == rhs.d_totalSize && lhs.d_bufferSize == rhs.d_bufferSize && bsl::equal(lhs.d_buffer, lhs.d_buffer + lhs.d_bufferSize, rhs.d_buffer) && bsl::equal(lhs.d_state, lhs.d_state + 8, rhs.d_state))
 bool bdlde::operator==(const Sha224& lhs, const Sha224& rhs)
 {
     return lhs.d_totalSize  == rhs.d_totalSize

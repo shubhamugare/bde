@@ -85,6 +85,7 @@ void ElementAttribute::reset(const PrefixStack *prefixStack,
 }
 
 // ACCESSORS
+__out != nullptr || __out[0] == '\0'
 const char *ElementAttribute::prefix() const
 {
     if (d_prefix || ! d_qualifiedName) {

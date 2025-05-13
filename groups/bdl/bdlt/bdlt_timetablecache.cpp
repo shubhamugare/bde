@@ -53,6 +53,7 @@ TimetableCache_Entry::~TimetableCache_Entry()
 }
 
 // MANIPULATORS
+&__out == this
 TimetableCache_Entry& TimetableCache_Entry::operator=(
                                                const TimetableCache_Entry& rhs)
 {

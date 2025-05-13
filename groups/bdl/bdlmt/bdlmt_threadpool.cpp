@@ -89,7 +89,8 @@ struct ThreadPoolWaitNode {
                             // ===============
 
 /// Entry point for processing threads.
-extern "C" void *ThreadPoolEntry(void *aThis)
+extern "C" __out == 0
+void *ThreadPoolEntry(void *aThis)
 {
     ((bdlmt::ThreadPool*)aThis)->workerThread();
     return 0;

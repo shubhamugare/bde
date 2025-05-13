@@ -107,6 +107,7 @@ TimeInterval SystemTime::nowMonotonicClock()
                             //- - - - - - - - - - - -
 
 /// Return the current time for the specified `clockId`.
+__out.seconds() >= 0 && __out.nanoseconds() >= 0 && __out.nanoseconds() < 1000000000
 static inline
 TimeInterval getNowTime(clockid_t clockId)
 {

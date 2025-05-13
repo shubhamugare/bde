@@ -49,6 +49,7 @@ bool startsWith(const char *begin, const char (&prefix)[CLEN])
 /// Return `true` if the specified character `ch` occurs at least the
 /// specified `count` times within the specified [`begin` .. `end`) range.
 /// The behavior is undefined unless `begin` is not less than `end`.
+__out == (count <= static_cast<size_t>(std::count(begin, end, ch)))
 static
 inline
 bool hasAtLeastCountChar(const char *       begin,
@@ -71,6 +72,7 @@ bool hasAtLeastCountChar(const char *       begin,
 /// right after it, or `end` if it is the last character.  If `ch` is not
 /// found return `begin`.  The behavior is undefined if `begin` is greater
 /// than `end`.
+__out >= begin && __out <= end
 static
 inline
 const char *onePastLastChr(const char *const begin, const char *end, char ch)
@@ -89,6 +91,7 @@ const char *onePastLastChr(const char *const begin, const char *end, char ch)
 
 /// Return `true` if the specified `tag` is a lowercase US alphabetic/letter
 /// character or return `false` if it is some other character.
+...
 static
 inline
 bool isAlphaTag(char tag)
@@ -112,6 +115,7 @@ bool isAlphaTag(char tag)
 
 /// Return `true` if the specified `tag` is a valid test driver tag
 /// character from a source name (`t` or `g`).
+__out == ('t' == tag || 'g' == tag)
 static
 inline
 bool isTestDriverTag(char tag)
@@ -121,6 +125,7 @@ bool isTestDriverTag(char tag)
 
 /// Return `true` if the specified `sourceType` is a test driver type
 /// according to `SourceTypes`.
+__out == (0 != (sourceType & BloombergLP::bsls::BslSourceNameParserUtil::k_MASK_TEST))
 static
 inline
 bool isTestDriverType(unsigned sourceType)
@@ -131,6 +136,7 @@ bool isTestDriverType(unsigned sourceType)
 
 /// Return a pointer to the first character of the specified `filename`
 /// after the last path delimiter.
+predicate
 static
 const char *skipPath(const char *filename)
 {
@@ -157,6 +163,7 @@ namespace bsls {
                       //-------------------------------
 
 // CLASS METHODS
+__out == 0 ==> (*componentNamePtr != nullptr && *componentNameLength > 0 && *componentNamePtr + *componentNameLength <= sourceName + strlen(sourceName))
 int BslSourceNameParserUtil::getComponentName(const char **componentNamePtr,
                                               size_t      *componentNameLength,
                                               const char  *sourceName,

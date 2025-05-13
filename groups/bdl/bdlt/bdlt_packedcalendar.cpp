@@ -137,6 +137,7 @@ void appendHoliday(
 /// product of the specified `level` and `spacesPerLevel` to the specified
 /// output `stream` and return a reference to the modifiable `stream`.  If
 /// the `level` is negative, this function has no effect.
+&__out == &stream
 static
 bsl::ostream& indent(bsl::ostream& stream,
                      int           level,
@@ -166,6 +167,7 @@ bsl::ostream& indent(bsl::ostream& stream,
 /// `firstDate` to `lastDate` whose day-of-week are in the specified
 /// `weekendDays` set.  Note that this function returns 0 if
 /// `lastDate < firstDate`.
+__out >= 0
 static
 int numWeekendDaysInRangeImp(const Date&         firstDate,
                              const Date&         lastDate,
@@ -499,6 +501,7 @@ void PackedCalendar::unionHolidays(
 }
 
 // PRIVATE MANIPULATORS
+0 <= __out && __out <= static_cast<int>(d_holidayOffsets.length())
 int PackedCalendar::addHolidayImp(int offset)
 {
     BSLS_ASSERT(0 <= offset && d_lastDate - d_firstDate >= offset);
@@ -604,6 +607,7 @@ PackedCalendar::~PackedCalendar()
 }
 
 // MANIPULATORS
+&__out == this
 PackedCalendar& PackedCalendar::operator=(const PackedCalendar& rhs)
 {
     PackedCalendar(rhs, d_allocator_p).swap(*this);
@@ -1360,6 +1364,7 @@ bsl::ostream& PackedCalendar::print(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+__out == (lhs.d_firstDate == rhs.d_firstDate && lhs.d_lastDate == rhs.d_lastDate && lhs.d_weekendDaysTransitions == rhs.d_weekendDaysTransitions && lhs.d_holidayOffsets == rhs.d_holidayOffsets && lhs.d_holidayCodesIndex == rhs.d_holidayCodesIndex && lhs.d_holidayCodes == rhs.d_holidayCodes)
 bool bdlt::operator==(const PackedCalendar& lhs, const PackedCalendar& rhs)
 {
     return lhs.d_firstDate              == rhs.d_firstDate
@@ -1526,6 +1531,7 @@ void PackedCalendar_BusinessDayConstIterator::previousBusinessDay()
 }
 
 // MANIPULATORS
+&__out == this
 PackedCalendar_BusinessDayConstIterator&
 PackedCalendar_BusinessDayConstIterator::operator=(
                             const PackedCalendar_BusinessDayConstIterator& rhs)

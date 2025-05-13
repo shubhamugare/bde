@@ -174,6 +174,7 @@ void ConcurrentMultipool::initialize(
 }
 
 // PRIVATE ACCESSORS
+__out >= 0
 inline
 int ConcurrentMultipool::findPool(bsls::Types::size_type size) const
 {
@@ -292,6 +293,7 @@ ConcurrentMultipool::~ConcurrentMultipool()
 }
 
 // MANIPULATORS
+(size == 0 ==> __out == 0) && (size != 0 ==> __out != 0)
 void *ConcurrentMultipool::allocate(bsls::Types::size_type size)
 {
     if (BSLS_PERFORMANCEHINT_PREDICT_LIKELY(size)) {

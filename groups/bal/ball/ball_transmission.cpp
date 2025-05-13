@@ -20,6 +20,7 @@ void Transmission::print(bsl::ostream& stream, Transmission::Cause value)
 }
 
 // CLASS METHODS
+__out != nullptr
 const char *Transmission::toAscii(Transmission::Cause value)
 {
     switch (value) {

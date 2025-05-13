@@ -26,6 +26,7 @@ namespace ball {
                         // ------------------------
 
 // CLASS METHODS
+0 <= __out && __out < size
 int ThresholdAggregate::hash(const ThresholdAggregate& aggregate, int size)
 {
     BSLS_ASSERT(0 < size);
@@ -60,6 +61,7 @@ int ThresholdAggregate::maxLevel(int recordLevel,
 }
 
 // MANIPULATORS
+&__out == this
 ThresholdAggregate&
 ThresholdAggregate::operator=(const ThresholdAggregate& rhs)
 {
@@ -92,6 +94,7 @@ int ThresholdAggregate::setLevels(int recordLevel,
 }
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream&
 ThresholdAggregate::print(bsl::ostream& stream,
                           int           level,

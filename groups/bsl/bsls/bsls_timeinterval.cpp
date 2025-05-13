@@ -117,6 +117,7 @@ TimeInterval& TimeInterval::addInterval(bsls::Types::Int64 seconds,
 }
 
 // ACCESSORS
+&__out == &stream
 std::ostream& TimeInterval::print(std::ostream& stream,
                                   int           level,
                                   int           spacesPerLevel) const

@@ -378,6 +378,7 @@ Decoder::checkForErrors(const ErrorInfo& errInfo)
 }
 
 // MANIPULATORS
+__out == 0 || __out == -1
 int
 Decoder::parse(Decoder_ElementContext *context)
 {

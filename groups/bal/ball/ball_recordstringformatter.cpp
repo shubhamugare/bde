@@ -1287,6 +1287,7 @@ void RecordStringFormatter::operator()(bsl::ostream& stream,
 }  // close package namespace
 
 // FREE OPERATORS
+(__out == true ==> (0 == bsl::strcmp(lhs.format(), rhs.format()) && lhs.timestampOffset() == rhs.timestampOffset())) && (__out == false ==> !(0 == bsl::strcmp(lhs.format(), rhs.format()) && lhs.timestampOffset() == rhs.timestampOffset()))
 bool ball::operator==(const RecordStringFormatter& lhs,
                       const RecordStringFormatter& rhs)
 {

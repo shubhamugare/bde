@@ -116,6 +116,7 @@ static void sipround(u64& v0, u64& v1, u64& v2, u64& v3)
 /// Return the 64-bit integer representation of the specified `p` taking
 /// into account endianness.  Undefined unless `p` points to at least eight
 /// bytes of initialized memory.
+__out == BSLS_BYTEORDER_LE_U64_TO_HOST(*reinterpret_cast<const u64*>(p))
 inline
 static u64 u8to64_le(const u8* p)
 {

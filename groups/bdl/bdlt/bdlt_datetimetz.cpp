@@ -33,6 +33,7 @@ BSLMF_ASSERT(bslmf::IsBitwiseCopyable<DatetimeTz>::value);
                              // ----------------
 
 // ACCESSORS
+&__out == &stream
 bsl::ostream& DatetimeTz::print(bsl::ostream& stream,
                                 int           level,
                                 int           spacesPerLevel) const

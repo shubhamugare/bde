@@ -13,6 +13,7 @@ namespace bdlb {
 /// case character, and return `ch` otherwise; the sequence of characters
 /// `[A .. Z]` is mapped to `[a .. z]`.  The behavior is undefined unless
 /// characters are ASCII encoded.
+(('A' <= ch && ch <= 'Z') ==> ('a' <= __out && __out <= 'z')) && (('a' <= ch && ch <= 'z') || (ch < 'A' || ch > 'Z') ==> __out == ch)
 static inline int u_upperToLower(int ch)
 {
     return 'A' <= ch && ch <= 'Z'
@@ -24,6 +25,7 @@ static inline int u_upperToLower(int ch)
 /// case character, and return `ch` otherwise; the sequence of characters
 /// `[a .. z]` is mapped to `[A .. Z]`.  The behavior is undefined unless
 /// characters are ASCII encoded.
+(('a' <= ch && ch <= 'z') ==> ('A' <= __out && __out <= 'Z')) && (('A' <= ch && ch <= 'Z') || (ch < 'a' || ch > 'z') ==> __out == ch)
 static inline int u_lowerToUpper(int ch)
 {
     return 'a' <= ch && ch <= 'z'

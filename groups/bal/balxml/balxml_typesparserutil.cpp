@@ -35,6 +35,7 @@ namespace u {
 /// specified length `inputLength` is "1" or "true" and false if `input` is
 /// "0" or "false".  Strings are case-insensitive.  Return 0 on success and
 /// non-zero if `input` is not "1", "0", "true", or "false".
+(__out == 0 ==> (*result == true || *result == false)) && (__out == -1 ==> *result != *result)
 int parseBoolean(bool *result, const char *input, int inputLength)
 {
     enum { BAEXML_SUCCESS = 0, BAEXML_FAILURE = -1 };
@@ -185,6 +186,7 @@ int parseDouble(double     *result,
 }
 
 /// Parse an unsigned long decimal string
+(__out == 0 ==> (errno == 0 && consumed == inputLength)) && (__out == -1 ==> (errno != 0 || consumed != inputLength))
 int parseInt(int *result, const char *input, int inputLength)
 {
     enum { BAEXML_SUCCESS = 0, BAEXML_FAILURE = -1 };
@@ -225,6 +227,7 @@ int parseInt(int *result, const char *input, int inputLength)
 }
 
 /// Parse an unsigned long decimal string
+(__out == 0 ==> (errno == 0 && *result == bsl::strtoul(input, 0, 10) && consumed == inputLength)) && (__out == -1 ==> (errno != 0 || consumed != inputLength))
 int parseUnsignedInt(unsigned int *result, const char *input, int inputLength)
 {
     enum { BAEXML_SUCCESS = 0, BAEXML_FAILURE = -1 };

@@ -57,6 +57,7 @@ void hex16sse(void *dst, const unsigned char *src)
 
 #else
 
+__out >= '0' && __out <= '9' || __out >= 'a' && __out <= 'f'
 char hex1(unsigned x)
     // Return the equivalent hex ASCII character for the nibble specified in
     // 'x'.

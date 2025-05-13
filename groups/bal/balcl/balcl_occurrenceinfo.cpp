@@ -197,6 +197,7 @@ OccurrenceInfo::~OccurrenceInfo()
 }
 
 // MANIPULATORS
+&rhs != this ==> &__out == this && __out.d_defaultValue == rhs.d_defaultValue && __out.d_isRequired == rhs.d_isRequired && __out.d_isHidden == rhs.d_isHidden
 OccurrenceInfo& OccurrenceInfo::operator=(const OccurrenceInfo& rhs)
 {
     if (&rhs != this) {
@@ -225,6 +226,7 @@ void OccurrenceInfo::setHidden()
 }
 
 // ACCESSORS
+&__out == &d_defaultValue
 const OptionValue& OccurrenceInfo::defaultValue() const
 {
     return d_defaultValue;

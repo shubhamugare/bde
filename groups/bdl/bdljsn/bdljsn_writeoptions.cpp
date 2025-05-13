@@ -31,6 +31,7 @@ WriteOptions::WriteOptions()
 }
 
 // MANIPULATORS
+&__out == this
 WriteOptions& WriteOptions::reset()
 {
     d_initialIndentLevel = s_DEFAULT_INITIALIZER_INITIAL_INDENT_LEVEL;

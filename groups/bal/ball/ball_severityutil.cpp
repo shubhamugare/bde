@@ -18,6 +18,7 @@ namespace ball {
                         // -------------------
 
 // CLASS METHODS
+(__out == 0 ==> (bdlb::String::areEqualCaseless("OFF", 3, name) && *level == Severity::e_OFF) || (bdlb::String::areEqualCaseless("FATAL", 5, name) && *level == Severity::e_FATAL) || (bdlb::String::areEqualCaseless("ERROR", 5, name) && *level == Severity::e_ERROR) || (bdlb::String::areEqualCaseless("WARN", 4, name) && *level == Severity::e_WARN) || (bdlb::String::areEqualCaseless("INFO", 4, name) && *level == Severity::e_INFO) || (bdlb::String::areEqualCaseless("DEBUG", 5, name) && *level == Severity::e_DEBUG) || (bdlb::String::areEqualCaseless("TRACE", 5, name) && *level == Severity::e_TRACE)) && (__out == -1 ==> !bdlb::String::areEqualCaseless("OFF", 3, name) && !bdlb::String::areEqualCaseless("FATAL", 5, name) && !bdlb::String::areEqualCaseless("ERROR", 5, name) && !bdlb::String::areEqualCaseless("WARN", 4, name) && !bdlb::String::areEqualCaseless("INFO", 4, name) && !bdlb::String::areEqualCaseless("DEBUG", 5, name) && !bdlb::String::areEqualCaseless("TRACE", 5, name))
 int SeverityUtil::fromAsciiCaseless(Severity::Level *level, const char *name)
 {
     BSLS_ASSERT(level);

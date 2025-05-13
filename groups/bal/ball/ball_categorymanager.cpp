@@ -491,6 +491,7 @@ void CategoryManager::removeAllRules()
 // BDE_VERIFY pragma: pop
 
 // ACCESSORS
+__out == 0 || EXISTS(0, d_registry.size(), i, d_registry.find(categoryName) != d_registry.end() && d_registry.find(categoryName)->second == i)
 const Category *CategoryManager::lookupCategory(const char *categoryName) const
 {
     bslmt::ReadLockGuard<bslmt::ReaderWriterLock> registryGuard(

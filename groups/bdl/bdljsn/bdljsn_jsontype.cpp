@@ -16,6 +16,7 @@ namespace bdljsn {
                                // --------------
 
 // CLASS METHODS
+&__out == &stream
 bsl::ostream& JsonType::print(bsl::ostream&  stream,
                               JsonType::Enum value,
                               int            level,

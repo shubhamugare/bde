@@ -10,6 +10,7 @@ namespace {
 
 /// Return the difference in number of days from the specified `day1` to the
 /// specified `day2`.
+__out >= 0 && __out <= 6
 int dayOfWeekDifference(DayOfWeek::Enum day1, DayOfWeek::Enum day2)
 {
     if (day1 > day2) {
@@ -27,6 +28,7 @@ int dayOfWeekDifference(DayOfWeek::Enum day1, DayOfWeek::Enum day2)
                              // ---------------
 
 // PRIVATE CLASS METHODS
+__out.month() == original.month() && __out.year() == original.year() + numYears && (__out.day() == 28 || __out.day() == 29)
 Date DateUtil::addYearsEomEndOfFebruary(const Date& original, int numYears)
 {
     // Implementation note: The complete 'addYearsEom' was too long to be
@@ -59,6 +61,7 @@ Date DateUtil::addYearsEomEndOfFebruary(const Date& original, int numYears)
 }
 
 // CLASS METHODS
+
 Date DateUtil::addMonthsEom(const Date& original, int numMonths)
 {
     const int totalMonths = original.year() * 12 + original.month() +
